@@ -1,27 +1,31 @@
-import { Hero } from "./components/hero/Hero";
-import Navbar from "./components/navbar/Navbar";
-// import SignUp from "./pages/auth/SignUp";
-// import SignIn from "./pages/auth/SignIn";
-import TabsComp from "./components/features/Features";
-import ThreeDMarqueeComp from "./components/integrations/Integrations";
-import MarketingPrompt from "./components/marketingPrompt/MarketingPrompt";
-import FeaturesSectionComp from "./components/roiMarketing/ROIMarketing";
-// import { ThemeProvider } from "./providers/theme/ThemeProviders";
+import { Routes, Route } from "react-router-dom";
+// import Home from "./pages/Home";
+// import DashboardLayout from "./dashboard/layout/DashboardLayout";
+// import AuthLayout from "./layouts/AuthLayout";
+import SignIn from "./pages/auth/SignIn";
+import SignUp from "./pages/auth/SignUp";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/website/home/Home";
+import AuthLayout from "./layout/AuthLayout";
 
 const App = () => {
   return (
-    <>
-      {/* <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme"> */}
-      <Navbar />
-      <Hero />
-      <TabsComp />
-      <ThreeDMarqueeComp />
-      <MarketingPrompt />
-      <FeaturesSectionComp />
-      {/* <SignUp />
-      <SignIn /> */}
-      {/* </ThemeProvider> */}
-    </>
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<Home />} />
+
+      {/* Authentication Routes */}
+      <Route path="auth" element={<AuthLayout />}>
+        <Route path="login" element={<SignIn />} />
+        <Route path="signup" element={<SignUp />} />
+      </Route>
+
+      {/* Dashboard Routes (Private) */}
+      {/* <Route path="dashboard/*" element={<DashboardLayout />} /> */}
+
+      {/* 404 Not Found */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 

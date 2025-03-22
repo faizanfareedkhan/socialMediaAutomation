@@ -1,13 +1,13 @@
-import { Tabs } from "../ui/tabs";
-import ChatgptIcon from "../../../public/features/icons/ChatGPT.png";
-import AutomationIcon from "../../../public/features/icons/Automation.svg";
-import SchedulingIcon from "../../../public/features/icons/Scheduling.svg";
-import AnalyticsIcon from "../../../public/features/icons/Analytics.svg";
+import { Tabs } from "../../ui/tabs";
+import ChatgptIcon from "../../../../public/features/icons/ChatGPT.png";
+import AutomationIcon from "../../../../public/features/icons/Automation.svg";
+import SchedulingIcon from "../../../../public/features/icons/Scheduling.svg";
+import AnalyticsIcon from "../../../../public/features/icons/Analytics.svg";
 
-import ChatgptImage from "../../../public/features/images/Chatgpt.png";
-import AutomationImage from "../../../public/features/images/Automation.png";
-import SchedulingImage from "../../../public/features/images/Scheduling.png";
-import AnalyticsImage from "../../../public/features/images/Analytics.png";
+import ChatgptImage from "../../../../public/features/images/Chatgpt.png";
+import AutomationImage from "../../../../public/features/images/Automation.png";
+import SchedulingImage from "../../../../public/features/images/Scheduling.png";
+import AnalyticsImage from "../../../../public/features/images/Analytics.png";
 
 export default function TabsComp() {
   const tabs = [

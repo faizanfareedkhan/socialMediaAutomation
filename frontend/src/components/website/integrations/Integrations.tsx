@@ -1,6 +1,6 @@
 "use client";
 
-import { ThreeDMarquee } from "../ui/3d-marquee";
+import { ThreeDMarquee } from "../../ui/3d-marquee";
 import image1 from "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg";
 // import image2 from "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg";
 // import image3 from "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg";

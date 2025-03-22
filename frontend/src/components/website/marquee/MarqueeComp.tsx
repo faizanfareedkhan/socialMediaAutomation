@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
-import { Marquee } from "../magicui/marquee";
-import image1 from "../../../public/marquee/1.svg";
-import image2 from "../../../public/marquee/2.svg";
-import image3 from "../../../public/marquee/3.png";
-import image4 from "../../../public/marquee/4.svg";
-import image5 from "../../../public/marquee/5.svg";
+import { Marquee } from "../../magicui/marquee";
+import image1 from "../../../../public/marquee/1.svg";
+import image2 from "../../../../public/marquee/2.svg";
+import image3 from "../../../../public/marquee/3.png";
+import image4 from "../../../../public/marquee/4.svg";
+import image5 from "../../../../public/marquee/5.svg";
 
 const reviews = [
   {

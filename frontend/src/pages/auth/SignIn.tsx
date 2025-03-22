@@ -5,7 +5,7 @@ import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
 
-const SignIp = () => {
+const SignIn = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
@@ -79,7 +79,7 @@ const SignIp = () => {
   );
 };
 
-export default SignIp;
+export default SignIn;
 
 const BottomGradient = () => {
   return (
