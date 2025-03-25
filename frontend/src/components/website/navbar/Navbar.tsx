@@ -14,6 +14,7 @@ import {
   HelpCircle,
   Edit3,
 } from "lucide-react";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,18 +24,18 @@ const Navbar = () => {
     {
       title: "Features",
       items: [
-        { name: "Content", icon: FileText },
-        { name: "Scheduling", icon: Calendar },
-        { name: "Copywriting AI", icon: PenTool },
-        { name: "AI Assist", icon: Cpu },
-        { name: "Automation", icon: Repeat },
-        { name: "E-commerce", icon: ShoppingCart },
-        { name: "Professionals", icon: Briefcase },
-        { name: "API", icon: Code },
+        { name: "Content", icon: FileText, link: "content" },
+        { name: "Scheduling", icon: Calendar, link: "Scheduling" },
+        { name: "Copywriting AI", icon: PenTool, link: "copywriting" },
+        { name: "AI Assist", icon: Cpu, link: "ai-assist" },
+        { name: "Automation", icon: Repeat, link: "automation" },
+        { name: "E-commerce", icon: ShoppingCart, link: "e-commerce" },
+        { name: "Professionals", icon: Briefcase, link: "professionals" },
+        { name: "API", icon: Code, link: "api" },
       ],
     },
-    { title: "Pricing" },
-    { title: "Integrations" },
+    { title: "Pricing", link: "pricing" },
+    { title: "Integrations", link: "integrations" },
     { title: "Get Paid!" },
     {
       title: "Resources",
@@ -46,15 +47,18 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md text-black w-screen fixed top-0 z-3">
+    <nav className="bg-white shadow-md text-black w-screen fixed top-0 z-999">
       <div className="flex justify-between p-4 items-center mx-auto">
         {/* Logo */}
-        <div className="text-xl font-bold">LOGO</div>
+        <NavLink to={"/"} className="text-xl font-bold">
+          LOGO
+        </NavLink>
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex relative space-x-12">
           {menuItems.map((menu) => (
-            <li
+            <NavLink
+              to={menu.link}
               key={menu.title}
               className="cursor-pointer duration-300 group relative transition-colors"
               onClick={() => setDropdown(menu.items ? menu.title : null)}
@@ -75,17 +79,18 @@ const Navbar = () => {
               {menu.items && dropdown === menu.title && (
                 <ul className="bg-white border border-gray-200 rounded-md shadow-lg w-max absolute left-[-10px] top-full">
                   {menu.items.map((item) => (
-                    <li
+                    <NavLink
+                      to={item.link}
                       key={item.name}
                       className="flex duration-300 gap-2 hover:bg-gray-100 items-center px-4 py-2 transition-colors"
                     >
                       <item.icon size={16} />
                       {item.name}
-                    </li>
+                    </NavLink>
                   ))}
                 </ul>
               )}
-            </li>
+            </NavLink>
           ))}
         </ul>
 
@@ -128,13 +133,14 @@ const Navbar = () => {
                 {menu.items && dropdown === menu.title && (
                   <ul className="ml-4 mt-2 space-y-2">
                     {menu.items.map((item) => (
-                      <li
+                      <NavLink
+                        to={item.link}
                         key={item.name}
                         className="flex gap-2 items-center py-1"
                       >
                         <item.icon size={16} />
                         {item.name}
-                      </li>
+                      </NavLink>
                     ))}
                   </ul>
                 )}
