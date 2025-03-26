@@ -11,7 +11,7 @@ const Content = () => {
       <Hero
         title="Eye-popping content in minutes"
         description="Become a professional graphics designer and copywriter today. Create engaging images, video, text and hashtags in no time at all."
-        btn_primary="Create Starting"
+        btn_primary="Start Creating"
         btn_secondary="Learn More"
         image={imageForLandingPage}
         btn={true}
