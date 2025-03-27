@@ -7,8 +7,8 @@ const Scheduling = () => {
   return (
     <>
       <Hero
-        title="Schedule to all social platforms"
-        description="Use the most reliable scheduler in the world. Schedule up to 1,000 posts a minute on Facebook, Instagram, Twitter and LinkedIn."
+        title="Schedule posts across all social platforms effortlessly."
+        description="Leverage the world's most reliable scheduler—plan up to 1,000 posts per minute on Facebook, Instagram, Twitter, and LinkedIn."
         btn_primary="Start Scheduling"
         btn_secondary="Learn More"
         image={imageForLandingPage}
@@ -17,10 +17,11 @@ const Scheduling = () => {
       <ThreeColumnGrid />
       <SplitSection
         imageSrc={imageSplitSection}
-        title="Schedule for years upfront"
-        description="Post or schedule directly to Facebook, Instagram, Twitter and LinkedIn all in one dashboard. See all your past and future posts in one place with a calendar."
+        title="Plan and schedule your content years in advance with ease."
+        description="Post or schedule content seamlessly to Facebook, Instagram, Twitter, and LinkedIn—all from one powerful dashboard. Track past and upcoming posts effortlessly with our intuitive calendar."
         reverse={true}
-        
+        btnText="Start Posting"
+        btn={true}
       />
     </>
   )

@@ -13,8 +13,8 @@ const ThreeColumnGrid: React.FC = () => {
           />
           <h3 className="text-2xl font-bold">Post to all socials</h3>
           <p className="text-gray-600">
-            Fed up of switching between tabs? Simultaneously post to the most
-            favourite social channels.
+            Tired of juggling multiple tabs? Post simultaneously to your
+            favorite social channels with ease.
           </p>
         </div>
 
@@ -27,8 +27,8 @@ const ThreeColumnGrid: React.FC = () => {
           />
           <h3 className="text-2xl font-bold">Plan in a calendar</h3>
           <p className="text-gray-600">
-            See all your scheduled posts in one place with an intuitive
-            calendar.
+            View and manage all your scheduled posts in one place with our
+            intuitive calendar.
           </p>
         </div>
 
@@ -41,8 +41,8 @@ const ThreeColumnGrid: React.FC = () => {
           />
           <h3 className="text-2xl font-bold">Collaborate</h3>
           <p className="text-gray-600">
-            Collaborate with your teammates or clients. Create dedicated
-            workspaces, invite, and approve posts.
+            Work seamlessly with your team or clients—create dedicated
+            workspaces, invite collaborators, and approve posts effortlessly.
           </p>
         </div>
       </div>

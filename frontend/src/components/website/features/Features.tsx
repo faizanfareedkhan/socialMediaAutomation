@@ -12,19 +12,21 @@ import AnalyticsImage from "../../../../public/features/images/Analytics.png";
 export default function TabsComp() {
   const tabs = [
     {
-      title: "AI Writing",
-      value: "AI Writing",
+      title: 'AI Writing',
+      value: 'AI Writing',
       icon: ChatgptIcon,
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
-            <h2 className="text-2xl font-bold">Write your content using AI</h2>
+            <h2 className="text-2xl font-bold">
+              Create compelling content effortlessly with AI.
+            </h2>
             <p className="text-gray-200 text-lg font-medium">
-              Instant recommendations on performance or reach with automated
-              reporting.
+              Get real-time insights on performance and reach with automated
+              reports.
             </p>
             <span className="text-gray-200">
-              Alternative to - Sprout Social, Hootsuite
+              AI-Powered Alternative to Sprout Social & Hootsuite
             </span>
           </div>
           <DummyContent image={ChatgptImage} />
@@ -32,8 +34,8 @@ export default function TabsComp() {
       ),
     },
     {
-      title: "Automation",
-      value: "Automation",
+      title: 'Automation',
+      value: 'Automation',
       icon: AutomationIcon,
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
@@ -54,8 +56,8 @@ export default function TabsComp() {
       ),
     },
     {
-      title: "Scheduling",
-      value: "Scheduling",
+      title: 'Scheduling',
+      value: 'Scheduling',
       icon: SchedulingIcon,
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
@@ -74,8 +76,8 @@ export default function TabsComp() {
       ),
     },
     {
-      title: "Analytics",
-      value: "Analytics",
+      title: 'Analytics',
+      value: 'Analytics',
       icon: AnalyticsIcon,
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
@@ -95,7 +97,7 @@ export default function TabsComp() {
         </div>
       ),
     },
-  ];
+  ]
 
   return (
     <div className="flex flex-col h-screen justify-start w-full [perspective:1000px] b items-start max-w-5xl md:h-[40rem] mx-auto my-40 relative">

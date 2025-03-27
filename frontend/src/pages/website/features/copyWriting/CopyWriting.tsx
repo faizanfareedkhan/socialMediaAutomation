@@ -8,8 +8,8 @@ const CopyWriting = () => {
   return (
     <>
       <Hero
-        title="AI assistant for copywriting"
-        description="Save hours on writing flawless copy and generate text for all your marketing needs in 28 languages. Simply provide a description and the copywriter will do the rest!"
+        title="AI-Powered Copywriting Assistant"
+        description="Save hours with AI-powered copywriting—generate flawless marketing text in 28 languages. Just provide a description, and let AI do the rest!"
         btn_primary="Start Writing"
         btn_secondary="Learn More"
         image={imageForLandingPage}
@@ -19,8 +19,10 @@ const CopyWriting = () => {
       <SplitSection
         imageSrc={imageSplitSection}
         title="Try the AI Assistant!"
-        description="With the AI Assistant, you can easily generate ideas and repurpose your existing content multiple times with just a click. This can significantly enhance your engagement on all social media platforms and assist in your growth. You'll be amazed at what the AI Assistant can do!"
+        description="Effortlessly generate ideas and repurpose content with the AI Assistant—just one click transforms your posts for maximum engagement. Watch your social media grow like never before!"
         reverse={true}
+        btnText="Try Free"
+        btn={true}
       />
     </>
   )

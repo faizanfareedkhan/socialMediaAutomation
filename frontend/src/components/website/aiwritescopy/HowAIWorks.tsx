@@ -15,8 +15,8 @@ const HowAIWorks: React.FC = () => {
           <span className="text-6xl font-bold text-orange-500">1</span>
           <h3 className="text-xl font-bold mt-3">Choose your Task</h3>
           <p className="text-gray-600 mt-3 max-w-lg">
-            Whether it's Ad Copy, Captions, Blogs, Emails, Website Content – we
-            do it all. Select the task that is best for you.
+            From ad copy and captions to blogs, emails, and website content—we
+            do it all. Just pick the task that suits your needs!
           </p>
         </div>
 
@@ -25,8 +25,8 @@ const HowAIWorks: React.FC = () => {
           <span className="text-6xl font-bold text-pink-500">2</span>
           <h3 className="text-xl font-bold mt-3">Describe your copy</h3>
           <p className="text-gray-600 mt-3 max-w-lg">
-            Be as vague or specific as you like, The AI will adapt accordingly.
-            You can also try describing the tone or target market for an Ad.
+            Be as vague or specific as you want—AI adapts to your needs. Define
+            the tone or target audience for a perfect ad.
           </p>
         </div>
 
@@ -35,9 +35,8 @@ const HowAIWorks: React.FC = () => {
           <span className="text-6xl font-bold text-purple-500">3</span>
           <h3 className="text-xl font-bold mt-3">Generate text</h3>
           <p className="text-gray-600 mt-3 max-w-lg">
-            Sit back and watch the AI do the work for you in seconds. You can
-            generate unlimited copy in 28 languages to find the right result for
-            you.
+            Sit back and let AI do the work in seconds. Generate unlimited copy
+            in 28 languages to find the perfect fit for your needs.
           </p>
         </div>
       </div>

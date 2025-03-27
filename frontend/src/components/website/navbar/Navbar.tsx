@@ -12,8 +12,9 @@ import {
   Briefcase,
   Code,
   HelpCircle,
-  Edit3,
-} from "lucide-react";
+  Mail,
+} from 'lucide-react'
+import logo from "./../../../../public/logo/ES_logo.png"
 import { NavLink } from "react-router";
 
 const Navbar = () => {
@@ -22,36 +23,36 @@ const Navbar = () => {
 
   const menuItems = [
     {
-      title: "Features",
+      title: 'Features',
       items: [
-        { name: "Content", icon: FileText, link: "content" },
-        { name: "Scheduling", icon: Calendar, link: "Scheduling" },
-        { name: "Copywriting AI", icon: PenTool, link: "copywriting" },
-        { name: "AI Assist", icon: Cpu, link: "ai-assist" },
-        { name: "Automation", icon: Repeat, link: "automation" },
-        { name: "E-commerce", icon: ShoppingCart, link: "e-commerce" },
-        { name: "Professionals", icon: Briefcase, link: "professionals" },
-        { name: "API", icon: Code, link: "api" },
+        { name: 'Content', icon: FileText, link: 'content' },
+        { name: 'Scheduling', icon: Calendar, link: 'Scheduling' },
+        { name: 'Copywriting AI', icon: PenTool, link: 'copywriting' },
+        { name: 'AI Assist', icon: Cpu, link: 'ai-assist' },
+        { name: 'Automation', icon: Repeat, link: 'automation' },
+        { name: 'E-commerce', icon: ShoppingCart, link: 'e-commerce' },
+        { name: 'Professionals', icon: Briefcase, link: 'professionals' },
+        { name: 'API', icon: Code, link: 'api' },
       ],
     },
-    { title: "Pricing", link: "pricing" },
-    { title: "Integrations", link: "integrations" },
-    { title: "Get Paid!" },
+    { title: 'Pricing', link: 'pricing' },
+    { title: 'Integrations', link: 'integrations' },
+    { title: 'Get Paid!', link: 'getpaid' },
     {
-      title: "Resources",
+      title: 'Resources',
       items: [
-        { name: "Help Center", icon: HelpCircle },
-        { name: "Blog", icon: Edit3 },
+        { name: 'Help Center', icon: HelpCircle, link: 'helpcenter' },
+        { name: 'Contact', icon: Mail, link: 'contact' },
       ],
     },
-  ];
+  ]
 
   return (
     <nav className="bg-white shadow-md text-black w-screen fixed top-0 z-999">
       <div className="flex justify-between p-4 items-center mx-auto">
         {/* Logo */}
-        <NavLink to={"/"} className="text-xl font-bold">
-          LOGO
+        <NavLink to={'/'} className="text-xl font-bold">
+          <img src={logo} alt="Logo" className="h-10 w-auto" />
         </NavLink>
 
         {/* Desktop Menu */}
@@ -71,7 +72,7 @@ const Navbar = () => {
                   <ChevronDown
                     size={16}
                     className={`transition-transform duration-300 ${
-                      dropdown === menu.title ? "rotate-180" : ""
+                      dropdown === menu.title ? 'rotate-180' : ''
                     }`}
                   />
                 )}
@@ -125,7 +126,7 @@ const Navbar = () => {
                     <ChevronDown
                       size={16}
                       className={`transition-transform duration-300 ${
-                        dropdown === menu.title ? "rotate-180" : ""
+                        dropdown === menu.title ? 'rotate-180' : ''
                       }`}
                     />
                   )}
@@ -158,7 +159,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-  );
+  )
 };
 
 export default Navbar;
