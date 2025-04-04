@@ -1,4 +1,4 @@
-import { Tabs } from "../../ui/tabs";
+import { Tabs } from "../tabs/tabs";
 import ChatgptIcon from "../../../../public/features/icons/ChatGPT.png";
 import AutomationIcon from "../../../../public/features/icons/Automation.svg";
 import SchedulingIcon from "../../../../public/features/icons/Scheduling.svg";
@@ -10,6 +10,7 @@ import SchedulingImage from "../../../../public/features/images/Scheduling.png";
 import AnalyticsImage from "../../../../public/features/images/Analytics.png";
 
 export default function TabsComp() {
+  console.log("nigga");
   const tabs = [
     {
       title: "AI Writing",
@@ -98,7 +99,7 @@ export default function TabsComp() {
   ];
 
   return (
-    <div className="flex flex-col h-screen justify-start w-full [perspective:1000px] b items-start max-w-5xl md:h-[40rem] mx-auto my-40 relative">
+    <div className=" flex flex-col h-screen justify-start w-full [perspective:1000px] b items-start max-w-5xl md:h-[40rem] mx-auto my-40 relative">
       <Tabs tabs={tabs} />
     </div>
   );

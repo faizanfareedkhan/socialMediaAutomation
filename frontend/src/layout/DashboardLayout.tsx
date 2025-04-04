@@ -1,15 +1,16 @@
 import Header from "@/components/dashboard/header/Header";
-import Sidebar from "@/components/dashboard/sidebar/Sidebar";
+import { AppSidebar } from "@/components/dashboard/sidebar/navbar/app-sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Outlet } from "react-router";
 
-const DashboardLayout = () => {
+export default function DashboardLayout() {
   return (
-    <>
-      <Sidebar />
-      <Header />
-      <Outlet />
-    </>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <Header />
+        <Outlet />
+      </SidebarInset>
+    </SidebarProvider>
   );
-};
-
-export default DashboardLayout;
+}
