@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <>
       <Hero
-        title="AI meets Social Media"
-        description="Schedule, optimize, and grow your online presence with AI-powered automation tools."
+        title="Revolutionizing Social Media with AI"
+        description="Boost, streamline, and expand your digital presence with AI-driven automation."
         btn_primary="Get Started Free"
         btn_secondary="Learn More"
         image={image}
@@ -24,7 +24,7 @@ const Home = () => {
       <MarketingPrompt />
       <FeaturesSectionComp />
     </>
-  );
+  )
 };
 
 export default Home;

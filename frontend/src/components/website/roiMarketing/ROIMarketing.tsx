@@ -61,8 +61,8 @@ export default function FeaturesSectionComp() {
         ROI, ASAP.
       </h1>
       <p className="text-black text-lg mt-4 w-full max-w-xl mx-auto break-words text-center">
-        Ever heard of Generative Social Media? There's no faster way to produce
-        content. Here's why.
+        Introducing Generative Social Media – the fastest way to create content.
+        Here's how it works!
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 max-w-7xl md:grid-cols-2 mx-auto py-10 relative z-10">
@@ -71,7 +71,7 @@ export default function FeaturesSectionComp() {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 const Feature = ({

@@ -9,22 +9,29 @@ const Content = () => {
   return (
     <>
       <Hero
-        title="Eye-popping content in minutes"
-        description="Become a professional graphics designer and copywriter today. Create engaging images, video, text and hashtags in no time at all."
+        title="Stunning content created in minutes!"
+        description="Master graphic design and copywriting today! Create captivating images, videos, text, and hashtags in no time."
         btn_primary="Start Creating"
         btn_secondary="Learn More"
         image={imageForLandingPage}
         btn={true}
       />
+      <Hero
+        title="Drag & drop"
+        description="Struggling with complex and costly design software? With Ocoya, become a pro graphic designer and video editor effortlessly. Create stunning visuals in minutes using our vast library of templates, stock photos, videos, licensed music, animations, backgrounds, and text styles."
+        btn={false}
+      />
       <BentoGridComp />
       <SplitSection
         imageSrc={imageSplitSection}
         title="Text & captions"
-        description="All it takes is just a simple description, which will generate multiple high converting captions to choose from. Ecommerce store? We have a dedicated Product Announcements feature. You will also generate relevant and trending hashtags too!"
+        description="Just enter a simple description, and AI will generate multiple high-converting captions for you. Running an eCommerce store? Use our dedicated Product Announcements feature. Plus, get relevant and trending hashtags instantly!"
         reverse={true}
+        btnText="Try Free"
+        btn={true}
       />
     </>
-  );
+  )
 };
 
 export default Content;

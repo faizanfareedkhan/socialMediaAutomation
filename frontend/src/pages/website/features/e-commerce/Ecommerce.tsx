@@ -1,6 +1,9 @@
 import Hero from '@/components/website/hero/Hero'
 import imageForLandingPage from './../../../../../public/featureNav/content/ecommerse/6454c54134861df889b19afe_Ecommerce-2-p-1600.png'
 import HowAIWorks from '@/components/website/aiwritescopy/HowAIWorks'
+import SplitSection from '@/components/website/splitSection/SplitSection'
+import imageSplitSection from "./../../../../../public/featureNav/content/ecommerse/63fd70964c929069204c2de8_Ecommerce.png"
+import maximise from "./../../../../../public/featureNav/content/ecommerse/6454c4e0294e18ee9d8e6ba7_Maximise conversions.png"
 const Ecommerce = () => {
   const stepsData = [
     {
@@ -28,14 +31,26 @@ const Ecommerce = () => {
   return (
     <>
       <Hero
-        title="Let your Ecommerce become Social"
-        description="Tired of manually creating posts around your products?Increase conversions for your ecommerce store by visually planning your campaigns."
+        title="Turn Your E-commerce into a Social Powerhouse"
+        description="Stop manually creating posts! Boost conversions by visually planning your eCommerce campaigns with ease."
         btn_primary="Start Creating"
         btn_secondary="Learn More"
         image={imageForLandingPage}
         btn={true}
       />
       <HowAIWorks />
+      <SplitSection
+        imageSrc={imageSplitSection}
+        title="Expertise & reliability."
+        description="Our Upwork partnership connects you with top freelancers—experts ready to elevate your social media to the next level."
+        reverse={true}
+      />
+      <SplitSection
+        imageSrc={maximise}
+        title="Expertise & reliability."
+        description="Through our Upwork partnership, access expert freelancers ready to elevate your social media presence effortlessly."
+        reverse={false}
+      />
     </>
   )
 }

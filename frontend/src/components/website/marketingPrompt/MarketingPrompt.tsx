@@ -5,12 +5,11 @@ const MarketingPrompt = () => {
     <div className="flex bg-white justify-center p-6 text-black items-center min-h-screen">
       <div className="border p-10 rounded-3xl shadow-2xl text-center w-full max-w-6xl space-y-6">
         <h1 className="text-4xl font-extrabold md:text-5xl tracking-wide">
-          Social media has changed. Have you?
+          Social media has evolved. Have you kept up?
         </h1>
         <p className="text-black text-lg  mt-4 ">
-          Forget Photoshop. Discover thousands of image or video templates.
-          Create manually within our dashboard or automatically - all powered by
-          our AI.
+          Say goodbye to Photoshop! Explore thousands of image and video
+          templates. Create manually in our dashboard or let AI do it for you.
         </p>
         <div className="flex  justify-center w-full ">
           <img
@@ -21,7 +20,7 @@ const MarketingPrompt = () => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default MarketingPrompt;
