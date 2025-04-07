@@ -7,7 +7,7 @@ const ThreeColumnGrid: React.FC = () => {
         {/* Column 1 */}
         <div className="flex flex-col items-center space-y-4">
           <img
-            src="./../../../../public/featureNav/content/scheduling/644ebc08d74e616f5514008e_Post to all socials.png"
+            src="/featureNav/content/scheduling/644ebc08d74e616f5514008e_Post to all socials.png"
             alt="Post to all socials"
             className="w-48 h-48 object-contain"
           />
@@ -21,7 +21,7 @@ const ThreeColumnGrid: React.FC = () => {
         {/* Column 2 */}
         <div className="flex flex-col items-center space-y-4">
           <img
-            src="./../../../../public/featureNav/content/scheduling/644ebc1057472fb3c1fe6d67_Plan in a calendar.png"
+            src="/featureNav/content/scheduling/644ebc1057472fb3c1fe6d67_Plan in a calendar.png"
             alt="Plan in a calendar"
             className="w-48 h-48 object-contain"
           />
@@ -35,7 +35,7 @@ const ThreeColumnGrid: React.FC = () => {
         {/* Column 3 */}
         <div className="flex flex-col items-center space-y-4">
           <img
-            src="./../../../../public/featureNav/content/scheduling/644ebc18c76d49df003750c2_Collaborate.png"
+            src="/featureNav/content/scheduling/644ebc18c76d49df003750c2_Collaborate.png"
             alt="Collaborate"
             className="w-48 h-48 object-contain"
           />

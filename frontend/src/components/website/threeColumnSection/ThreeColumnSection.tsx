@@ -2,21 +2,21 @@ const ThreeColumnSection = () => {
   const data = [
     {
       image:
-        './../../../../public/featureNav/content/getpaid/643fe73e6c78251cc7c6de1e_Join.png',
+        '/featureNav/content/getpaid/643fe73e6c78251cc7c6de1e_Join.png',
       title: 'Join',
       description:
         'It’s super simple to join!Just one approval to join the best marketing solution team around.',
     },
     {
       image:
-        './../../../../public/featureNav/content/getpaid/644b84254bdda05bc535bb94_Advertise (1)-2.png',
+        '/featureNav/content/getpaid/644b84254bdda05bc535bb94_Advertise (1)-2.png',
       title: 'Advertise',
       description:
         'Promote via your referral link Share why you use Ocoya with your audience or customers.',
     },
     {
       image:
-        './../../../../public/featureNav/content/getpaid/643fe76acb809e0f993e160d_Earn.png',
+        '/featureNav/content/getpaid/643fe76acb809e0f993e160d_Earn.png',
       title: 'Earn',
       description:
         '30% commission per sale Earn lifetime recurring commission, including renewals.',

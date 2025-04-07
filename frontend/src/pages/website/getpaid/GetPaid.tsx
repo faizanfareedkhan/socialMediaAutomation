@@ -1,8 +1,6 @@
 import Hero from '@/components/website/hero/Hero'
 import SplitSection from '@/components/website/splitSection/SplitSection'
 import ThreeColumnSection from '@/components/website/threeColumnSection/ThreeColumnSection'
-import imageSplitSection from "./../../../../public/featureNav/content/getpaid/643fe8fecb809e1c8a3e2e33_How does it work.png"
-import partner from "./../../../../public/featureNav/content/getpaid/643fe96730b466666d57a9b7_Who can become our Partner.png"
 import FAQ from '@/components/website/faq/Faq'
 
 function GetPaid() {
@@ -17,7 +15,7 @@ function GetPaid() {
       />
       <ThreeColumnSection />
       <SplitSection
-        imageSrc={imageSplitSection}
+        imageSrc="/featureNav/content/getpaid/643fe8fecb809e1c8a3e2e33_How does it work.png"
         title="How does it work?"
         description="Our partnership program is a results-driven collaboration, where Ocoya Partners bring in new users and earn recurring revenue from subscription payments."
         reverse={true}
@@ -25,9 +23,9 @@ function GetPaid() {
         btn={false}
       />
       <SplitSection
-        imageSrc={partner}
+        imageSrc="/featureNav/content/getpaid/643fe96730b466666d57a9b7_Who can become our Partner.png"
         title="Who can become our Partner?"
-        description="AMarketing agencies, bloggers, influencers, and industry experts—join us! Leverage your experience to introduce your audience to Ocoya’s powerful content marketing solution and earn rewards."
+        description="Marketing agencies, bloggers, influencers, and industry experts—join us! Leverage your experience to introduce your audience to Ocoya’s powerful content marketing solution and earn rewards."
         reverse={false}
         btnText="Talk to sales"
         btn={false}

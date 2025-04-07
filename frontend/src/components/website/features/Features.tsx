@@ -1,21 +1,11 @@
-import { Tabs } from "../tabs/tabs";
-import ChatgptIcon from "../../../../public/features/icons/ChatGPT.png";
-import AutomationIcon from "../../../../public/features/icons/Automation.svg";
-import SchedulingIcon from "../../../../public/features/icons/Scheduling.svg";
-import AnalyticsIcon from "../../../../public/features/icons/Analytics.svg";
-
-import ChatgptImage from "../../../../public/features/images/Chatgpt.png";
-import AutomationImage from "../../../../public/features/images/Automation.png";
-import SchedulingImage from "../../../../public/features/images/Scheduling.png";
-import AnalyticsImage from "../../../../public/features/images/Analytics.png";
+import { Tabs } from '../tabs/tabs'
 
 export default function TabsComp() {
-  console.log("nigga");
   const tabs = [
     {
       title: 'AI Writing',
       value: 'AI Writing',
-      icon: ChatgptIcon,
+      icon: '/features/icons/ChatGPT.png',
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
@@ -30,14 +20,14 @@ export default function TabsComp() {
               AI-Powered Alternative to Sprout Social & Hootsuite
             </span>
           </div>
-          <DummyContent image={ChatgptImage} />
+          <DummyContent image="/features/images/Chatgpt.png" />
         </div>
       ),
     },
     {
       title: 'Automation',
       value: 'Automation',
-      icon: AutomationIcon,
+      icon: '/features/icons/Automation.svg',
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
@@ -52,14 +42,14 @@ export default function TabsComp() {
               Alternative to - Canva, Zapier, IFTTT
             </span>
           </div>
-          <DummyContent image={AutomationImage} />
+          <DummyContent image="/features/images/Automation.png" />
         </div>
       ),
     },
     {
       title: 'Scheduling',
       value: 'Scheduling',
-      icon: SchedulingIcon,
+      icon: '/features/icons/Scheduling.svg',
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
@@ -72,14 +62,14 @@ export default function TabsComp() {
               Alternative to - Hootsuite, Buffer
             </span>
           </div>
-          <DummyContent image={SchedulingImage} />
+          <DummyContent image="/features/images/Scheduling.png" />
         </div>
       ),
     },
     {
       title: 'Analytics',
       value: 'Analytics',
-      icon: AnalyticsIcon,
+      icon: '/features/icons/Analytics.svg',
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
@@ -94,17 +84,17 @@ export default function TabsComp() {
               Alternative to - Sprout Social, Hootsuite
             </span>
           </div>
-          <DummyContent image={AnalyticsImage} />
+          <DummyContent image="/features/images/Analytics.png" />
         </div>
       ),
     },
   ]
 
   return (
-    <div className=" flex flex-col h-screen justify-start w-full [perspective:1000px] b items-start max-w-5xl md:h-[40rem] mx-auto my-40 relative">
+    <div className="flex flex-col h-screen justify-start w-full [perspective:1000px] items-start max-w-5xl md:h-[40rem] mx-auto my-40 relative">
       <Tabs tabs={tabs} />
     </div>
-  );
+  )
 }
 
 const DummyContent = ({ image }) => {
@@ -116,5 +106,5 @@ const DummyContent = ({ image }) => {
       height="1000"
       className="rounded-xl w-[50%] -bottom-10 md:h-[90%] mx-auto object-cover object-left-top"
     />
-  );
-};
+  )
+}

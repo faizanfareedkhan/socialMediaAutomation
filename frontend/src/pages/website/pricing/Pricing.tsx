@@ -1,8 +1,7 @@
 import Hero from '@/components/website/hero/Hero'
-import logo from "./../../../../public/featureNav/content/pricing/6164ffd667f47b2a3684e934_supported_channels_more.png"
 import SplitSection from '@/components/website/splitSection/SplitSection'
-import imageSplitSection from "./../../../../public/featureNav/content/pricing/60d0d51b62241f54d923edd8_toa-heftiba-4xe-yVFJCvw-unsplash-p-800.jpeg"
 import ComparePlans from '@/components/website/comparePlans/ComparePlans'
+
 function Pricing() {
   return (
     <>
@@ -39,7 +38,7 @@ function Pricing() {
             <div className="mt-6">
               <p className="text-sm text-gray-500">Supported</p>
               <img
-                src={logo}
+                src="/featureNav/content/pricing/6164ffd667f47b2a3684e934_supported_channels_more.png"
                 alt="Supported Social Media"
                 className="mx-auto mt-2 w-40"
               />
@@ -47,8 +46,9 @@ function Pricing() {
           </div>
         ))}
       </div>
+
       <SplitSection
-        imageSrc={imageSplitSection}
+        imageSrc="/featureNav/content/pricing/60d0d51b62241f54d923edd8_toa-heftiba-4xe-yVFJCvw-unsplash-p-800.jpeg"
         title="Want more?"
         description="For large businesses with unique needs—customize your number of profiles and users. Visit our enterprise page below to book a call and explore tailored solutions."
         reverse={true}

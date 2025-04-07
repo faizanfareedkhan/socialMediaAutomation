@@ -1,9 +1,7 @@
 import Hero from '@/components/website/hero/Hero'
-import imageForLandingPage from './../../../../../public/featureNav/content/ecommerse/6454c54134861df889b19afe_Ecommerce-2-p-1600.png'
 import HowAIWorks from '@/components/website/aiwritescopy/HowAIWorks'
 import SplitSection from '@/components/website/splitSection/SplitSection'
-import imageSplitSection from "./../../../../../public/featureNav/content/ecommerse/63fd70964c929069204c2de8_Ecommerce.png"
-import maximise from "./../../../../../public/featureNav/content/ecommerse/6454c4e0294e18ee9d8e6ba7_Maximise conversions.png"
+
 const Ecommerce = () => {
   const stepsData = [
     {
@@ -28,6 +26,7 @@ const Ecommerce = () => {
       color: 'text-purple-500',
     },
   ]
+
   return (
     <>
       <Hero
@@ -35,18 +34,18 @@ const Ecommerce = () => {
         description="Stop manually creating posts! Boost conversions by visually planning your eCommerce campaigns with ease."
         btn_primary="Start Creating"
         btn_secondary="Learn More"
-        image={imageForLandingPage}
+        image="/featureNav/content/ecommerse/6454c54134861df889b19afe_Ecommerce-2-p-1600.png"
         btn={true}
       />
       <HowAIWorks />
       <SplitSection
-        imageSrc={imageSplitSection}
+        imageSrc="/featureNav/content/ecommerse/63fd70964c929069204c2de8_Ecommerce.png"
         title="Expertise & reliability."
         description="Our Upwork partnership connects you with top freelancers—experts ready to elevate your social media to the next level."
         reverse={true}
       />
       <SplitSection
-        imageSrc={maximise}
+        imageSrc="/featureNav/content/ecommerse/6454c4e0294e18ee9d8e6ba7_Maximise conversions.png"
         title="Expertise & reliability."
         description="Through our Upwork partnership, access expert freelancers ready to elevate your social media presence effortlessly."
         reverse={false}

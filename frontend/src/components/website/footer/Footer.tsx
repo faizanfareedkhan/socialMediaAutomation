@@ -5,7 +5,6 @@ import {
   IconBrandInstagram,
 } from '@tabler/icons-react'
 import { Link } from 'react-router-dom'
-import logo from "./../../../../public/logo/ES_logo.png"
 
 export default function Footer() {
   return (
@@ -13,7 +12,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
         {/* Company Logo */}
         <div>
-          <img src={logo} alt="YourCompany Logo" className="h-16 w-auto" />
+          <img
+            src="/logo/ES_logo.png"
+            alt="YourCompany Logo"
+            className="h-16 w-auto"
+          />
           <p className="mt-2 text-sm">Innovate. Automate. Elevate.</p>
           <div className="flex justify-center md:justify-start space-x-4 mt-4">
             <a

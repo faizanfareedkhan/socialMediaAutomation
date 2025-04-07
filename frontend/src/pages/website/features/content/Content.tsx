@@ -1,9 +1,6 @@
-import Hero from "@/components/website/hero/Hero";
-import imageForLandingPage from "../../../../../public/content/63e784a01eb4adb38ad0c238_63ca6200cf5374311c5a5c01_Content_2_1 (1)-p-1080.png";
-import imageSplitSection from "../../../../../public/featureNav/content/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png";
-
-import SplitSection from "@/components/website/splitSection/SplitSection";
-import BentoGridComp from "@/components/website/bentoGrid/BentoGrid";
+import Hero from '@/components/website/hero/Hero'
+import SplitSection from '@/components/website/splitSection/SplitSection'
+import BentoGridComp from '@/components/website/bentoGrid/BentoGrid'
 
 const Content = () => {
   return (
@@ -13,7 +10,7 @@ const Content = () => {
         description="Master graphic design and copywriting today! Create captivating images, videos, text, and hashtags in no time."
         btn_primary="Start Creating"
         btn_secondary="Learn More"
-        image={imageForLandingPage}
+        image="/content/63e784a01eb4adb38ad0c238_63ca6200cf5374311c5a5c01_Content_2_1 (1)-p-1080.png"
         btn={true}
       />
       <Hero
@@ -23,7 +20,7 @@ const Content = () => {
       />
       <BentoGridComp />
       <SplitSection
-        imageSrc={imageSplitSection}
+        imageSrc="/featureNav/content/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png"
         title="Text & captions"
         description="Just enter a simple description, and AI will generate multiple high-converting captions for you. Running an eCommerce store? Use our dedicated Product Announcements feature. Plus, get relevant and trending hashtags instantly!"
         reverse={true}
@@ -32,6 +29,6 @@ const Content = () => {
       />
     </>
   )
-};
+}
 
-export default Content;
+export default Content

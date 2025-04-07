@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react'
 import {
   Menu,
   X,
@@ -14,12 +14,11 @@ import {
   HelpCircle,
   Mail,
 } from 'lucide-react'
-import logo from "./../../../../public/logo/ES_logo.png"
-import { NavLink } from "react-router";
+import { NavLink } from 'react-router'
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [dropdown, setDropdown] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const [dropdown, setDropdown] = useState<string | null>(null)
 
   const menuItems = [
     {
@@ -52,7 +51,7 @@ const Navbar = () => {
       <div className="flex justify-between p-4 items-center mx-auto">
         {/* Logo */}
         <NavLink to={'/'} className="text-xl font-bold">
-          <img src={logo} alt="Logo" className="h-10 w-auto" />
+          <img src="/logo/ES_logo.png" alt="Logo" className="h-10 w-auto" />
         </NavLink>
 
         {/* Desktop Menu */}
@@ -160,6 +159,6 @@ const Navbar = () => {
       )}
     </nav>
   )
-};
+}
 
-export default Navbar;
+export default Navbar

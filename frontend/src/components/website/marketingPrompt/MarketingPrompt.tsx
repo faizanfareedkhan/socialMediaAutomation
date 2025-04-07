@@ -1,4 +1,4 @@
-import image from "../../../../public/marketingPrompt/63f3ab714bb54bd85c2afa8c_Social Media had changed_7-min-p-2000.png";
+// import image from "../../../../public/marketingPrompt/63f3ab714bb54bd85c2afa8c_Social Media had changed_7-min-p-2000.png";
 
 const MarketingPrompt = () => {
   return (
@@ -14,7 +14,7 @@ const MarketingPrompt = () => {
         <div className="flex  justify-center w-full ">
           <img
             className="h-full rounded-2xl  w-full object-cover"
-            src={image}
+            src="/marketingPrompt/63f3ab714bb54bd85c2afa8c_Social Media had changed_7-min-p-2000.png"
             alt="demo"
           />
         </div>
