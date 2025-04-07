@@ -10,11 +10,11 @@ import {
 } from "@/components/ui/sidebar";
 import { NavLink } from "react-router";
 export default function NavMain({
-  label = "",
+  subHeading = "",
   items,
 }: {
   items: {
-    label?: string;
+    subHeading?: string;
     title: string;
     url: string;
     icon?: LucideIcon;
@@ -27,7 +27,7 @@ export default function NavMain({
 }) {
   return (
     <SidebarGroup>
-      {label ? <SidebarGroupLabel>{label}</SidebarGroupLabel> : ""}
+      {subHeading ? <SidebarGroupLabel>{subHeading}</SidebarGroupLabel> : ""}
       <SidebarMenu>
         {items.map((item) => (
           <NavLink to={item.url}>

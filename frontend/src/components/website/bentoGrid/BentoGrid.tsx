@@ -11,7 +11,6 @@ import {
   IconTableColumn,
 } from "@tabler/icons-react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-// import bento1 from "../../../../public/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png";
 
 export default function BentoGridComp() {
   return (
@@ -36,7 +35,7 @@ const Skeleton = () => (
 const items = [
   {
     image:
-      "../../../../public/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
     title: "The Dawn of Innovation",
     description: "Explore the birth of groundbreaking ideas and inventions.",
     header: <Skeleton />,
@@ -45,7 +44,7 @@ const items = [
   {
     title: "The Digital Revolution",
     image:
-      "../../../../public/featureNav/content/bentoGrid/6152eb36027ccce42986642e_Square Graphic Post 800x800 px-p-500.png",
+      "/featureNav/content/bentoGrid/6152eb36027ccce42986642e_Square Graphic Post 800x800 px-p-500.png",
     description: "Dive into the transformative power of technology.",
     header: <Skeleton />,
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
@@ -53,7 +52,7 @@ const items = [
   {
     title: "The Art of Design",
     image:
-      "../../../../public/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
     description: "Discover the beauty of thoughtful and functional design.",
     header: <Skeleton />,
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
@@ -61,7 +60,7 @@ const items = [
   {
     title: "The Power of Communication",
     image:
-      "../../../../public/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
     description:
       "Understand the impact of effective communication in our lives.",
     header: <Skeleton />,
@@ -70,7 +69,7 @@ const items = [
   {
     title: "The Pursuit of Knowledge",
     image:
-      "../../../../public/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
     description: "Join the quest for understanding and enlightenment.",
     header: <Skeleton />,
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
@@ -78,7 +77,7 @@ const items = [
   {
     title: "The Joy of Creation",
     image:
-      "../../../../public/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
     description: "Experience the thrill of bringing ideas to life.",
     header: <Skeleton />,
     icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
@@ -86,7 +85,7 @@ const items = [
   {
     title: "The Spirit of Adventure",
     image:
-      "../../../../public/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
     description: "Embark on exciting journeys and thrilling discoveries.",
     header: <Skeleton />,
     icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,

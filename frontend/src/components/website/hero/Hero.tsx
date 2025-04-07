@@ -1,10 +1,10 @@
 interface HeroProps {
-  title: string
-  description: string
-  btn_primary: string
-  btn_secondary: string
-  image: string
-  btn: boolean
+  title: string;
+  description: string;
+  btn_primary: string;
+  btn_secondary: string;
+  image?: string;
+  btn: boolean;
 }
 
 export default function Hero({
@@ -33,7 +33,7 @@ export default function Hero({
             </button>
           </div>
         ) : (
-          ''
+          ""
         )}
       </header>
       <img
@@ -42,5 +42,5 @@ export default function Hero({
         className="w-full max-w-4xl mx-auto h-auto object-cover"
       />
     </div>
-  )
+  );
 }

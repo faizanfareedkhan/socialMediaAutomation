@@ -1,59 +1,54 @@
 "use client";
-
 import { ThreeDMarquee } from "../../ui/3d-marquee";
-import image1 from "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg";
-// import image2 from "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg";
-// import image3 from "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg";
-// import image4 from "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg";
 
 // import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 
 export default function ThreeDMarqueeComp() {
   const images = [
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
-    "../../../public/integrations/62521d10f537163dc969c0dc_linkedin.svg",
-    "../../../public/integrations/62521d10f53716d3f269c0da_instagram.svg",
-    "../../../public/integrations/62521d10f53716fc8c69c0db_twitter.svg",
-    "../../../public/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
+    "/integrations/62521d10f537163dc969c0dc_linkedin.svg",
+    "/integrations/62521d10f53716d3f269c0da_instagram.svg",
+    "/integrations/62521d10f53716fc8c69c0db_twitter.svg",
+    "/integrations/62521d10f53716755669c0e1_facebook.svg",
   ];
   return (
     <div className="flex flex-col h-screen justify-center rounded-3xl w-full items-center max-w-7xl mx-auto my-10 overflow-hidden relative">
       <h2 className="text-2xl text-balance text-center text-white font-bold lg:text-6xl max-w-4xl md:text-4xl mx-auto relative z-20">
-        This is your life and it&apos;s it's fading away one{' '}
+        This is your life and it&apos;s it's fading away one{" "}
         <span className="bg-blue-500/40 rounded-xl text-white backdrop-blur-sm decoration-[6px] decoration-sky-500 inline-block px-4 py-1 relative underline underline-offset-[16px] z-20">
           moment
-        </span>{' '}
+        </span>{" "}
         at a time.
       </h2>
       <p className="text-center text-neutral-200 text-sm max-w-2xl md:text-base mx-auto py-8 relative z-20">
@@ -75,5 +70,5 @@ export default function ThreeDMarqueeComp() {
         images={images}
       />
     </div>
-  )
+  );
 }
