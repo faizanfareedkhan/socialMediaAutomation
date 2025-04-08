@@ -1,27 +1,22 @@
 import { FaSearch } from "react-icons/fa";
-
 export default function HelpHeader() {
   return (
-    <div className="bg-black text-white py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="bg-black px-4 py-8 text-white">
+      <div className="mx-auto max-w-4xl">
         {/* Top Section with Logo & Language Selector */}
-        <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <span className="text-xl font-semibold">Logo</span>
-          </div>
-        </div>
+        <div className="flex items-center justify-between"></div>
 
         {/* Left Aligned Heading */}
-        <h2 className="text-2xl font-bold mt-6 text-left">Help Center</h2>
+        <h2 className="mt-6 text-left text-2xl font-bold">Help Center</h2>
 
         {/* Search Bar */}
         <div className="relative mt-4">
           <input
             type="text"
             placeholder="Search for articles..."
-            className="w-full bg-gray-700 text-gray-200 px-4 py-3 rounded-lg pl-10 focus:outline-none"
+            className="w-full rounded-lg bg-gray-700 px-4 py-3 pl-10 text-gray-200 focus:outline-none"
           />
-          <FaSearch className="absolute left-3 top-3 text-gray-400 text-lg" />
+          <FaSearch className="absolute top-3 left-3 text-lg text-gray-400" />
         </div>
       </div>
     </div>
