@@ -1,5 +1,4 @@
-import { FaGlobe, FaSearch } from 'react-icons/fa'
-import { IoCube } from 'react-icons/io5'
+import { FaSearch } from "react-icons/fa";
 
 export default function HelpHeader() {
   return (
@@ -8,11 +7,8 @@ export default function HelpHeader() {
         {/* Top Section with Logo & Language Selector */}
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
-
             <span className="text-xl font-semibold">Logo</span>
-
           </div>
-          
         </div>
 
         {/* Left Aligned Heading */}
@@ -29,5 +25,5 @@ export default function HelpHeader() {
         </div>
       </div>
     </div>
-  )
+  );
 }

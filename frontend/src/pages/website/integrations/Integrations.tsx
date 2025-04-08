@@ -205,7 +205,7 @@ const Integrations = () => {
       image: "/featureNav/content/integrations/whatsapp.svg",
       title: "WhatsApp",
       description:
-        "Connect with your audience through private and secure messaging via your WhatsApp account with Ocoya.",
+        "Connect with your audience through private and secure messaging via your WhatsApp account with Trounce.",
       link: "#",
     },
     {
@@ -228,7 +228,7 @@ const Integrations = () => {
     <>
       <Hero
         title="Integrations"
-        description="Seamlessly integrate social media accounts, eCommerce stores, and schedulers with Ocoya—create ads, craft posts, and schedule them all in one place."
+        description="Seamlessly integrate social media accounts, eCommerce stores, and schedulers with Trounce—create ads, craft posts, and schedule them all in one place."
         btn_primary="Start Scheduling"
         btn_secondary="Learn More"
         btn={false}

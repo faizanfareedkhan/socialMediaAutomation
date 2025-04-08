@@ -1,5 +1,3 @@
-import React from 'react'
-
 const HowAIWorks: React.FC = () => {
   return (
     <section className="w-full bg-gray-100 py-16 px-6 text-center ">
@@ -41,7 +39,7 @@ const HowAIWorks: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HowAIWorks
+export default HowAIWorks;

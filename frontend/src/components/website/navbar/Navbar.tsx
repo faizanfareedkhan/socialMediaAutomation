@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react";
 import {
   Menu,
   X,
@@ -13,44 +13,55 @@ import {
   Code,
   HelpCircle,
   Mail,
-} from 'lucide-react'
-import { NavLink } from 'react-router'
+} from "lucide-react";
+import { NavLink } from "react-router-dom";
+
+// Define types for menu items
+interface MenuItem {
+  title: string;
+  link?: string;
+  items?: {
+    name: string;
+    icon: React.ComponentType<{ size: number }>;
+    link: string;
+  }[];
+}
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [dropdown, setDropdown] = useState<string | null>(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [dropdown, setDropdown] = useState<string | null>(null);
 
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     {
-      title: 'Features',
+      title: "Features",
       items: [
-        { name: 'Content', icon: FileText, link: 'content' },
-        { name: 'Scheduling', icon: Calendar, link: 'Scheduling' },
-        { name: 'Copywriting AI', icon: PenTool, link: 'copywriting' },
-        { name: 'AI Assist', icon: Cpu, link: 'ai-assist' },
-        { name: 'Automation', icon: Repeat, link: 'automation' },
-        { name: 'E-commerce', icon: ShoppingCart, link: 'e-commerce' },
-        { name: 'Professionals', icon: Briefcase, link: 'professionals' },
-        { name: 'API', icon: Code, link: 'api' },
+        { name: "Content", icon: FileText, link: "content" },
+        { name: "Scheduling", icon: Calendar, link: "Scheduling" },
+        { name: "Copywriting AI", icon: PenTool, link: "copywriting" },
+        { name: "AI Assist", icon: Cpu, link: "ai-assist" },
+        { name: "Automation", icon: Repeat, link: "automation" },
+        { name: "E-commerce", icon: ShoppingCart, link: "e-commerce" },
+        { name: "Professionals", icon: Briefcase, link: "professionals" },
+        { name: "API", icon: Code, link: "api" },
       ],
     },
-    { title: 'Pricing', link: 'pricing' },
-    { title: 'Integrations', link: 'integrations' },
-    { title: 'Get Paid!', link: 'getpaid' },
+    { title: "Pricing", link: "pricing" },
+    { title: "Integrations", link: "integrations" },
+    { title: "Get Paid!", link: "getpaid" },
     {
-      title: 'Resources',
+      title: "Resources",
       items: [
-        { name: 'Help Center', icon: HelpCircle, link: 'helpcenter' },
-        { name: 'Contact', icon: Mail, link: 'contact' },
+        { name: "Help Center", icon: HelpCircle, link: "helpcenter" },
+        { name: "Contact", icon: Mail, link: "contact" },
       ],
     },
-  ]
+  ];
 
   return (
     <nav className="bg-white shadow-md text-black w-screen fixed top-0 z-999">
       <div className="flex justify-between p-4 items-center mx-auto">
         {/* Logo */}
-        <NavLink to={'/'} className="text-xl font-bold">
+        <NavLink to={"/"} className="text-xl font-bold">
           <img src="/logo/ES_logo.png" alt="Logo" className="h-10 w-auto" />
         </NavLink>
 
@@ -58,7 +69,7 @@ const Navbar = () => {
         <ul className="hidden lg:flex relative space-x-12">
           {menuItems.map((menu) => (
             <NavLink
-              to={menu.link}
+              to={menu.link || "/"} // fallback to root if link is undefined
               key={menu.title}
               className="cursor-pointer duration-300 group relative transition-colors"
               onClick={() => setDropdown(menu.items ? menu.title : null)}
@@ -71,7 +82,7 @@ const Navbar = () => {
                   <ChevronDown
                     size={16}
                     className={`transition-transform duration-300 ${
-                      dropdown === menu.title ? 'rotate-180' : ''
+                      dropdown === menu.title ? "rotate-180" : ""
                     }`}
                   />
                 )}
@@ -125,7 +136,7 @@ const Navbar = () => {
                     <ChevronDown
                       size={16}
                       className={`transition-transform duration-300 ${
-                        dropdown === menu.title ? 'rotate-180' : ''
+                        dropdown === menu.title ? "rotate-180" : ""
                       }`}
                     />
                   )}
@@ -158,7 +169,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

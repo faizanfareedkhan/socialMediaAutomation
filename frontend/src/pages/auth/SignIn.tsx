@@ -1,6 +1,6 @@
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
-import React from "react";
+
 import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";

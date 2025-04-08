@@ -1,5 +1,5 @@
-import Hero from '@/components/website/hero/Hero'
-import SplitSection from '@/components/website/splitSection/SplitSection'
+import Hero from "@/components/website/hero/Hero";
+import SplitSection from "@/components/website/splitSection/SplitSection";
 
 const API = () => {
   return (
@@ -15,7 +15,7 @@ const API = () => {
       <SplitSection
         imageSrc="/featureNav/content/api/64824f5f6b22f174f6977a63_Create and publish posts-min.png"
         title="Create and publish posts"
-        description="Effortlessly create and publish posts across all social media platforms with Ocoya's API. Integrate seamless post creation into your apps or website and streamline content sharing like never before."
+        description="Effortlessly create and publish posts across all social media platforms with Trounce's API. Integrate seamless post creation into your apps or website and streamline content sharing like never before."
         reverse={true}
       />
       <SplitSection
@@ -25,7 +25,7 @@ const API = () => {
         reverse={false}
       />
     </>
-  )
-}
+  );
+};
 
-export default API
+export default API;

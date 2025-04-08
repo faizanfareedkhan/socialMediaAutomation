@@ -1,10 +1,10 @@
 interface HeroProps {
   title: string;
   description: string;
-  btn_primary: string;
-  btn_secondary: string;
+  btn_primary?: string;
+  btn_secondary?: string;
   image?: string;
-  btn: boolean;
+  btn?: boolean;
 }
 
 export default function Hero({

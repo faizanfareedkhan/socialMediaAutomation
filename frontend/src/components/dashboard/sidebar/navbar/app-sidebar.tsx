@@ -175,10 +175,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.dashbooard} />
-        <NavMain items={data.postContent} label={"Post Content"} />
+        <NavMain items={data.postContent} subHeading={"Post Content"} />
         <NavMain items={data.mediaLibrary} />
-        <NavMain items={data.integrations} label={"Integrations"} />
-        <NavMain items={data.account} label={"Account"} />
+        <NavMain items={data.integrations} subHeading={"Integrations"} />
+        <NavMain items={data.account} subHeading={"Account"} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

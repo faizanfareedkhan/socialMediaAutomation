@@ -1,5 +1,3 @@
-// import image from "../../../../public/marketingPrompt/63f3ab714bb54bd85c2afa8c_Social Media had changed_7-min-p-2000.png";
-
 const MarketingPrompt = () => {
   return (
     <div className="flex bg-white justify-center p-6 text-black items-center min-h-screen">
@@ -20,7 +18,7 @@ const MarketingPrompt = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default MarketingPrompt;

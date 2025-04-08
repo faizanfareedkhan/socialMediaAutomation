@@ -1,61 +1,59 @@
-import React from 'react'
-
 const ComparePlans = () => {
-  const plans = ['Bronze', 'Silver', 'Gold', 'Diamond']
+  const plans = ["Bronze", "Silver", "Gold", "Diamond"];
 
   const pluginFeatures = [
     {
-      label: 'Design templates',
-      values: ['✖', 'Images', 'Images & videos', 'Images & videos'],
+      label: "Design templates",
+      values: ["✖", "Images", "Images & videos", "Images & videos"],
     },
-    { label: 'All social media formats', values: ['✖', '✔', '✔', '✔'] },
-    { label: 'Background remover', values: ['✖', '✔', '✔', '✔'] },
-    { label: 'Format resizer', values: ['✖', '✔', '✔', '✔'] },
-    { label: 'Brand kits', values: ['✖', '5', '20', 'Unlimited'] },
-  ]
+    { label: "All social media formats", values: ["✖", "✔", "✔", "✔"] },
+    { label: "Background remover", values: ["✖", "✔", "✔", "✔"] },
+    { label: "Format resizer", values: ["✖", "✔", "✔", "✔"] },
+    { label: "Brand kits", values: ["✖", "5", "20", "Unlimited"] },
+  ];
 
   const socialPublishingFeatures = [
-    { label: 'Social channels', values: ['5', '20', '50', '150'] },
-    { label: 'Schedule posts', values: ['✔', '✔', '✔', '✔'] },
+    { label: "Social channels", values: ["5", "20", "50", "150"] },
+    { label: "Schedule posts", values: ["✔", "✔", "✔", "✔"] },
     {
-      label: 'Schedule video posts',
+      label: "Schedule video posts",
       values: [
-        'Upload your own',
-        'Video library',
-        'Video library',
-        'Video library',
+        "Upload your own",
+        "Video library",
+        "Video library",
+        "Video library",
       ],
     },
-    { label: 'Schedule carousel posts', values: ['✔', '✔', '✔', '✔'] },
+    { label: "Schedule carousel posts", values: ["✔", "✔", "✔", "✔"] },
     {
-      label: 'Posts in queue',
-      values: ['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'],
+      label: "Posts in queue",
+      values: ["Unlimited", "Unlimited", "Unlimited", "Unlimited"],
     },
-    { label: 'AI best time to post', values: ['✖', '✖', '✔', '✔'] },
-    { label: 'AI performance predictor', values: ['✖', '✖', '✔', '✔'] },
-    { label: 'Duplicate posts', values: ['✔', '✔', '✔', '✔'] },
-  ]
+    { label: "AI best time to post", values: ["✖", "✖", "✔", "✔"] },
+    { label: "AI performance predictor", values: ["✖", "✖", "✔", "✔"] },
+    { label: "Duplicate posts", values: ["✔", "✔", "✔", "✔"] },
+  ];
 
   const aiCopywriterFeatures = [
     {
-      label: 'AI credits',
-      values: ['100/mo', '500/mo', '1,500/mo', 'Unlimited'],
+      label: "AI credits",
+      values: ["100/mo", "500/mo", "1,500/mo", "Unlimited"],
     },
     {
-      label: 'AI templates',
-      values: ['✖', 'Images', 'Images & videos', 'Images & videos'],
+      label: "AI templates",
+      values: ["✖", "Images", "Images & videos", "Images & videos"],
     },
-    { label: 'AI templates count', values: ['50+', '50+', '50+', '50+'] },
-    { label: 'Short-form writer', values: ['✔', '✔', '✔', '✔'] },
-    { label: 'AI assistant', values: ['✔', '✔', '✔', '✔'] },
-    { label: 'Languages', values: ['✖', '28+', '28+', '28+'] },
-    { label: 'AI Caption', values: ['✖', '✔', '✔', '✔'] },
-    { label: 'AI Art', values: ['✖', '✔', '✔', '✔'] },
+    { label: "AI templates count", values: ["50+", "50+", "50+", "50+"] },
+    { label: "Short-form writer", values: ["✔", "✔", "✔", "✔"] },
+    { label: "AI assistant", values: ["✔", "✔", "✔", "✔"] },
+    { label: "Languages", values: ["✖", "28+", "28+", "28+"] },
+    { label: "AI Caption", values: ["✖", "✔", "✔", "✔"] },
+    { label: "AI Art", values: ["✖", "✔", "✔", "✔"] },
     {
-      label: 'Folders',
-      values: ['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'],
+      label: "Folders",
+      values: ["Unlimited", "Unlimited", "Unlimited", "Unlimited"],
     },
-  ]
+  ];
 
   return (
     <div className="w-full max-w-5xl mx-auto p-8">
@@ -87,9 +85,9 @@ const ComparePlans = () => {
                 <td className="text-left p-4">{feature.label}</td>
                 {feature.values.map((value, index) => (
                   <td key={index} className="text-center p-4">
-                    {value === '✔' ? (
+                    {value === "✔" ? (
                       <span className="text-green-500 text-lg">✔</span>
-                    ) : value === '✖' ? (
+                    ) : value === "✖" ? (
                       <span className="text-gray-400 text-lg">✖</span>
                     ) : (
                       <span className="text-black font-medium">{value}</span>
@@ -119,9 +117,9 @@ const ComparePlans = () => {
                 <td className="text-left p-4">{feature.label}</td>
                 {feature.values.map((value, index) => (
                   <td key={index} className="text-center p-4">
-                    {value === '✔' ? (
+                    {value === "✔" ? (
                       <span className="text-green-500 text-lg">✔</span>
-                    ) : value === '✖' ? (
+                    ) : value === "✖" ? (
                       <span className="text-gray-400 text-lg">✖</span>
                     ) : (
                       <span className="text-black font-medium">{value}</span>
@@ -151,9 +149,9 @@ const ComparePlans = () => {
                 <td className="text-left p-4">{feature.label}</td>
                 {feature.values.map((value, index) => (
                   <td key={index} className="text-center p-4">
-                    {value === '✔' ? (
+                    {value === "✔" ? (
                       <span className="text-green-500 text-lg">✔</span>
-                    ) : value === '✖' ? (
+                    ) : value === "✖" ? (
                       <span className="text-gray-400 text-lg">✖</span>
                     ) : (
                       <span className="text-black font-medium">{value}</span>
@@ -166,7 +164,7 @@ const ComparePlans = () => {
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ComparePlans
+export default ComparePlans;

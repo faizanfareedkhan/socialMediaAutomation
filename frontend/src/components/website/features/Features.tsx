@@ -1,11 +1,11 @@
-import { Tabs } from '../tabs/tabs'
+import { Tabs } from "../tabs/tabs";
 
 export default function TabsComp() {
   const tabs = [
     {
-      title: 'AI Writing',
-      value: 'AI Writing',
-      icon: '/features/icons/ChatGPT.png',
+      title: "AI Writing",
+      value: "AI Writing",
+      icon: "/features/icons/ChatGPT.png",
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
@@ -25,9 +25,9 @@ export default function TabsComp() {
       ),
     },
     {
-      title: 'Automation',
-      value: 'Automation',
-      icon: '/features/icons/Automation.svg',
+      title: "Automation",
+      value: "Automation",
+      icon: "/features/icons/Automation.svg",
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
@@ -47,9 +47,9 @@ export default function TabsComp() {
       ),
     },
     {
-      title: 'Scheduling',
-      value: 'Scheduling',
-      icon: '/features/icons/Scheduling.svg',
+      title: "Scheduling",
+      value: "Scheduling",
+      icon: "/features/icons/Scheduling.svg",
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
@@ -67,9 +67,9 @@ export default function TabsComp() {
       ),
     },
     {
-      title: 'Analytics',
-      value: 'Analytics',
-      icon: '/features/icons/Analytics.svg',
+      title: "Analytics",
+      value: "Analytics",
+      icon: "/features/icons/Analytics.svg",
       content: (
         <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
@@ -88,16 +88,20 @@ export default function TabsComp() {
         </div>
       ),
     },
-  ]
+  ];
 
   return (
     <div className="flex flex-col h-screen justify-start w-full [perspective:1000px] items-start max-w-5xl md:h-[40rem] mx-auto my-40 relative">
       <Tabs tabs={tabs} />
     </div>
-  )
+  );
 }
 
-const DummyContent = ({ image }) => {
+interface DummyContentProps {
+  image: string;
+}
+
+const DummyContent = ({ image }: DummyContentProps) => {
   return (
     <img
       src={image}
@@ -106,5 +110,5 @@ const DummyContent = ({ image }) => {
       height="1000"
       className="rounded-xl w-[50%] -bottom-10 md:h-[90%] mx-auto object-cover object-left-top"
     />
-  )
-}
+  );
+};

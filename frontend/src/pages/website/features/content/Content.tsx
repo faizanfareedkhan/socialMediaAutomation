@@ -1,6 +1,6 @@
-import Hero from '@/components/website/hero/Hero'
-import SplitSection from '@/components/website/splitSection/SplitSection'
-import BentoGridComp from '@/components/website/bentoGrid/BentoGrid'
+import Hero from "@/components/website/hero/Hero";
+import SplitSection from "@/components/website/splitSection/SplitSection";
+import BentoGridComp from "@/components/website/bentoGrid/BentoGrid";
 
 const Content = () => {
   return (
@@ -15,7 +15,7 @@ const Content = () => {
       />
       <Hero
         title="Drag & drop"
-        description="Struggling with complex and costly design software? With Ocoya, become a pro graphic designer and video editor effortlessly. Create stunning visuals in minutes using our vast library of templates, stock photos, videos, licensed music, animations, backgrounds, and text styles."
+        description="Struggling with complex and costly design software? With Trounce, become a pro graphic designer and video editor effortlessly. Create stunning visuals in minutes using our vast library of templates, stock photos, videos, licensed music, animations, backgrounds, and text styles."
         btn={false}
       />
       <BentoGridComp />
@@ -28,7 +28,7 @@ const Content = () => {
         btn={true}
       />
     </>
-  )
-}
+  );
+};
 
-export default Content
+export default Content;

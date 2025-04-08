@@ -1,12 +1,12 @@
-import Hero from '@/components/website/hero/Hero'
-import SplitSection from '@/components/website/splitSection/SplitSection'
+import Hero from "@/components/website/hero/Hero";
+import SplitSection from "@/components/website/splitSection/SplitSection";
 
 const Automation = () => {
   return (
     <>
       <Hero
         title="AI-Powered Social Media Automation"
-        description="Save time by automating repetitive tasks with Ocoya’s AI-powered social media automation. Enhance your strategy with RSS posting, action links, and more!"
+        description="Save time by automating repetitive tasks with Trounce’s AI-powered social media automation. Enhance your strategy with RSS posting, action links, and more!"
         btn_primary="Try Now"
         btn_secondary="Learn More"
         image="/featureNav/content/automation/647db210aba6da4069c41650_RSS-p-1600.png"
@@ -25,7 +25,7 @@ const Automation = () => {
         reverse={false}
       />
     </>
-  )
-}
+  );
+};
 
-export default Automation
+export default Automation;

@@ -1,6 +1,3 @@
-import { cn } from "@/lib/utils";
-import React from "react";
-// import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
 import {
   IconArrowWaveRightUp,
   IconBoxAlignRightFilled,

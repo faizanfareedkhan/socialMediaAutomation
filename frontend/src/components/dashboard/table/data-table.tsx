@@ -270,6 +270,8 @@ export default function DataTable({
 }: {
   data: z.infer<typeof schema>[];
 }) {
+  // @ts-expect-error: Ignoring the unused 'setData' warning
+
   const [data, setData] = React.useState(() => initialData);
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =

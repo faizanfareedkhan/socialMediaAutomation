@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -61,7 +61,7 @@ const Contact = () => {
           </label>
           <textarea
             className="mt-1 p-2 w-full rounded-lg bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-gray-500 focus:outline-none"
-            rows="4"
+            rows={4}
             placeholder="Your Message"
             required
           ></textarea>
@@ -74,7 +74,7 @@ const Contact = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

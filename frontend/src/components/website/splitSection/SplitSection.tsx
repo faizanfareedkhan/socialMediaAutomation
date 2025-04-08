@@ -1,12 +1,10 @@
-import React from 'react'
-
 interface SplitSectionProps {
-  imageSrc: string
-  title: string
-  description: string
-  reverse: boolean
-  btn: boolean
-  btnText?: string // Added button text prop (optional)
+  imageSrc: string;
+  title: string;
+  description: string;
+  reverse: boolean;
+  btn?: boolean;
+  btnText?: string; // Added button text prop (optional)
 }
 
 const SplitSection: React.FC<SplitSectionProps> = ({
@@ -21,7 +19,7 @@ const SplitSection: React.FC<SplitSectionProps> = ({
     <section className="w-full bg-white text-black py-12 px-6 container mx-auto flex justify-center items-center">
       <div
         className={`flex flex-col ${
-          reverse ? 'sm:flex-row-reverse' : 'sm:flex-row'
+          reverse ? "sm:flex-row-reverse" : "sm:flex-row"
         } items-center gap-6 md:gap-12 px-12 md:px-20 lg:px-32`}
       >
         {/* Image Section */}
@@ -49,7 +47,7 @@ const SplitSection: React.FC<SplitSectionProps> = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SplitSection
+export default SplitSection;

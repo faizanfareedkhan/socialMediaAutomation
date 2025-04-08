@@ -6,32 +6,36 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
 } from "@/components/ui/sidebar";
-import { NavLink } from "react-router";
-export default function NavMain({
-  subHeading = "",
-  items,
-}: {
-  items: {
-    subHeading?: string;
+import { NavLink } from "react-router-dom";
+
+// Define the types for the props
+interface NavItem {
+  subHeading?: string;
+  title: string;
+  url: string;
+  icon?: LucideIcon;
+  isActive?: boolean;
+  items?: {
     title: string;
     url: string;
-    icon?: LucideIcon;
-    isActive?: boolean;
-    items?: {
-      title: string;
-      url: string;
-    }[];
   }[];
-}) {
+}
+
+interface NavMainProps {
+  subHeading?: string;
+  items: NavItem[];
+}
+
+const NavMain: React.FC<NavMainProps> = ({ subHeading, items }) => {
   return (
     <SidebarGroup>
-      {subHeading ? <SidebarGroupLabel>{subHeading}</SidebarGroupLabel> : ""}
+      {/* Conditionally render subHeading if available */}
+      {subHeading && <SidebarGroupLabel>{subHeading}</SidebarGroupLabel>}
       <SidebarMenu>
         {items.map((item) => (
-          <NavLink to={item.url}>
-            <SidebarMenuItem key={item.title}>
+          <NavLink to={item.url} key={item.title}>
+            <SidebarMenuItem>
               <SidebarMenuButton tooltip={item.title}>
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
@@ -42,4 +46,6 @@ export default function NavMain({
       </SidebarMenu>
     </SidebarGroup>
   );
-}
+};
+
+export default NavMain;

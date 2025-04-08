@@ -1,5 +1,4 @@
 import TabsComp from "@/components/website/features/Features";
-// import image from "../../../../public/content/63e784a01eb4adb38ad0c238_63ca6200cf5374311c5a5c01_Content_2_1 (1)-p-1080.png";
 
 import ThreeDMarqueeComp from "@/components/website/integrations/Integrations";
 import MarketingPrompt from "@/components/website/marketingPrompt/MarketingPrompt";

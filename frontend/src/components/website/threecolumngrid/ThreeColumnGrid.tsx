@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ThreeColumnGrid: React.FC = () => {
   return (
     <section className="w-full bg-white text-black py-12 px-6 container mx-auto">
@@ -47,7 +45,7 @@ const ThreeColumnGrid: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ThreeColumnGrid
+export default ThreeColumnGrid;
