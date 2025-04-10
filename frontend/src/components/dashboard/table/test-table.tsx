@@ -2,10 +2,10 @@
 
 import { DataTable } from "@/components/data-table";
 import { DataTableActionBar } from "@/components/data-table-action-bar";
-import { DataTableAdvancedToolbar } from "@/components/data-table-advanced-toolbar";
+// import { DataTableAdvancedToolbar } from "@/components/data-table-advanced-toolbar";
 import { DataTableColumnHeader } from "@/components/data-table-column-header";
-import { DataTableFilterList } from "@/components/data-table-filter-list";
-import { DataTableSortList } from "@/components/data-table-sort-list";
+// import { DataTableFilterList } from "@/components/data-table-filter-list";
+// import { DataTableSortList } from "@/components/data-table-sort-list";
 import { DataTableToolbar } from "@/components/data-table-toolbar";
 
 import { Badge } from "@/components/ui/badge";
