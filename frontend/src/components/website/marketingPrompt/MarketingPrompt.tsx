@@ -1,17 +1,17 @@
 const MarketingPrompt = () => {
   return (
-    <div className="flex bg-white justify-center p-6 text-black items-center min-h-screen">
-      <div className="border p-10 rounded-3xl shadow-2xl text-center w-full max-w-6xl space-y-6">
-        <h1 className="text-4xl font-extrabold md:text-5xl tracking-wide">
+    <div className="flex min-h-screen items-center justify-center bg-white p-6 text-black">
+      <div className="w-full max-w-6xl space-y-6 rounded-3xl border p-10 text-center shadow-2xl">
+        <h1 className="text-4xl font-extrabold tracking-wide md:text-5xl">
           Social media has evolved. Have you kept up?
         </h1>
-        <p className="text-black text-lg  mt-4 ">
+        <p className="mt-4 text-lg text-black">
           Say goodbye to Photoshop! Explore thousands of image and video
           templates. Create manually in our dashboard or let AI do it for you.
         </p>
-        <div className="flex  justify-center w-full ">
+        <div className="flex w-full justify-center">
           <img
-            className="h-full rounded-2xl  w-full object-cover"
+            className="h-full w-full rounded-2xl object-cover"
             src="/marketingPrompt/63f3ab714bb54bd85c2afa8c_Social Media had changed_7-min-p-2000.png"
             alt="demo"
           />

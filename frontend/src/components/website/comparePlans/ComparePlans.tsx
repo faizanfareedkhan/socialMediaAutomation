@@ -56,10 +56,10 @@ const ComparePlans = () => {
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-8">
+    <div className="mx-auto w-full max-w-5xl p-8">
       {/* Header */}
-      <h2 className="text-4xl font-bold text-center">Compare plans</h2>
-      <p className="text-center text-gray-500 mb-6">
+      <h2 className="mb-6 text-center text-4xl font-bold">Compare plans</h2>
+      <p className="mb-6 text-center text-gray-500">
         Compare our plans and choose what suits your business the best.
       </p>
 
@@ -69,9 +69,9 @@ const ComparePlans = () => {
           {/* Table Head */}
           <thead>
             <tr className="border-b">
-              <th className="text-left p-4">🔌 Plugins</th>
+              <th className="p-4 text-left">🔌 Plugins</th>
               {plans.map((plan) => (
-                <th key={plan} className="text-center font-bold p-4">
+                <th key={plan} className="p-4 text-center font-bold">
                   {plan}
                 </th>
               ))}
@@ -82,15 +82,15 @@ const ComparePlans = () => {
           <tbody>
             {pluginFeatures.map((feature) => (
               <tr key={feature.label} className="border-b">
-                <td className="text-left p-4">{feature.label}</td>
+                <td className="p-4 text-left">{feature.label}</td>
                 {feature.values.map((value, index) => (
-                  <td key={index} className="text-center p-4">
+                  <td key={index} className="p-4 text-center">
                     {value === "✔" ? (
-                      <span className="text-green-500 text-lg">✔</span>
+                      <span className="text-lg text-green-500">✔</span>
                     ) : value === "✖" ? (
-                      <span className="text-gray-400 text-lg">✖</span>
+                      <span className="text-lg text-gray-400">✖</span>
                     ) : (
-                      <span className="text-black font-medium">{value}</span>
+                      <span className="font-medium text-black">{value}</span>
                     )}
                   </td>
                 ))}
@@ -101,9 +101,9 @@ const ComparePlans = () => {
           {/* Social Publishing Section */}
           <thead>
             <tr className="border-b">
-              <th className="text-left p-4">📅 Social Publishing</th>
+              <th className="p-4 text-left">📅 Social Publishing</th>
               {plans.map((plan) => (
-                <th key={plan} className="text-center font-bold p-4">
+                <th key={plan} className="p-4 text-center font-bold">
                   {plan}
                 </th>
               ))}
@@ -114,15 +114,15 @@ const ComparePlans = () => {
           <tbody>
             {socialPublishingFeatures.map((feature) => (
               <tr key={feature.label} className="border-b">
-                <td className="text-left p-4">{feature.label}</td>
+                <td className="p-4 text-left">{feature.label}</td>
                 {feature.values.map((value, index) => (
-                  <td key={index} className="text-center p-4">
+                  <td key={index} className="p-4 text-center">
                     {value === "✔" ? (
-                      <span className="text-green-500 text-lg">✔</span>
+                      <span className="text-lg text-green-500">✔</span>
                     ) : value === "✖" ? (
-                      <span className="text-gray-400 text-lg">✖</span>
+                      <span className="text-lg text-gray-400">✖</span>
                     ) : (
-                      <span className="text-black font-medium">{value}</span>
+                      <span className="font-medium text-black">{value}</span>
                     )}
                   </td>
                 ))}
@@ -133,9 +133,9 @@ const ComparePlans = () => {
           {/* AI Copywriter Section */}
           <thead>
             <tr className="border-b">
-              <th className="text-left p-4">⚙️ AI Copywriter</th>
+              <th className="p-4 text-left">⚙️ AI Copywriter</th>
               {plans.map((plan) => (
-                <th key={plan} className="text-center font-bold p-4">
+                <th key={plan} className="p-4 text-center font-bold">
                   {plan}
                 </th>
               ))}
@@ -146,15 +146,15 @@ const ComparePlans = () => {
           <tbody>
             {aiCopywriterFeatures.map((feature) => (
               <tr key={feature.label} className="border-b">
-                <td className="text-left p-4">{feature.label}</td>
+                <td className="p-4 text-left">{feature.label}</td>
                 {feature.values.map((value, index) => (
-                  <td key={index} className="text-center p-4">
+                  <td key={index} className="p-4 text-center">
                     {value === "✔" ? (
-                      <span className="text-green-500 text-lg">✔</span>
+                      <span className="text-lg text-green-500">✔</span>
                     ) : value === "✖" ? (
-                      <span className="text-gray-400 text-lg">✖</span>
+                      <span className="text-lg text-gray-400">✖</span>
                     ) : (
-                      <span className="text-black font-medium">{value}</span>
+                      <span className="font-medium text-black">{value}</span>
                     )}
                   </td>
                 ))}

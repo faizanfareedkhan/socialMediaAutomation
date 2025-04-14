@@ -1,46 +1,46 @@
-import { cn } from '@/lib/utils'
-import { Marquee } from '../../magicui/marquee'
+import { cn } from "@/lib/utils";
+import { Marquee } from "../../magicui/marquee";
 
 const reviews = [
   {
-    img: '/marquee/1.svg',
+    img: "/marquee/1.svg",
   },
   {
-    img: '/marquee/2.svg',
+    img: "/marquee/2.svg",
   },
   {
-    img: '/marquee/3.png',
+    img: "/marquee/3.png",
   },
   {
-    img: '/marquee/4.svg',
+    img: "/marquee/4.svg",
   },
   {
-    img: '/marquee/5.svg',
+    img: "/marquee/5.svg",
   },
-]
+];
 
-const firstRow = reviews.slice(0, reviews.length)
+const firstRow = reviews.slice(0, reviews.length);
 
 const ReviewCard = ({ img }: { img: string }) => {
   return (
     <div
       className={cn(
-        'relative w-64 p-4 rounded-xl overflow-hidden border border-gray-200 shadow-lg bg-white',
-        'dark:border-gray-700 dark:bg-gray-900 flex justify-center items-center'
+        "relative w-64 overflow-hidden rounded-xl border border-gray-200 bg-white p-4 shadow-lg",
+        "flex items-center justify-center dark:border-gray-700 dark:bg-gray-900",
       )}
     >
       <img className="w-full object-cover" src={img} alt="Profile" />
-      <div className="flex bg-black/30 justify-center absolute backdrop-blur-sm hover:opacity-100 inset-0 items-center opacity-0 transition-opacity">
-        <p className="text-lg text-white font-medium">View Profile</p>
+      <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 backdrop-blur-sm transition-opacity hover:opacity-100">
+        <p className="text-lg font-medium text-white">View Profile</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export function MarqueeComp() {
   return (
-    <div className="flex flex-col justify-center w-full items-center overflow-hidden relative">
-      <div className="text-black text-lg max-w-xl mt-4">
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+      <div className="mt-4 max-w-xl text-lg text-black">
         These companies rely on us for their content
       </div>
       <Marquee pauseOnHover className="[--duration:20s]">
@@ -49,8 +49,8 @@ export function MarqueeComp() {
         ))}
       </Marquee>
 
-      <div className="bg-gradient-to-r w-1/4 absolute from-background inset-y-0 left-0 pointer-events-none"></div>
-      <div className="bg-gradient-to-l w-1/4 absolute from-background inset-y-0 pointer-events-none right-0"></div>
+      <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+      <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
     </div>
-  )
+  );
 }
