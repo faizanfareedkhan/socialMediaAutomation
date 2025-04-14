@@ -154,7 +154,7 @@ const data = {
     },
     {
       title: "Subscription",
-      url: "#",
+      url: "accounts/subscription",
       icon: CreditCard,
       isActive: true,
     },

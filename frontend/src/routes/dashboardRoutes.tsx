@@ -11,6 +11,7 @@ import DeletedPosts from "@/pages/dashboard/postContent/deletedPosts/DeletedPost
 import AllPosts from "@/pages/dashboard/postContent/allPosts/AllPosts";
 import SocialMediaAccounts from "@/pages/dashboard/integerations/socialMediaAccounts/SocialMediaAccounts";
 import ThirdPartyIntegrations from "@/pages/dashboard/integerations/thirdPartyIntegrations/ThirdPartyIntegrations";
+import Subscription from '@/pages/dashboard/account/subscription/Subscription';
 
 const dashboardRoutes: RouteObject[] = [
   {
@@ -36,6 +37,10 @@ const dashboardRoutes: RouteObject[] = [
       {
         path: "integrations/third-party-integrations",
         element: <ThirdPartyIntegrations />,
+      },
+      {
+        path: "accounts/subscription",
+        element: <Subscription />,
       },
     ],
   },
