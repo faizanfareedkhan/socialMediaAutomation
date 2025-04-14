@@ -156,11 +156,6 @@
   }
 }
 
-
-
-
-
-
 :root {
   /* Light Theme */
   --primary: #ffffff;
@@ -181,7 +176,9 @@
 nav {
   background-color: var(--primary);
   color: var(--primary-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .bg-primary {
@@ -207,4 +204,7 @@ nav {
 .hover\:bg-secondary:hover {
   background-color: var(--secondary);
   color: var(--secondary-text);
+}
+.custom-audio::-webkit-media-controls-enclosure {
+  background-color: transparent;
 }

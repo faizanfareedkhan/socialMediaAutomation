@@ -14,7 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
-import { Mic, Trash2, UploadCloud, Play, Pause } from "lucide-react";
+import { Mic, Trash2, UploadCloud, Play, Pause, Send } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import {
   Dialog,
@@ -26,7 +26,7 @@ import {
 
 const formSchema = z.object({
   platforms: z.array(z.string()).min(1, "Select at least one platform"),
-  prompt: z.string().min(1, "Prompt is required"),
+  prompt: z.string().min(10, "Prompt is required"),
 });
 
 const platforms = [
@@ -49,6 +49,7 @@ export function PlatformForm() {
   const [isRecording, setIsRecording] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [audioSrc, setAudioSrc] = useState<string | null>(null);
+  console.log(audioSrc);
   const shouldSaveRef = useRef(true); // new ref to control saving
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -58,6 +59,21 @@ export function PlatformForm() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [audioFile, setAudioFile] = useState<File | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const toggleRecording = () => {
+    const mediaRecorder = mediaRecorderRef.current;
+
+    if (!mediaRecorder) return;
+
+    if (mediaRecorder.state === "recording") {
+      mediaRecorder.pause();
+      setIsPaused(true);
+    } else if (mediaRecorder.state === "paused") {
+      mediaRecorder.resume();
+      setIsPaused(false);
+    }
+  };
 
   useEffect(() => {
     if (recordedChunks.length === 0) return;
@@ -121,7 +137,6 @@ export function PlatformForm() {
   };
 
   const finishRecording = () => {
-    shouldSaveRef.current = true; // allow saving
     const mediaRecorder = mediaRecorderRef.current;
 
     if (mediaRecorder && mediaRecorder.state !== "inactive") {
@@ -131,6 +146,8 @@ export function PlatformForm() {
     }
 
     setIsRecording(false);
+    setIsPaused(false);
+    setShowDialog(false); // close the modal after saving
   };
 
   // Handle file upload
@@ -139,58 +156,46 @@ export function PlatformForm() {
     if (file) {
       if (file.type === "audio/mpeg" || file.name.endsWith(".mp3")) {
         setAudioFile(file);
-        setIsPlaying(false); // Reset play state when new file is selected
       } else {
         alert("Please select an MP3 file only");
       }
     }
   };
 
-  // Toggle play/pause
-  const togglePlayPause = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent form submission
+  useEffect(() => {
+    if (!audioFile) return;
+
+    const objectUrl = URL.createObjectURL(audioFile);
+    setAudioSrc(objectUrl); // if you're using it somewhere else
+
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
+      audioRef.current.src = objectUrl;
     }
-  };
+
+    return () => {
+      URL.revokeObjectURL(objectUrl);
+    };
+  }, [audioFile]);
+
+  // Toggle play/pause
+
   // Handle time updates during playback
   const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
+    const audio = audioRef.current;
+    if (audio) {
+      setCurrentTime(audio.currentTime || 0);
     }
   };
-
   // Set duration when metadata loads
   const handleLoadedMetadata = () => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);
+    const audio = audioRef.current;
+    if (audio && audio.duration && isFinite(audio.duration)) {
+      setDuration(audio.duration);
     }
-  };
-
-  // Handle seeking
-  const handleSeek = (values: number[]) => {
-    const seekTime = values[0];
-    setCurrentTime(seekTime);
-    if (audioRef.current) {
-      audioRef.current.currentTime = seekTime;
-    }
-  };
-
-  // Format time display
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   };
 
   const handleDeleteAudio = () => {
     setAudioFile(null);
-    setIsPlaying(false);
     setCurrentTime(0);
     setDuration(0);
 
@@ -321,55 +326,33 @@ export function PlatformForm() {
             )}
           />
 
-          {/* Audio Player Section */}
-          {audioFile && (
-            <div className="mt-4 w-full lg:max-w-[50%]">
-              <div className="flex items-center gap-3">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  className="h-10 w-10 p-0"
-                  onClick={togglePlayPause}
-                  disabled={!audioFile}
-                >
-                  {isPlaying ? (
-                    <Pause className="h-4 w-4" />
-                  ) : (
-                    <Play className="h-4 w-4" />
-                  )}
-                </Button>
-
-                <Slider
-                  value={[currentTime]}
-                  max={duration > 0 ? duration : 1}
-                  step={0.1}
-                  onValueChange={handleSeek}
-                  className="flex-1"
-                  disabled={!audioFile || duration <= 0}
-                />
-
-                <span className="text-muted-foreground w-20 text-right text-sm">
-                  {formatTime(currentTime)} / {formatTime(duration)}
-                </span>
-              </div>
-            </div>
-          )}
+          <div
+            className={`${audioFile ? "flex" : "hidden"} items-center lg:w-[50%]`}
+          >
+            <audio
+              ref={audioRef}
+              src={audioSrc || ""}
+              onTimeUpdate={handleTimeUpdate}
+              onLoadedMetadata={handleLoadedMetadata}
+              className={`custom-audio flex-1`}
+              controls={true}
+            />
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="h-8 w-8 bg-black p-2 text-white hover:bg-white hover:text-black"
+              onClick={() => fileInputRef.current?.click()}
+              title="Generate Transcript"
+            >
+              <Send />
+            </Button>
+          </div>
 
           <Button type="submit">Submit</Button>
         </form>
 
         {/* Hidden audio element */}
-        <audio
-          ref={audioRef}
-          src={audioSrc || ""}
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedMetadata={handleLoadedMetadata}
-          onEnded={() => setIsPlaying(false)}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          className="hidden"
-        />
       </Form>
       <Dialog
         open={showDialog}
@@ -388,19 +371,15 @@ export function PlatformForm() {
             </DialogDescription>
           </DialogHeader>
 
-          {/* Recording Timer */}
-          <div className="text-center font-mono text-2xl">
-            {formatTime(
-              recordedChunks.reduce((acc, chunk) => acc + chunk.size, 0) / 1000,
-            )}
-          </div>
-
           <div className="mt-4 flex justify-end gap-2">
-            <Button
-              variant="secondary"
-              onClick={finishRecording} // Stop but keep recording
-            >
-              Stop & Save
+            {/* Toggle Button for Pause/Resume */}
+            <Button variant="secondary" onClick={toggleRecording}>
+              {isPaused ? "Continue" : "Stop"}
+            </Button>
+
+            {/* Finish Button */}
+            <Button variant="default" onClick={finishRecording}>
+              Finish
             </Button>
           </div>
         </DialogContent>
