@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Menu,
   X,
@@ -13,10 +13,11 @@ import {
   Code,
   HelpCircle,
   Mail,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
-// Define types for menu items
 interface MenuItem {
   title: string;
   link?: string;
@@ -30,6 +31,7 @@ interface MenuItem {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdown, setDropdown] = useState<string | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const menuItems: MenuItem[] = [
     {
@@ -57,8 +59,16 @@ const Navbar = () => {
     },
   ];
 
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, [isDarkMode]);
+
   return (
-    <nav className="bg-white shadow-md text-black w-screen fixed top-0 z-999">
+    <nav className="bg-primary text-primary-text w-screen fixed top-0 z-999">
       <div className="flex justify-between p-4 items-center mx-auto">
         {/* Logo */}
         <NavLink to={"/"} className="text-xl font-bold">
@@ -69,7 +79,7 @@ const Navbar = () => {
         <ul className="hidden lg:flex relative space-x-12">
           {menuItems.map((menu) => (
             <NavLink
-              to={menu.link || "/"} // fallback to root if link is undefined
+              to={menu.link || "/"}
               key={menu.title}
               className="cursor-pointer duration-300 group relative transition-colors"
               onClick={() => setDropdown(menu.items ? menu.title : null)}
@@ -88,12 +98,12 @@ const Navbar = () => {
                 )}
               </div>
               {menu.items && dropdown === menu.title && (
-                <ul className="bg-white border border-gray-200 rounded-md shadow-lg w-max absolute left-[-10px] top-full">
+                <ul className="bg-primary border  rounded-md shadow-lg w-max absolute left-[-10px] top-full">
                   {menu.items.map((item) => (
                     <NavLink
                       to={item.link}
                       key={item.name}
-                      className="flex duration-300 gap-2 hover:bg-gray-100 items-center px-4 py-2 transition-colors"
+                      className="flex duration-300 gap-2  items-center px-4 py-2 transition-colors text-primary-text"
                     >
                       <item.icon size={16} />
                       {item.name}
@@ -105,23 +115,37 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Buttons */}
-        <div className="flex items-center space-x-4">
-          <button className="border border-black rounded-md duration-300 hover:bg-gray-100 px-4 py-2 transition-colors">
-            Login
+        {/* Theme Toggle and Buttons */}
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="p-2 rounded-full  transition-colors duration-300"
+            aria-label="Toggle Dark Mode"
+          >
+            {isDarkMode ? (
+              <Sun size={20} className="text-primary-text" />
+            ) : (
+              <Moon size={20} className="text-primary-text" />
+            )}
           </button>
-          <button className="bg-black rounded-md text-white duration-300 hover:bg-gray-800 px-4 py-2 transition-colors">
-            Try Free
-          </button>
-          <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+
+          <div className="flex items-center space-x-4">
+            <button className="border border-secondary rounded-md duration-300 hover:bg-secondary hover:text-secondary-text px-4 py-2 transition-colors">
+              Login
+            </button>
+            <button className="bg-secondary rounded-md text-secondary-text duration-300 hover:opacity-90 px-4 py-2 transition-colors">
+              Try Free
+            </button>
+            <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="bg-white border-gray-200 border-t lg:hidden">
+        <div className="bg-primary  border-t lg:hidden">
           <ul className="flex flex-col p-4 space-y-4">
             {menuItems.map((menu) => (
               <li key={menu.title} className="cursor-pointer relative">
@@ -147,7 +171,7 @@ const Navbar = () => {
                       <NavLink
                         to={item.link}
                         key={item.name}
-                        className="flex gap-2 items-center py-1"
+                        className="flex gap-2 items-center py-1 text-primary-text"
                       >
                         <item.icon size={16} />
                         {item.name}
@@ -159,10 +183,10 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex flex-col p-4 space-y-2">
-            <button className="border border-black rounded-md duration-300 hover:bg-gray-100 px-4 py-2 transition-colors">
+            <button className="border border-secondary rounded-md duration-300 hover:bg-secondary hover:text-secondary-text px-4 py-2 transition-colors">
               Login
             </button>
-            <button className="bg-black rounded-md text-white duration-300 hover:bg-gray-800 px-4 py-2 transition-colors">
+            <button className="bg-secondary rounded-md text-secondary-text duration-300 hover:opacity-90 px-4 py-2 transition-colors">
               Try Free
             </button>
           </div>

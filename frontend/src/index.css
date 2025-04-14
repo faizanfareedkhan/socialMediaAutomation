@@ -155,3 +155,56 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+
+
+
+:root {
+  /* Light Theme */
+  --primary: #ffffff;
+  --secondary: #1a1a1a;
+  --primary-text: #1a1a1a;
+  --secondary-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --primary: #1a1a1a;
+  --secondary: #ffffff;
+  --primary-text: #ffffff;
+  --secondary-text: #1a1a1a;
+}
+
+/* Base styles */
+nav {
+  background-color: var(--primary);
+  color: var(--primary-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.text-primary-text {
+  color: var(--primary-text);
+}
+
+.text-secondary-text {
+  color: var(--secondary-text);
+}
+
+.border-secondary {
+  border-color: var(--secondary);
+}
+
+.hover\:bg-secondary:hover {
+  background-color: var(--secondary);
+  color: var(--secondary-text);
+}
