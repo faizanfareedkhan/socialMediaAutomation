@@ -57,21 +57,21 @@ export default function FeaturesSectionComp() {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-4xl font-extrabold md:text-5xl tracking-wide w-max mx-auto">
+      <h1 className="mx-auto w-max text-4xl font-extrabold tracking-wide md:text-5xl">
         ROI, ASAP.
       </h1>
-      <p className="text-black text-lg mt-4 w-full max-w-xl mx-auto break-words text-center">
+      <p className="mx-auto mt-4 w-full max-w-xl text-center text-lg break-words text-black">
         Introducing Generative Social Media – the fastest way to create content.
         Here's how it works!
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 max-w-7xl md:grid-cols-2 mx-auto py-10 relative z-10">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 py-10 md:grid-cols-2 lg:grid-cols-4">
         {features.map((feature, index) => (
           <Feature key={feature.title} {...feature} index={index} />
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 const Feature = ({
@@ -89,27 +89,27 @@ const Feature = ({
     <>
       <div
         className={cn(
-          "flex flex-col lg:border-r  py-10 relative group/feature dark:border-neutral-800 ",
+          "group/feature relative flex flex-col py-10 lg:border-r dark:border-neutral-800",
           (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
-          index < 4 && "lg:border-b dark:border-neutral-800"
+          index < 4 && "lg:border-b dark:border-neutral-800",
         )}
       >
         {index < 4 && (
-          <div className="bg-gradient-to-t h-full w-full absolute dark:from-neutral-800 duration-200 from-neutral-100 group-hover/feature:opacity-100 inset-0 opacity-0 pointer-events-none to-transparent transition" />
+          <div className="pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100 dark:from-neutral-800" />
         )}
         {index >= 4 && (
-          <div className="bg-gradient-to-b h-full w-full absolute dark:from-neutral-800 duration-200 from-neutral-100 group-hover/feature:opacity-100 inset-0 opacity-0 pointer-events-none to-transparent transition" />
+          <div className="pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100 dark:from-neutral-800" />
         )}
-        <div className="text-neutral-600 dark:text-neutral-400 mb-4 px-10 relative z-10">
+        <div className="relative z-10 mb-4 px-10 text-neutral-600 dark:text-neutral-400">
           {icon}
         </div>
-        <div className="text-lg font-bold mb-2 px-10 relative z-10">
-          <div className="bg-neutral-300 h-6 rounded-br-full rounded-tr-full w-1 absolute dark:bg-neutral-700 duration-200 group-hover/feature:bg-black group-hover/feature:h-8 inset-y-0 left-0 origin-center transition-all" />
-          <span className="text-neutral-800 dark:text-neutral-100 duration-200 group-hover/feature:translate-x-2 inline-block transition">
+        <div className="relative z-10 mb-2 px-10 text-lg font-bold">
+          <div className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-tr-full rounded-br-full bg-neutral-300 transition-all duration-200 group-hover/feature:h-8 group-hover/feature:bg-black dark:bg-neutral-700" />
+          <span className="inline-block text-neutral-800 transition duration-200 group-hover/feature:translate-x-2 dark:text-neutral-100">
             {title}
           </span>
         </div>
-        <p className="text-neutral-600 text-sm dark:text-neutral-300 max-w-xs px-10 relative z-10">
+        <p className="relative z-10 max-w-xs px-10 text-sm text-neutral-600 dark:text-neutral-300">
           {description}
         </p>
       </div>

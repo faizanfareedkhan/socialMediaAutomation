@@ -16,19 +16,19 @@ export default function Hero({
   btn,
 }: HeroProps) {
   return (
-    <div className="bg-white text-black font-sans  min-h-max  max-h-screen mt-18">
+    <div className="mt-18 max-h-screen min-h-max font-sans text-black">
       {/* Hero Section */}
-      <header className="flex flex-col justify-center text-center items-center px-6 py-24">
-        <h1 className="text-5xl font-bold lg:text-8xl max-w-2xl sm:text-7xl tracking-wide">
+      <header className="flex flex-col items-center justify-center px-6 py-24 text-center">
+        <h1 className="max-w-4xl text-4xl font-bold tracking-wide sm:text-7xl lg:text-8xl">
           {title}
         </h1>
-        <p className="text-black text-lg max-w-xl mt-4">{description}</p>
+        <p className="mt-4 max-w-xl text-lg text-black">{description}</p>
         {btn ? (
-          <div className="flex flex-col sm:flex-row items-center justify-center max-w-2xl tracking-wide space-y-3 sm:space-y-0 sm:space-x-4 mt-6">
-            <button className="bg-black cursor-pointer rounded-full text-lg text-white font-semibold hover:bg-gray-900 w-full sm:w-auto px-6 py-3 transition">
+          <div className="mt-6 flex max-w-2xl flex-col items-center justify-center space-y-3 tracking-wide sm:flex-row sm:space-y-0 sm:space-x-4">
+            <button className="w-full cursor-pointer rounded-full bg-black px-6 py-3 text-lg font-semibold text-white transition hover:bg-gray-900 sm:w-auto">
               {btn_primary}
             </button>
-            <button className="border cursor-pointer border-black rounded-full text-lg text-black font-semibold hover:bg-gray-100 w-full sm:w-auto px-6 py-3 transition">
+            <button className="w-full cursor-pointer rounded-full border border-black px-6 py-3 text-lg font-semibold text-black transition hover:bg-gray-100 sm:w-auto">
               {btn_secondary}
             </button>
           </div>
@@ -39,7 +39,7 @@ export default function Hero({
       <img
         src={image}
         alt=""
-        className="w-full max-w-4xl mx-auto h-auto object-cover"
+        className="mx-auto h-auto w-full max-w-4xl object-cover"
       />
     </div>
   );
