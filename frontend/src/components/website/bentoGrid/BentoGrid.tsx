@@ -41,7 +41,7 @@ const items = [
   {
     title: "The Digital Revolution",
     image:
-      "/featureNav/content/bentoGrid/6152eb36027ccce42986642e_Square Graphic Post 800x800 px-p-500.png",
+      "/featureNav/content/bentoGrid/6.png",
     description: "Dive into the transformative power of technology.",
     header: <Skeleton />,
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
@@ -49,7 +49,7 @@ const items = [
   {
     title: "The Art of Design",
     image:
-      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/1.png",
     description: "Discover the beauty of thoughtful and functional design.",
     header: <Skeleton />,
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
@@ -57,7 +57,7 @@ const items = [
   {
     title: "The Power of Communication",
     image:
-      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/2.png",
     description:
       "Understand the impact of effective communication in our lives.",
     header: <Skeleton />,
@@ -66,7 +66,7 @@ const items = [
   {
     title: "The Pursuit of Knowledge",
     image:
-      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/3.png",
     description: "Join the quest for understanding and enlightenment.",
     header: <Skeleton />,
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
@@ -74,7 +74,7 @@ const items = [
   {
     title: "The Joy of Creation",
     image:
-      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/4.png",
     description: "Experience the thrill of bringing ideas to life.",
     header: <Skeleton />,
     icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
@@ -82,7 +82,7 @@ const items = [
   {
     title: "The Spirit of Adventure",
     image:
-      "/featureNav/content/bentoGrid/63761d63e7b1c605857334a4_Screenshot_1-2-p-1600.png",
+      "/featureNav/content/bentoGrid/5.png",
     description: "Embark on exciting journeys and thrilling discoveries.",
     header: <Skeleton />,
     icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,

@@ -148,7 +148,7 @@ const data = {
     },
     {
       title: "Settings",
-      url: "#",
+      url: "accounts/settings",
       icon: Settings,
       isActive: true,
     },
