@@ -1,6 +1,6 @@
 const MarketingPrompt = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white p-6 text-black">
+    <div className="flex min-h-screen items-center justify-center bg-primary p-6 text-secondary">
       <div className="w-full max-w-6xl space-y-6 rounded-3xl border p-10 text-center shadow-2xl">
         <h1 className="text-4xl font-extrabold tracking-wide md:text-5xl">
           Social media has evolved. Have you kept up?

@@ -62,11 +62,21 @@ const Navbar = () => {
   ];
   console.log(isDarkMode);
   useEffect(() => {
-    const root = document.getElementById("root");
-    if (root) {
-      root.setAttribute("data-theme", isDarkMode ? "light" : "dark");
+    const handleChangeTheme = (
+      primary: string,
+      secondary: string,
+      tertiary: string,
+    ) => {
+      const html = document.documentElement;
+      html.style.setProperty("--primary", primary);
+      html.style.setProperty("--secondary", secondary);
+      html.style.setProperty("--tertiary", tertiary);
+    };
+    if (isDarkMode) {
+      handleChangeTheme("white", "black", "#79b752");
+    } else {
+      handleChangeTheme("black", "white", "#79b752");
     }
-    console.log(root);
   }, [isDarkMode]);
 
   return (
