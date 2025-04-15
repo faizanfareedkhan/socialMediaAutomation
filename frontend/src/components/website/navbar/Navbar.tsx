@@ -17,6 +17,8 @@ import {
   Moon,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import BtnPrimary from "@/components/common/BtnPrimary";
+import BtnSecondary from "@/components/common/BtnSecondary";
 
 interface MenuItem {
   title: string;
@@ -58,35 +60,35 @@ const Navbar = () => {
       ],
     },
   ];
-
+  console.log(isDarkMode);
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
+    const root = document.getElementById("root");
+    if (root) {
+      root.setAttribute("data-theme", isDarkMode ? "light" : "dark");
     }
+    console.log(root);
   }, [isDarkMode]);
 
   return (
-    <nav className="bg-primary text-primary-text w-screen fixed top-0 z-999">
-      <div className="flex justify-between p-4 items-center mx-auto">
+    <nav className="bg-primary text-secondary fixed top-0 z-999 w-screen">
+      <div className="mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <NavLink to={"/"} className="text-xl font-bold">
           <img src="/logo/ES_logo.png" alt="Logo" className="h-10 w-auto" />
         </NavLink>
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex relative space-x-12">
+        <ul className="relative hidden space-x-12 lg:flex">
           {menuItems.map((menu) => (
             <NavLink
               to={menu.link || "/"}
               key={menu.title}
-              className="cursor-pointer duration-300 group relative transition-colors"
+              className="group relative cursor-pointer transition-colors duration-300"
               onClick={() => setDropdown(menu.items ? menu.title : null)}
               onMouseEnter={() => setDropdown(menu.items ? menu.title : null)}
               onMouseLeave={() => setDropdown(null)}
             >
-              <div className="flex gap-1 items-center">
+              <div className="flex items-center gap-1">
                 {menu.title}
                 {menu.items && (
                   <ChevronDown
@@ -98,12 +100,12 @@ const Navbar = () => {
                 )}
               </div>
               {menu.items && dropdown === menu.title && (
-                <ul className="bg-primary border  rounded-md shadow-lg w-max absolute left-[-10px] top-full">
+                <ul className="bg-primary absolute top-full left-[-10px] w-max rounded-md border shadow-lg">
                   {menu.items.map((item) => (
                     <NavLink
                       to={item.link}
                       key={item.name}
-                      className="flex duration-300 gap-2  items-center px-4 py-2 transition-colors text-primary-text"
+                      className="text-secondary flex items-center gap-2 px-4 py-2 transition-colors duration-300"
                     >
                       <item.icon size={16} />
                       {item.name}
@@ -116,26 +118,23 @@ const Navbar = () => {
         </ul>
 
         {/* Theme Toggle and Buttons */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1">
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="p-2 rounded-full  transition-colors duration-300"
+            className="rounded-full p-2 transition-colors duration-300"
             aria-label="Toggle Dark Mode"
           >
             {isDarkMode ? (
-              <Sun size={20} className="text-primary-text" />
+              <Sun size={20} className="text-secondary" />
             ) : (
-              <Moon size={20} className="text-primary-text" />
+              <Moon size={20} className="text-secondary" />
             )}
           </button>
 
-          <div className="flex items-center space-x-4">
-            <button className="border border-secondary rounded-md duration-300 hover:bg-secondary hover:text-secondary-text px-4 py-2 transition-colors">
-              Login
-            </button>
-            <button className="bg-secondary rounded-md text-secondary-text duration-300 hover:opacity-90 px-4 py-2 transition-colors">
-              Try Free
-            </button>
+          <div className="flex items-center space-x-1">
+            <BtnPrimary className="rounded-md px-4 py-2" name="Login" />
+            <BtnSecondary className="rounded-md px-4 py-2" name="Try Free" />
+
             <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -145,12 +144,12 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="bg-primary  border-t lg:hidden">
-          <ul className="flex flex-col p-4 space-y-4">
+        <div className="bg-primary border-t lg:hidden">
+          <ul className="flex flex-col space-y-4 p-4">
             {menuItems.map((menu) => (
-              <li key={menu.title} className="cursor-pointer relative">
+              <li key={menu.title} className="relative cursor-pointer">
                 <div
-                  className="flex justify-between items-center"
+                  className="flex items-center justify-between"
                   onClick={() =>
                     setDropdown(dropdown === menu.title ? null : menu.title)
                   }
@@ -166,12 +165,12 @@ const Navbar = () => {
                   )}
                 </div>
                 {menu.items && dropdown === menu.title && (
-                  <ul className="ml-4 mt-2 space-y-2">
+                  <ul className="mt-2 ml-4 space-y-2">
                     {menu.items.map((item) => (
                       <NavLink
                         to={item.link}
                         key={item.name}
-                        className="flex gap-2 items-center py-1 text-primary-text"
+                        className="text-secondary flex items-center gap-2 py-1"
                       >
                         <item.icon size={16} />
                         {item.name}
@@ -182,11 +181,11 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className="flex flex-col p-4 space-y-2">
-            <button className="border border-secondary rounded-md duration-300 hover:bg-secondary hover:text-secondary-text px-4 py-2 transition-colors">
+          <div className="flex flex-col space-y-2 p-4">
+            <button className="border-secondary hover:bg-secondary hover:text-secondary rounded-md border px-4 py-2 transition-colors duration-300">
               Login
             </button>
-            <button className="bg-secondary rounded-md text-secondary-text duration-300 hover:opacity-90 px-4 py-2 transition-colors">
+            <button className="bg-secondary text-secondary rounded-md px-4 py-2 transition-colors duration-300 hover:opacity-90">
               Try Free
             </button>
           </div>
