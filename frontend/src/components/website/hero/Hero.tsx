@@ -1,3 +1,5 @@
+import PopOver from "../popOver/PopOver";
+
 interface HeroProps {
   title: string;
   description: string;
@@ -18,6 +20,14 @@ export default function Hero({
   return (
     <div className="bg-primary text-secondary mt-18 max-h-screen min-h-max font-sans">
       {/* Hero Section */}
+      <div className="absolute right-0">
+        <div className="flex flex-col">
+          <PopOver name={"hover me 1"} />
+          <PopOver name={"hover me 2"} />
+          <PopOver name={"hover me 3"} />
+          <PopOver name={"hover me 4"} />
+        </div>
+      </div>
       <header className="flex flex-col items-center justify-center px-6 py-24 text-center">
         <h1 className="max-w-4xl text-4xl font-bold tracking-wide sm:text-7xl lg:text-8xl">
           {title}
