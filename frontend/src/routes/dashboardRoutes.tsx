@@ -12,6 +12,7 @@ import AllPosts from "@/pages/dashboard/postContent/allPosts/AllPosts";
 import SocialMediaAccounts from "@/pages/dashboard/integerations/socialMediaAccounts/SocialMediaAccounts";
 import ThirdPartyIntegrations from "@/pages/dashboard/integerations/thirdPartyIntegrations/ThirdPartyIntegrations";
 import Subscription from '@/pages/dashboard/account/subscription/Subscription';
+import Settings from '@/pages/dashboard/account/settings/Settings';
 
 const dashboardRoutes: RouteObject[] = [
   {
@@ -41,6 +42,10 @@ const dashboardRoutes: RouteObject[] = [
       {
         path: "accounts/subscription",
         element: <Subscription />,
+      },
+      {
+        path: "accounts/settings",
+        element: <Settings />,
       },
     ],
   },

@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 export default function HelpHeader() {
   return (
-    <div className="bg-black px-4 py-8 text-white">
+    <div className="bg-primary px-4 py-8 text-secondary">
       <div className="mx-auto max-w-4xl">
         {/* Top Section with Logo & Language Selector */}
         <div className="flex items-center justify-between"></div>

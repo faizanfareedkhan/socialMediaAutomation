@@ -1,8 +1,8 @@
 const HowAIWorks: React.FC = () => {
   return (
-    <section className="w-full bg-gray-100 py-16 px-6 text-center ">
+    <section className="w-full bg-primary py-16 px-6 text-center ">
       {/* Heading */}
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-12">
         How the AI writes your Copy
       </h2>
 

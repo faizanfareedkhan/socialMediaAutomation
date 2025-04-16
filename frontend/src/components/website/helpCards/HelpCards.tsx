@@ -53,7 +53,7 @@ export default function HelpCards() {
         <a
           key={index}
           href={card.link}
-          className="w-80 cursor-pointer rounded-lg border bg-white p-6 shadow-md transition duration-300 hover:shadow-lg"
+          className="w-80 cursor-pointer rounded-lg border bg-primary p-6 shadow-md transition duration-300 hover:shadow-lg"
         >
           <div className="mb-3 text-gray-600">{card.icon}</div>
           <h2 className="text-lg font-semibold">{card.title}</h2>
