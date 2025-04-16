@@ -14,8 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
-import { Mic, Trash2, UploadCloud, Play, Pause, Send } from "lucide-react";
-import { Slider } from "@/components/ui/slider";
+import { Mic, Trash2, UploadCloud, Send } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -35,7 +34,6 @@ const platforms = [
   { id: "instagram", name: "Instagram" },
   { id: "linkedin", name: "LinkedIn" },
 ];
-
 export function PlatformForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,15 +47,10 @@ export function PlatformForm() {
   const [isRecording, setIsRecording] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [audioSrc, setAudioSrc] = useState<string | null>(null);
-  console.log(audioSrc);
   const shouldSaveRef = useRef(true); // new ref to control saving
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
   const [audioFile, setAudioFile] = useState<File | null>(null);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -83,7 +76,6 @@ export function PlatformForm() {
 
     const tempAudio = new Audio(URL.createObjectURL(blob));
     tempAudio.onloadedmetadata = () => {
-      setDuration(tempAudio.duration);
       URL.revokeObjectURL(tempAudio.src);
     };
 
@@ -161,7 +153,6 @@ export function PlatformForm() {
       }
     }
   };
-
   useEffect(() => {
     if (!audioFile) return;
 
@@ -177,27 +168,8 @@ export function PlatformForm() {
     };
   }, [audioFile]);
 
-  // Toggle play/pause
-
-  // Handle time updates during playback
-  const handleTimeUpdate = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      setCurrentTime(audio.currentTime || 0);
-    }
-  };
-  // Set duration when metadata loads
-  const handleLoadedMetadata = () => {
-    const audio = audioRef.current;
-    if (audio && audio.duration && isFinite(audio.duration)) {
-      setDuration(audio.duration);
-    }
-  };
-
   const handleDeleteAudio = () => {
     setAudioFile(null);
-    setCurrentTime(0);
-    setDuration(0);
 
     if (audioRef.current) {
       audioRef.current.pause();
@@ -211,7 +183,8 @@ export function PlatformForm() {
 
   // Form submit handler
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // console.log(values);
+    
+    console.log(values);
   }
 
   return (
@@ -332,8 +305,6 @@ export function PlatformForm() {
             <audio
               ref={audioRef}
               src={audioSrc || ""}
-              onTimeUpdate={handleTimeUpdate}
-              onLoadedMetadata={handleLoadedMetadata}
               className={`custom-audio flex-1`}
               controls={true}
             />
