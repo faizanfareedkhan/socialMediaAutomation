@@ -28,6 +28,7 @@ export default function Hero({
           <PopOver name={"hover me 4"} />
         </div>
       </div>
+      <MultiSelectCombobox />
       <header className="flex flex-col items-center justify-center px-6 py-24 text-center">
         <h1 className="max-w-4xl text-4xl font-bold tracking-wide sm:text-7xl lg:text-8xl">
           {title}
@@ -54,5 +55,96 @@ export default function Hero({
         className="mx-auto h-auto w-full max-w-4xl object-cover"
       />
     </div>
+  );
+}
+
+import * as React from "react";
+import { Check, ChevronsUpDown } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
+const frameworks = [
+  { value: "next.js", label: "Next.js" },
+  { value: "sveltekit", label: "SvelteKit" },
+  { value: "nuxt.js", label: "Nuxt.js" },
+  { value: "remix", label: "Remix" },
+  { value: "astro", label: "Astro" },
+];
+
+export function MultiSelectCombobox() {
+  const [open, setOpen] = React.useState(false);
+  const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
+
+  const toggleSelection = (value: string) => {
+    if (selectedValues.includes(value)) {
+      setSelectedValues((prev) => prev.filter((v) => v !== value));
+    } else {
+      setSelectedValues((prev) => [...prev, value]);
+    }
+  };
+
+  const getLabel = () => {
+    if (selectedValues.length === 0) return "Select frameworks...";
+    return frameworks
+      .filter((f) => selectedValues.includes(f.value))
+      .map((f) => f.label)
+      .join(", ");
+  };
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-[250px] justify-between"
+        >
+          <span className="truncate">{getLabel()}</span>
+          <ChevronsUpDown className="opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[250px] p-0">
+        <Command>
+          <CommandInput placeholder="Search framework..." className="h-9" />
+          <CommandList>
+            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandGroup>
+              {frameworks.map((framework) => (
+                <CommandItem
+                  key={framework.value}
+                  value={framework.value}
+                  onSelect={() => toggleSelection(framework.value)}
+                >
+                  {framework.label}
+                  <Check
+                    className={cn(
+                      "ml-auto",
+                      selectedValues.includes(framework.value)
+                        ? "opacity-100"
+                        : "opacity-0",
+                    )}
+                  />
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
   );
 }

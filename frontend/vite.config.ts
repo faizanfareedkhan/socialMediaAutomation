@@ -12,15 +12,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // server: {
-  //   https: {
-  //     key: fs.readFileSync("./localhost-key.pem"),
-  //     cert: fs.readFileSync("./localhost.pem"),
-  //   },
-  //   port: 5173,
-  //   host: "0.0.0.0",
-  // },
-  // server: {
-  //   allowedHosts: ["69cc-116-90-119-179.ngrok-free.app"],
-  // },
 });

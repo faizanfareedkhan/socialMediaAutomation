@@ -155,70 +155,76 @@
   animation: marquee-vertical 20s linear infinite;
 }
 
+:root {
+  --primary-color: white;
+  --secondary-color: black;
+  --tertiary-color: #79b752;
+}
+
 /* {For background color} */
 .bg-primary {
-  background-color: var(--primary);
+  background-color: var(--primary-color);
 }
 .bg-secondary {
-  background-color: var(--secondary);
+  background-color: var(--secondary-color);
 }
 .bg-tertiary {
-  background-color: var(--tertiary);
+  background-color: var(--tertiary-color);
 }
 
 /* {For text color} */
 .text-primary {
-  color: var(--primary);
+  color: var(--primary-color);
 }
 .text-secondary {
-  color: var(--secondary);
+  color: var(--secondary-color);
 }
 .text-tertiary {
-  color: var(--tertiary);
+  color: var(--tertiary-color);
 }
 
 /* {For border color} */
 .border-primary {
-  border-color: var(--primary);
+  border-color: var(--primary-color);
 }
 .border-secondary {
-  border-color: var(--secondary);
+  border-color: var(--secondary-color);
 }
 .border-tertiary {
-  border-color: var(--tertiary);
+  border-color: var(--tertiary-color);
 }
 
 /* Hover background colors */
 .hover\:bg-primary:hover {
-  background-color: var(--primary);
+  background-color: var(--primary-color);
 }
 .hover\:bg-secondary:hover {
-  background-color: var(--secondary);
+  background-color: var(--secondary-color);
 }
 .hover\:bg-tertiary:hover {
-  background-color: var(--tertiary);
+  background-color: var(--tertiary-color);
 }
 
 /* Hover text colors */
 .hover\:text-primary:hover {
-  color: var(--primary);
+  color: var(--primary-color);
 }
 .hover\:text-secondary:hover {
-  color: var(--secondary);
+  color: var(--secondary-color);
 }
 .hover\:text-tertiary:hover {
-  color: var(--tertiary);
+  color: var(--tertiary-color);
 }
 
 /* Hover border colors */
 .hover\:border-primary:hover {
-  border-color: var(--primary);
+  border-color: var(--primary-color);
 }
 .hover\:border-secondary:hover {
-  border-color: var(--secondary);
+  border-color: var(--secondary-color);
 }
 .hover\:border-tertiary:hover {
-  border-color: var(--tertiary);
+  border-color: var(--tertiary-color);
 }
 
 .custom-audio::-webkit-media-controls-enclosure {

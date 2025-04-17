@@ -5,7 +5,7 @@ const FB = () => {
   return (
     <>
       <LoginSocialFacebook
-        appId="892298492963363"
+        appId="692911389909846"
         onResolve={(response: any) => {
           console.log(response);
         }}
