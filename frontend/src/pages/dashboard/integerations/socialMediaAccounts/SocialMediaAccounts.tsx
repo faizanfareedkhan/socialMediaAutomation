@@ -178,13 +178,12 @@ const SocialMediaAccounts = () => {
       </div>
 
       {/* PROFILE SELECTOR UI */}
-      <div className="w-full  rounded-lg border  p-6">
+      <div className="w-full rounded-lg border p-6">
         <div className="mb-4">
           <h2 className="text-xl font-semibold">Select profiles</h2>
-          <p className="text-sm ">
+          <p className="text-sm">
             Pick the profiles you want to connect. If you’re missing any you can
-            follow our Help Guides to reset
-            access.
+            follow our Help Guides to reset access.
           </p>
         </div>
 
@@ -201,11 +200,11 @@ const SocialMediaAccounts = () => {
           </span>
         </div>
 
-        <div className="space-y-3 rounded-md  p-4">
+        <div className="space-y-3 rounded-md p-4">
           {profiles.map((profile, index) => (
             <div
               key={index}
-              className="flex items-center space-x-4 rounded-md  px-4 py-3 shadow-sm"
+              className="flex items-center space-x-4 rounded-md px-4 py-3 shadow-sm"
             >
               <input
                 type="checkbox"
@@ -225,7 +224,45 @@ const SocialMediaAccounts = () => {
           ))}
         </div>
 
-        <Button className='mt-4'>Connect</Button>
+        <Button className="mt-4">Connect</Button>
+      </div>
+      <div className="w-full mt-5 grid grid-cols-1 gap-4  p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {[
+          {
+            name: "Hakeem sharafat Ali Shah official",
+            image: "https://via.placeholder.com/40",
+            posts: 6,
+          },
+          {
+            name: "Allah Shafi Allah Kafi",
+            image: "https://via.placeholder.com/40",
+            posts: 1,
+          },
+          {
+            name: "Hafiz dawakahana",
+            image: "https://via.placeholder.com/40",
+            posts: 1,
+          },
+        ]
+          .flatMap((entry) => Array(entry.posts).fill(entry))
+          .map((entry, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-3 rounded-lg bg-white p-4 shadow"
+            >
+              <img
+                src={entry.image}
+                alt={entry.name}
+                className="h-10 w-10 rounded-full object-cover"
+              />
+              <div>
+                <p className="text-sm font-medium text-gray-800">
+                  {entry.name}
+                </p>
+                <p className="text-xs text-gray-500">Just now</p>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );
