@@ -4,6 +4,130 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Font */
+* {
+  font-family: "Poppins", "Space Grotesk", "Courier New", Courier, monospace;
+}
+
+/* Keyframes */
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+/* Animations */
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee 20s linear infinite reverse;
+}
+.animate-marquee-vertical {
+  animation: marquee-vertical 20s linear infinite;
+}
+
+:root {
+  --base-color: white;
+  --contrast-color: black;
+  --accent-color: #79b752;
+}
+
+/* Background Colors */
+.bg-base {
+  background-color: var(--base-color);
+}
+.bg-contrast {
+  background-color: var(--contrast-color);
+}
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+/* Text Colors */
+.text-base {
+  color: var(--base-color);
+}
+.text-contrast {
+  color: var(--contrast-color);
+}
+.text-accent {
+  color: var(--accent-color);
+}
+
+/* Border Colors */
+.border-base {
+  border-color: var(--base-color);
+}
+.border-contrast {
+  border-color: var(--contrast-color);
+}
+.border-accent {
+  border-color: var(--accent-color);
+}
+
+/* Hover Background Colors */
+.hover\:bg-base:hover {
+  background-color: var(--base-color);
+}
+.hover\:bg-contrast:hover {
+  background-color: var(--contrast-color);
+}
+.hover\:bg-accent:hover {
+  background-color: var(--accent-color);
+}
+
+/* Hover Text Colors */
+.hover\:text-base:hover {
+  color: var(--base-color);
+}
+.hover\:text-contrast:hover {
+  color: var(--contrast-color);
+}
+.hover\:text-accent:hover {
+  color: var(--accent-color);
+}
+
+/* Hover Border Colors */
+.hover\:border-base:hover {
+  border-color: var(--base-color);
+}
+.hover\:border-contrast:hover {
+  border-color: var(--contrast-color);
+}
+.hover\:border-accent:hover {
+  border-color: var(--accent-color);
+}
+
+/* Audio Controls */
+.custom-audio::-webkit-media-controls-enclosure {
+  background-color: transparent;
+}
+
+.bg-base-tooltip {
+  background-color: var(--contrast-color);
+}
+
+.bg-contrast-tooltip {
+  fill: var(--contrast-color);
+}
+
+.text-contrast-tooltip {
+  color: var(--base-color);
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -118,115 +242,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-/* Font */
-* {
-  font-family: "Poppins", "Space Grotesk", "Courier New", Courier, monospace;
-}
-
-/* Keyframes */
-@keyframes marquee {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes marquee-vertical {
-  from {
-    transform: translateY(0%);
-  }
-  to {
-    transform: translateY(-100%);
-  }
-}
-
-/* Animations */
-.animate-marquee {
-  animation: marquee 20s linear infinite;
-}
-.animate-marquee-reverse {
-  animation: marquee 20s linear infinite reverse;
-}
-.animate-marquee-vertical {
-  animation: marquee-vertical 20s linear infinite;
-}
-
-:root {
-  --primary-color: white;
-  --secondary-color: black;
-  --tertiary-color: #79b752;
-}
-
-/* {For background color} */
-.bg-primar {
-  background-color: var(--primary-color);
-}
-.bg-secondary {
-  background-color: var(--secondary-color);
-}
-.bg-tertiary {
-  background-color: var(--tertiary-color);
-}
-
-/* {For text color} */
-.text-primary {
-  color: var(--primary-color);
-}
-.text-secondary {
-  color: var(--secondary-color);
-}
-.text-tertiary {
-  color: var(--tertiary-color);
-}
-
-/* {For border color} */
-.border-primary {
-  border-color: var(--primary-color);
-}
-.border-secondary {
-  border-color: var(--secondary-color);
-}
-.border-tertiary {
-  border-color: var(--tertiary-color);
-}
-
-/* Hover background colors */
-.hover\:bg-primary:hover {
-  background-color: var(--primary-color);
-}
-.hover\:bg-secondary:hover {
-  background-color: var(--secondary-color);
-}
-.hover\:bg-tertiary:hover {
-  background-color: var(--tertiary-color);
-}
-
-/* Hover text colors */
-.hover\:text-primary:hover {
-  color: var(--primary-color);
-}
-.hover\:text-secondary:hover {
-  color: var(--secondary-color);
-}
-.hover\:text-tertiary:hover {
-  color: var(--tertiary-color);
-}
-
-/* Hover border colors */
-.hover\:border-primary:hover {
-  border-color: var(--primary-color);
-}
-.hover\:border-secondary:hover {
-  border-color: var(--secondary-color);
-}
-.hover\:border-tertiary:hover {
-  border-color: var(--tertiary-color);
-}
-
-.custom-audio::-webkit-media-controls-enclosure {
-  background-color: transparent;
 }

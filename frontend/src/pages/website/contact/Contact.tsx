@@ -45,25 +45,25 @@ const Contact = () => {
   };
 
   return (
-    <div className="mt-24 flex min-h-screen flex-col items-center justify-center bg-primary px-6 text-secondary ">
+    <div className="mt-24 flex min-h-screen flex-col items-center justify-center bg-base px-6 text-contrast ">
       <h2 className="mb-6 text-3xl font-bold">Get in Touch</h2>
       <p className="mb-8 max-w-md text-center text-lg text-gray-600 dark:text-gray-300">
         Feel free to reach out for collaborations or just a friendly chat.
       </p>
 
       <div className="mb-10 grid w-full max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
-        <div className="flex flex-col items-center rounded-2xl border bg-primary p-6 shadow-lg transition hover:scale-105 ">
-          <Mail size={28} className="mb-4 text-secondary " />
+        <div className="flex flex-col items-center rounded-2xl border bg-base p-6 shadow-lg transition hover:scale-105 ">
+          <Mail size={28} className="mb-4 text-contrast " />
           <p className="text-sm text-gray-600 dark:text-gray-300">Email</p>
           <p className="font-medium">contact@example.com</p>
         </div>
-        <div className="flex flex-col items-center rounded-2xl border bg-primary p-6 shadow-lg transition hover:scale-105 ">
-          <Phone size={28} className="mb-4 text-secondary " />
+        <div className="flex flex-col items-center rounded-2xl border bg-base p-6 shadow-lg transition hover:scale-105 ">
+          <Phone size={28} className="mb-4 text-contrast " />
           <p className="text-sm text-gray-600 dark:text-gray-300 ">Phone</p>
           <p className="font-medium">+123 456 7890</p>
         </div>
-        <div className="flex flex-col items-center rounded-2xl border bg-primary p-6 shadow-lg transition hover:scale-105 ">
-          <MapPin size={28} className="mb-4 text-secondary " />
+        <div className="flex flex-col items-center rounded-2xl border bg-base p-6 shadow-lg transition hover:scale-105 ">
+          <MapPin size={28} className="mb-4 text-contrast " />
           <p className="text-sm text-gray-600 dark:text-gray-300 ">Location</p>
           <p className="font-medium">New York, USA</p>
         </div>
@@ -73,7 +73,7 @@ const Contact = () => {
       <Form {...form}>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full max-w-2xl space-y-6 rounded-2xl bg-primary p-6 shadow-lg "
+          className="w-full max-w-2xl space-y-6 rounded-2xl bg-base p-6 shadow-lg "
         >
           {/* Username Field */}
           <FormField
@@ -134,7 +134,7 @@ const Contact = () => {
                   <textarea
                     {...field}
                     rows={4}
-                    className="w-full rounded-lg border bg-primary p-2 focus:ring-2 focus:ring-gray-500 focus:outline-none "
+                    className="w-full rounded-lg border bg-base p-2 focus:ring-2 focus:ring-gray-500 focus:outline-none "
                     placeholder="Your Message"
                   ></textarea>
                 </FormControl>
@@ -147,7 +147,7 @@ const Contact = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-lg  border-secondary text-secondary hover:bg-secondary hover:text-primary border transition-colors duration-300"
+            className="w-full rounded-lg  border-contrast text-contrast hover:bg-contrast hover:text-base border transition-colors duration-300"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>

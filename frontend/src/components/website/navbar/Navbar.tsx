@@ -15,6 +15,7 @@ import {
   Mail,
   Sun,
   Moon,
+  Contrast,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import BtnPrimary from "@/components/common/BtnPrimary";
@@ -63,14 +64,14 @@ const Navbar = () => {
   console.log(isDarkMode);
   useEffect(() => {
     const handleChangeTheme = (
-      primary: string,
-      secondary: string,
-      tertiary: string,
+      base: string,
+      Contrast: string,
+      accent: string,
     ) => {
       const html = document.documentElement;
-      html.style.setProperty("--primary-color", primary);
-      html.style.setProperty("--secondary-color", secondary);
-      html.style.setProperty("--tertiary-color", tertiary);
+      html.style.setProperty("--base-color", base);
+      html.style.setProperty("--contrast-color", Contrast);
+      html.style.setProperty("--accent-color", accent);
     };
     if (isDarkMode) {
       handleChangeTheme("white", "black", "#79b752");
@@ -80,7 +81,7 @@ const Navbar = () => {
   }, [isDarkMode]);
 
   return (
-    <nav className="bg-primary text-secondary fixed top-0 z-999 w-screen">
+    <nav className="bg-base text-contrast fixed top-0 z-999 w-screen">
       <div className="mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <NavLink to={"/"} className="text-xl font-bold">
@@ -110,12 +111,12 @@ const Navbar = () => {
                 )}
               </div>
               {menu.items && dropdown === menu.title && (
-                <ul className="bg-primary absolute top-full left-[-10px] w-max rounded-md border shadow-lg">
+                <ul className="bg-base absolute top-full left-[-10px] w-max rounded-md border shadow-lg">
                   {menu.items.map((item) => (
                     <NavLink
                       to={item.link}
                       key={item.name}
-                      className="text-secondary flex items-center gap-2 px-4 py-2 transition-colors duration-300"
+                      className="text-contrast flex items-center gap-2 px-4 py-2 transition-colors duration-300"
                     >
                       <item.icon size={16} />
                       {item.name}
@@ -135,9 +136,9 @@ const Navbar = () => {
             aria-label="Toggle Dark Mode"
           >
             {isDarkMode ? (
-              <Sun size={20} className="text-secondary" />
+              <Moon size={20} className="text-contrast" />
             ) : (
-              <Moon size={20} className="text-secondary" />
+              <Sun size={20} className="text-contrast" />
             )}
           </button>
 
@@ -154,7 +155,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="bg-primary border-t lg:hidden">
+        <div className="bg-base border-t lg:hidden">
           <ul className="flex flex-col space-y-4 p-4">
             {menuItems.map((menu) => (
               <li key={menu.title} className="relative cursor-pointer">
@@ -180,7 +181,7 @@ const Navbar = () => {
                       <NavLink
                         to={item.link}
                         key={item.name}
-                        className="text-secondary flex items-center gap-2 py-1"
+                        className="text-contrast flex items-center gap-2 py-1"
                       >
                         <item.icon size={16} />
                         {item.name}
@@ -192,10 +193,10 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex flex-col space-y-2 p-4">
-            <button className="border-secondary hover:bg-secondary hover:text-secondary rounded-md border px-4 py-2 transition-colors duration-300">
+            <button className="border-contrast hover:bg-contrast hover:text-contrast rounded-md border px-4 py-2 transition-colors duration-300">
               Login
             </button>
-            <button className="bg-secondary text-secondary rounded-md px-4 py-2 transition-colors duration-300 hover:opacity-90">
+            <button className="bg-contrast text-contrast rounded-md px-4 py-2 transition-colors duration-300 hover:opacity-90">
               Try Free
             </button>
           </div>

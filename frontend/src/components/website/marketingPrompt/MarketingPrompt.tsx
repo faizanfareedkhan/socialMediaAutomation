@@ -1,11 +1,11 @@
 const MarketingPrompt = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-primary p-6 text-secondary">
+    <div className="flex min-h-screen items-center justify-center bg-base p-6 text-contrast">
       <div className="w-full max-w-6xl space-y-6 rounded-3xl border p-10 text-center shadow-2xl">
         <h1 className="text-4xl font-extrabold tracking-wide md:text-5xl">
           Social media has evolved. Have you kept up?
         </h1>
-        <p className="mt-4 text-lg text-black">
+        <p className="mt-4 text-lg text-contrast">
           Say goodbye to Photoshop! Explore thousands of image and video
           templates. Create manually in our dashboard or let AI do it for you.
         </p>

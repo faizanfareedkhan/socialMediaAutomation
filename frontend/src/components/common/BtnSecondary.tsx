@@ -6,7 +6,7 @@ type ButtonProps = {
 const BtnSecondary: React.FC<ButtonProps> = ({ name, className = "" }) => {
   return (
     <button
-      className={`bg-tertiary text-secondary hover:bg-secondary hover:text-tertiary border-secondary hover:border-tertiary border transition-colors duration-300 ${className}`}
+      className={`bg-accent text-contrast hover:bg-contrast hover:text-accent border-contrast hover:border-accent border transition-colors duration-300 ${className}`}
     >
       {name}
     </button>
