@@ -1,4 +1,12 @@
 import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
+import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -6,23 +14,36 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { useLocation } from "react-router-dom"; // Correct import for useLocation
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const formatBreadcrumb = (segment: string) => {
   return segment
-    .split("-") // Replace hyphens with spaces
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 };
 
 const Header = () => {
   const { pathname } = useLocation();
-  const pathSegments = pathname.split("/").filter(Boolean); // Remove empty segments
+  const pathSegments = pathname.split("/").filter(Boolean);
+  const currentPage = pathSegments[pathSegments.length - 1] || "";
+
+  const [open, setOpen] = useState(false);
+
+  const buttonLabels: Record<string, string> = {
+    post: "Post",
+    socials: "Add Socials",
+  };
+
+  const sheetSide = currentPage === "create-post" ? "left" : "right";
+  const buttonLabel = buttonLabels[currentPage] || "Click";
 
   return (
-    <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b mb-4">
+    <header className="mb-4 flex h-16 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
       <div className="flex items-center gap-2 px-4">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mr-2 h-4" />
@@ -51,6 +72,32 @@ const Header = () => {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
+
+      {/* Sheet Trigger Button */}
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger asChild>
+          <Button>{buttonLabel}</Button>
+        </SheetTrigger>
+        <SheetContent side={sheetSide}>
+          <SheetHeader>
+            <SheetTitle>{buttonLabel}</SheetTitle>
+            <SheetDescription>
+              {currentPage === "create-post"
+                ? "Create a new post here."
+                : "Add your social accounts here."}
+            </SheetDescription>
+          </SheetHeader>
+
+          {/* Put your form or content inside here */}
+          <div className="mt-4">
+            {currentPage === "create-post" ? (
+              <p>Post creation form goes here.</p>
+            ) : (
+              <p>Socials linking form goes here.</p>
+            )}
+          </div>
+        </SheetContent>
+      </Sheet>
     </header>
   );
 };

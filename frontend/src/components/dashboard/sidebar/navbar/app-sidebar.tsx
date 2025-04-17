@@ -69,53 +69,53 @@ const data = {
   ],
   postContent: [
     {
-      title: "Create Post",
+      title: "Post",
       url: "post-content/create-post",
       icon: FilePlus,
       isActive: true,
     },
-    {
-      title: "All Posts",
-      url: "post-content/all-posts",
-      icon: List,
-      isActive: true,
-    },
-    {
-      title: "Pending Posts",
-      url: "post-content/pending-posts",
-      icon: Hourglass,
-      isActive: true,
-    },
-    {
-      title: "Completed Posts",
-      url: "post-content/completed-posts",
-      icon: FileText,
-      isActive: true,
-    },
-    {
-      title: "Scheduled Posts",
-      url: "post-content/scheduled-posts",
-      icon: CalendarClock,
-      isActive: true,
-    },
-    {
-      title: "Maybe Later Posts",
-      url: "post-content/maybe-later-posts",
-      icon: Clock,
-      isActive: true,
-    },
-    {
-      title: "Declined Posts",
-      url: "post-content/declined-posts",
-      icon: XCircle,
-      isActive: true,
-    },
-    {
-      title: "Deleted Posts",
-      url: "post-content/deleted-posts",
-      icon: Trash,
-      isActive: true,
-    },
+    // {
+    //   title: "All Posts",
+    //   url: "post-content/all-posts",
+    //   icon: List,
+    //   isActive: true,
+    // },
+    // {
+    //   title: "Pending Posts",
+    //   url: "post-content/pending-posts",
+    //   icon: Hourglass,
+    //   isActive: true,
+    // },
+    // {
+    //   title: "Completed Posts",
+    //   url: "post-content/completed-posts",
+    //   icon: FileText,
+    //   isActive: true,
+    // },
+    // {
+    //   title: "Scheduled Posts",
+    //   url: "post-content/scheduled-posts",
+    //   icon: CalendarClock,
+    //   isActive: true,
+    // },
+    // {
+    //   title: "Maybe Later Posts",
+    //   url: "post-content/maybe-later-posts",
+    //   icon: Clock,
+    //   isActive: true,
+    // },
+    // {
+    //   title: "Declined Posts",
+    //   url: "post-content/declined-posts",
+    //   icon: XCircle,
+    //   isActive: true,
+    // },
+    // {
+    //   title: "Deleted Posts",
+    //   url: "post-content/deleted-posts",
+    //   icon: Trash,
+    //   isActive: true,
+    // },
   ],
   mediaLibrary: [
     {
@@ -176,7 +176,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.dashbooard} />
         <NavMain items={data.postContent} subHeading={"Post Content"} />
-        <NavMain items={data.mediaLibrary} />
+        <NavMain items={data.mediaLibrary} subHeading={"Media"} />
         <NavMain items={data.integrations} subHeading={"Integrations"} />
         <NavMain items={data.account} subHeading={"Account"} />
       </SidebarContent>
