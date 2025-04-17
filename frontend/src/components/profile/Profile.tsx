@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -17,8 +15,8 @@ import { Button } from "@/components/ui/button";
 
 // Zod Schema
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  username: z.string().min(2, "Username must be at least 2 characters."),
+  name: z.string().min(4, "Name must be at least 4 characters."),
+  username: z.string().min(6, "Username must be at least 6 characters."),
   email: z.string().email("Invalid email address."),
   googleEmail: z
     .string()

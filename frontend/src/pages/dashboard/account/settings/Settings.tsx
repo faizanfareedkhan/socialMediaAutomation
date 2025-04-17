@@ -11,13 +11,13 @@ export default function Settings() {
         <TabsList className="flex w-full justify-start gap-2 border-b border-gray-200">
           <TabsTrigger
             value="profile"
-            className="rounded-md px-3 py-1 text-sm  data-[state=active]:bg-white"
+            className="rounded-md px-3 py-1 text-sm data-[state=active]:bg-white"
           >
             General
           </TabsTrigger>
           <TabsTrigger
             value="account"
-            className="rounded-md px-3 py-1 text-sm  data-[state=active]:bg-white"
+            className="rounded-md px-3 py-1 text-sm data-[state=active]:bg-white"
           >
             Appearance
           </TabsTrigger>
@@ -29,7 +29,7 @@ export default function Settings() {
           </TabsTrigger>
           <TabsTrigger
             value="security"
-            className="rounded-md px-3 py-1 text-sm  data-[state=active]:bg-white"
+            className="rounded-md px-3 py-1 text-sm data-[state=active]:bg-white"
           >
             Security
           </TabsTrigger>
