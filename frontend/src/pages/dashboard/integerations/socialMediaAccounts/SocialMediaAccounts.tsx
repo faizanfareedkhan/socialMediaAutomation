@@ -97,11 +97,11 @@ const SocialMediaAccounts = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-white p-6 text-black">
+    <div className="flex flex-col items-center justify-center p-6">
       {/* SOCIAL ACCOUNTS UI */}
-      <div className="mb-12 flex h-auto w-full max-w-6xl flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md md:flex-row">
+      <div className="mb-12 flex h-auto w-full flex-col overflow-hidden rounded-xl border shadow-md md:flex-row">
         {/* Left Panel */}
-        <div className="hidden w-full items-center justify-center bg-gray-100 p-4 lg:flex md:w-2/5">
+        <div className="hidden w-full items-center justify-center p-4 md:w-2/5 lg:flex">
           <img
             src="/dashboard/socials.8509b0e0.png"
             alt="Social Profiles"
