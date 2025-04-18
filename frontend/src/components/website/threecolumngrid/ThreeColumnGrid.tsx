@@ -1,6 +1,6 @@
 const ThreeColumnGrid: React.FC = () => {
   return (
-    <section className="w-full bg-primary text-secondary py-12 px-6 container mx-auto">
+    <section className="w-full bg-base text-contrast py-12 px-6 container mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         {/* Column 1 */}
         <div className="flex flex-col items-center space-y-4">

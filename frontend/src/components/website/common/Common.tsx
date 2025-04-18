@@ -64,7 +64,7 @@ function Common() {
         <div
           key={index}
           className={`flex flex-col justify-between rounded-lg border text-center shadow-lg ${
-            plan.highlighted ? "bg-gray-900 text-white" : "bg-primary"
+            plan.highlighted ? "bg-gray-900 text-base" : "bg-base"
           }`}
           style={{
             flex: "1 1 250px",
@@ -74,14 +74,14 @@ function Common() {
           }}
         >
           <div className="flex h-full flex-col p-6">
-            <h3 className="text-xl font-semibold">{plan.title}</h3>
+            <h3 className="text-xl  text-contrast font-semibold">{plan.title}</h3>
             <p className="text-sm text-gray-500">{plan.subtitle}</p>
-            <p className="mt-4 text-3xl font-bold">${plan.price}</p>
+            <p className="mt-4 text-3xl font-bold text-contrast">${plan.price}</p>
             <p className="text-sm text-gray-500">per month</p>
             <button
               className={`mt-4 cursor-pointer rounded-lg px-6 py-2 font-semibold ${
                 plan.highlighted
-                  ? "bg-primary text-secondary"
+                  ? "bg-base text-contrast"
                   : "border border-gray-900"
               }`}
             >

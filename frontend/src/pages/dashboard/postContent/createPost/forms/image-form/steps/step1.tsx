@@ -14,7 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
-import { Mic, Trash2, UploadCloud, Send } from "lucide-react";
+import { Mic, Trash2, UploadCloud, Send, ChartArea, Hash, AtomIcon, Smile, CircuitBoard, Bot } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -22,17 +22,79 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import MultipleSelector from "@/components/ui/multiselect";
 
 const formSchema = z.object({
   platforms: z.array(z.string()).min(1, "Select at least one platform"),
   prompt: z.string().min(10, "Prompt is required"),
 });
 
-const platforms = [
-  { id: "facebook", name: "Facebook" },
-  { id: "twitter", name: "X (Twitter)" },
-  { id: "instagram", name: "Instagram" },
-  { id: "linkedin", name: "LinkedIn" },
+const frameworks: Option[] = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+  {
+    value: "angular",
+    label: "Angular",
+  },
+  {
+    value: "vue",
+    label: "Vue.js",
+  },
+  {
+    value: "react",
+    label: "React",
+  },
+  {
+    value: "ember",
+    label: "Ember.js",
+  },
+  {
+    value: "gatsby",
+    label: "Gatsby",
+  },
+  {
+    value: "eleventy",
+    label: "Eleventy",
+  },
+  {
+    value: "solid",
+    label: "SolidJS",
+  },
+  {
+    value: "preact",
+    label: "Preact",
+  },
+  {
+    value: "qwik",
+    label: "Qwik",
+  },
+  {
+    value: "alpine",
+    label: "Alpine.js",
+  },
+  {
+    value: "lit",
+    label: "Lit",
+  },
 ];
 export function PlatformForm() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -183,7 +245,6 @@ export function PlatformForm() {
 
   // Form submit handler
   function onSubmit(values: z.infer<typeof formSchema>) {
-    
     console.log(values);
   }
 
@@ -192,7 +253,24 @@ export function PlatformForm() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Platform Selection  */}
-          <FormField
+
+          <div className="*:not-first:mt-2">
+            <Label>Multiselect</Label>
+            <MultipleSelector
+              commandProps={{
+                label: "Select frameworks",
+              }}
+              // value={frameworks.slice(0, 2)}
+              defaultOptions={frameworks}
+              placeholder="Select frameworks"
+              hideClearAllButton
+              hidePlaceholderWhenSelected
+              emptyIndicator={
+                <p className="text-center text-sm">No results found</p>
+              }
+            />
+          </div>
+          {/* <FormField
             control={form.control}
             name="platforms"
             render={() => (
@@ -235,7 +313,7 @@ export function PlatformForm() {
                 <FormMessage />
               </FormItem>
             )}
-          />
+          /> */}
           {/* Prompt Section */}
           <FormField
             control={form.control}
@@ -243,7 +321,7 @@ export function PlatformForm() {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormLabel>Prompt</FormLabel>
-                <div className="relative w-full lg:max-w-[50%]">
+                <div className="relative w-full">
                   <FormControl>
                     <Textarea
                       placeholder="Type your prompt here..."
@@ -266,11 +344,34 @@ export function PlatformForm() {
                       variant="ghost"
                       size="sm"
                       className="h-8 w-8 p-2 hover:bg-gray-100"
+                    >
+                      <Smile className="h-4 w-4" />
+                    </Button>{" "}
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-2 hover:bg-gray-100"
+                    >
+                      <Hash className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-2 hover:bg-gray-100"
+                    >
+                      <Bot className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-2 hover:bg-gray-100"
                       onClick={startRecording}
                     >
                       <Mic className="h-4 w-4" />
                     </Button>
-
                     <Button
                       type="button"
                       variant="ghost"
@@ -280,7 +381,6 @@ export function PlatformForm() {
                     >
                       <UploadCloud />
                     </Button>
-
                     {audioFile && (
                       <Button
                         type="button"
@@ -299,9 +399,7 @@ export function PlatformForm() {
             )}
           />
 
-          <div
-            className={`${audioFile ? "flex" : "hidden"} items-center lg:w-[50%]`}
-          >
+          <div className={`${audioFile ? "flex" : "hidden"} items-center`}>
             <audio
               ref={audioRef}
               src={audioSrc || ""}

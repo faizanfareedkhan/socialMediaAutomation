@@ -22,7 +22,7 @@ const ThreeColumnSection = () => {
   ];
 
   return (
-    <div className="flex justify-center bg-primary p-8 text-secondary">
+    <div className="flex justify-center bg-base p-8 text-contrast">
       <div className="container mx-auto grid grid-cols-1 gap-6 md:grid-cols-3">
         {data.map((item, index) => (
           <div
