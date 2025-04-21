@@ -17,6 +17,7 @@ const Content = () => {
         title="Drag & drop"
         description="Struggling with complex and costly design software? With Trounce, become a pro graphic designer and video editor effortlessly. Create stunning visuals in minutes using our vast library of templates, stock photos, videos, licensed music, animations, backgrounds, and text styles."
         btn={false}
+        color={false}
       />
       <BentoGridComp />
       <SplitSection

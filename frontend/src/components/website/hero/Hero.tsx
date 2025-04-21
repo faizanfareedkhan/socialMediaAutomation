@@ -7,6 +7,8 @@ interface HeroProps {
   btn_secondary?: string;
   image?: string;
   btn?: boolean;
+
+  color?: boolean;
 }
 
 export default function Hero({
@@ -16,17 +18,23 @@ export default function Hero({
   btn_secondary,
   image,
   btn,
+  color = true,
 }: HeroProps) {
   return (
     <div className="bg-base text-contrast mt-18 max-h-screen min-h-max font-sans">
       {/* Hero Section */}
-      <div className="absolute right-0">
-        <div className="mt-8 mr-10 flex flex-col gap-1">
-          <PopOver color="bg-red-500" />
-          <PopOver color="bg-green-500" />
-          <PopOver color="bg-blue-500" />
+      {color ? (
+        <div className="absolute right-0">
+          <div className="mt-8 mr-10 flex flex-col gap-1">
+            <PopOver color="bg-red-500" />
+            <PopOver color="bg-green-500" />
+            <PopOver color="bg-blue-500" />
+          </div>
         </div>
-      </div>
+      ) : (
+        ""
+      )}
+
       <header className="flex flex-col items-center justify-center px-6 py-24 text-center">
         <h1 className="max-w-4xl text-4xl font-bold tracking-wide sm:text-7xl lg:text-8xl">
           {title}
