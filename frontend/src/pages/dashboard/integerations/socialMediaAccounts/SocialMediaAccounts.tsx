@@ -7,7 +7,7 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { useState } from "react";
-import { ArrowRight, MoreVertical, Copy, X } from "lucide-react";
+import { ArrowRight, Copy, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SplitSection from "@/components/dashboard/splitSection/SplitSection";
 
@@ -113,32 +113,32 @@ const profiles = [
 
 const cardProfiles = [
   {
-    name: "Hakeem sharafat Ali Shah official",
+    name: "Page name",
     image: "https://via.placeholder.com/40",
     date: "3 days ago",
   },
   {
-    name: "Allah Shafi Allah Kafi",
+    name: "Page name",
     image: "https://via.placeholder.com/40",
     date: "1 day ago",
   },
   {
-    name: "Hafiz dawakahana",
+    name: "Page name",
     image: "https://via.placeholder.com/40",
     date: "Just now",
   },
   {
-    name: "Hafiz dawakahana",
+    name: "Page name",
     image: "https://via.placeholder.com/40",
     date: "Just now",
   },
   {
-    name: "Hafiz dawakahana",
+    name: "Page name",
     image: "https://via.placeholder.com/40",
     date: "Just now",
   },
   {
-    name: "Hafiz dawakahana",
+    name: "Page name",
     image: "https://via.placeholder.com/40",
     date: "Just now",
   },

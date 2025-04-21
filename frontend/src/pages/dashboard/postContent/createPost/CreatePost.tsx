@@ -125,7 +125,7 @@ const CreatePost = () => {
             "Preview how your post will look",
           ]}
           buttonText="Start Creating"
-          onButtonClick={() => setOpen(true)} // ✅ open sheet on button click
+          onButtonClick={() => setOpen(true)}
         />
       </div>
 
