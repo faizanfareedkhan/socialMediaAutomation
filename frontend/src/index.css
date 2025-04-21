@@ -42,9 +42,12 @@
 :root {
   --base-color: white;
   --contrast-color: black;
-  --accent-color: #79b752;
+  --brand-color: #79b752;
 }
-
+body{
+  background-color: var(--base-color);
+  color: var(--contrast-color);
+}
 /* Background Colors */
 .bg-base {
   background-color: var(--base-color);
@@ -52,8 +55,8 @@
 .bg-contrast {
   background-color: var(--contrast-color);
 }
-.bg-accent {
-  background-color: var(--accent-color);
+.bg-brand {
+  background-color: var(--brand-color);
 }
 
 /* Text Colors */
@@ -63,8 +66,8 @@
 .text-contrast {
   color: var(--contrast-color);
 }
-.text-accent {
-  color: var(--accent-color);
+.text-brand {
+  color: var(--brand-color);
 }
 
 /* Border Colors */
@@ -74,8 +77,8 @@
 .border-contrast {
   border-color: var(--contrast-color);
 }
-.border-accent {
-  border-color: var(--accent-color);
+.border-brand {
+  border-color: var(--brand-color);
 }
 
 /* Hover Background Colors */
@@ -85,8 +88,8 @@
 .hover\:bg-contrast:hover {
   background-color: var(--contrast-color);
 }
-.hover\:bg-accent:hover {
-  background-color: var(--accent-color);
+.hover\:bg-brand:hover {
+  background-color: var(--brand-color);
 }
 
 /* Hover Text Colors */
@@ -96,8 +99,8 @@
 .hover\:text-contrast:hover {
   color: var(--contrast-color);
 }
-.hover\:text-accent:hover {
-  color: var(--accent-color);
+.hover\:text-brand:hover {
+  color: var(--brand-color);
 }
 
 /* Hover Border Colors */
@@ -107,8 +110,8 @@
 .hover\:border-contrast:hover {
   border-color: var(--contrast-color);
 }
-.hover\:border-accent:hover {
-  border-color: var(--accent-color);
+.hover\:border-brand:hover {
+  border-color: var(--brand-color);
 }
 
 /* Audio Controls */

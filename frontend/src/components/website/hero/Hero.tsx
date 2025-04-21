@@ -39,7 +39,7 @@ export default function Hero({
             <button className="border-contrast text-contrast hover:bg-contrast h-[48px] w-[200px] cursor-pointer rounded-full border transition-colors duration-300 hover:text-base">
               {btn_primary}
             </button>
-            <button className="bg-accent text-contrast hover:bg-contrast hover:text-accent border-contrast hover:border-accent h-[48px] w-[200px] cursor-pointer rounded-full border transition-colors duration-300">
+            <button className="bg-brand text-contrast hover:bg-contrast hover:text-brand border-contrast hover:border-brand h-[48px] w-[200px] cursor-pointer rounded-full border transition-colors duration-300">
               {btn_secondary}
             </button>
           </div>

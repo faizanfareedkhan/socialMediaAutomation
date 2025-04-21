@@ -66,12 +66,12 @@ const Navbar = () => {
     const handleChangeTheme = (
       base: string,
       Contrast: string,
-      accent: string,
+      brand: string,
     ) => {
       const html = document.documentElement;
       html.style.setProperty("--base-color", base);
       html.style.setProperty("--contrast-color", Contrast);
-      html.style.setProperty("--accent-color", accent);
+      html.style.setProperty("--brand-color", brand);
     };
     if (isDarkMode) {
       handleChangeTheme("white", "black", "#79b752");
