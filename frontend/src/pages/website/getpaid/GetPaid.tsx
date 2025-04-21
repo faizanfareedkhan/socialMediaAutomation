@@ -36,6 +36,7 @@ function GetPaid() {
         btn_primary="Assets"
         btn_secondary="How to use"
         btn={true}
+        color={false}
       />
       <FAQ />
     </>
