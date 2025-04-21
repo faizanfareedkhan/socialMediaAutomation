@@ -105,6 +105,8 @@ import {
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Button } from "@/components/ui/button";
 
+
+
 const CreatePost = () => {
   const [open, setOpen] = useState(false);
   // const id = useId();
@@ -125,6 +127,65 @@ const CreatePost = () => {
           buttonText="Start Creating"
           onButtonClick={() => setOpen(true)} // ✅ open sheet on button click
         />
+      </div>
+
+      <div className="min-h-screen bg-gray-50 p-6">
+        <div className="mb-6 flex items-center justify-between">
+          <input
+            type="text"
+            placeholder="Search (3)"
+            className="w-1/3 rounded-md border border-gray-300 px-4 py-2"
+          />
+          <div className="text-sm text-gray-500">
+            0 - 3 of 3
+            <button className="ml-2 rounded px-2 py-1 hover:bg-gray-200">
+              &#8592;
+            </button>
+            <button className="ml-1 rounded px-2 py-1 hover:bg-gray-200">
+              &#8594;
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div
+              key={index}
+              className="relative overflow-hidden rounded-lg bg-white shadow-sm"
+            >
+              {/* Top Icons Row (Bookmark + Menu) */}
+              <div className="flex items-center justify-between px-2 pt-2">
+                {/* Bookmark Icon */}
+                <button className="text-gray-500 hover:text-red-500">
+                  <i className="fa-regular fa-bookmark text-base"></i>
+                </button>
+
+                {/* Dots Icon (⋮) */}
+                <button className="text-xl leading-none text-gray-500 hover:text-gray-700">
+                  ...
+                </button>
+              </div>
+
+              {/* Text Content */}
+              <div className="px-4 pt-1 pb-2 text-sm font-medium text-gray-800">
+                {index === 0
+                  ? "⚡ Excited for the cricket action this..."
+                  : "Thinking about making a change? Let’s kick..."}
+              </div>
+
+              {/* Image */}
+              <img
+                src={
+                  index === 0
+                    ? "/dashboard/createPosts/cricket.png"
+                    : "/dashboard/createPosts/smoking.png"
+                }
+                alt={index === 0 ? "Cricket Banner" : "No Smoking Day"}
+                className="h-40 w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* SHEET */}

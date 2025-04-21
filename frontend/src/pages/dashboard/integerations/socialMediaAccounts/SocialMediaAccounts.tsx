@@ -7,11 +7,10 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MoreVertical, Copy, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SplitSection from "@/components/dashboard/splitSection/SplitSection";
 
-// Dummy social platform data
 const socialPlatforms = [
   {
     name: "Facebook Page",
@@ -49,6 +48,36 @@ const socialPlatforms = [
     icon: "/icons/threads.svg",
     available: false,
   },
+  {
+    name: "Google Business",
+    type: "Social",
+    icon: "/icons/threads.svg",
+    available: false,
+  },
+  {
+    name: "Youtube Shorts",
+    type: "Social",
+    icon: "/icons/threads.svg",
+    available: false,
+  },
+  {
+    name: "Discord",
+    type: "Community",
+    icon: "/icons/threads.svg",
+    available: false,
+  },
+  {
+    name: "Telegram",
+    type: "Community",
+    icon: "/icons/threads.svg",
+    available: false,
+  },
+  {
+    name: "Slack",
+    type: "Community",
+    icon: "/icons/threads.svg",
+    available: false,
+  },
 ];
 
 const profiles = [
@@ -82,9 +111,43 @@ const profiles = [
   },
 ];
 
+const cardProfiles = [
+  {
+    name: "Hakeem sharafat Ali Shah official",
+    image: "https://via.placeholder.com/40",
+    date: "3 days ago",
+  },
+  {
+    name: "Allah Shafi Allah Kafi",
+    image: "https://via.placeholder.com/40",
+    date: "1 day ago",
+  },
+  {
+    name: "Hafiz dawakahana",
+    image: "https://via.placeholder.com/40",
+    date: "Just now",
+  },
+  {
+    name: "Hafiz dawakahana",
+    image: "https://via.placeholder.com/40",
+    date: "Just now",
+  },
+  {
+    name: "Hafiz dawakahana",
+    image: "https://via.placeholder.com/40",
+    date: "Just now",
+  },
+  {
+    name: "Hafiz dawakahana",
+    image: "https://via.placeholder.com/40",
+    date: "Just now",
+  },
+];
+
 const SocialMediaAccounts = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(Array(profiles.length).fill(true));
+  const [menuOpenIndex, setMenuOpenIndex] = useState<number | null>(null);
 
   const toggleSelectAll = () => {
     const allSelected = selected.every(Boolean);
@@ -100,7 +163,6 @@ const SocialMediaAccounts = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center p-6">
-        {/* SOCIAL ACCOUNTS UI */}
         <SplitSection
           imageSrc="/dashboard/social-accounts/socials.8509b0e0.png"
           title="Connect your social profiles"
@@ -111,10 +173,10 @@ const SocialMediaAccounts = () => {
             "Use pre-designed templates",
           ]}
           buttonText="Connect"
-          onButtonClick={() => setOpen(true)} // ✅ trigger sheet from here
+          onButtonClick={() => setOpen(true)}
         />
 
-        {/* PROFILE SELECTOR UI */}
+        {/* Profile Selector */}
         <div className="w-full rounded-lg border p-6">
           <div className="mb-4">
             <h2 className="text-xl font-semibold">Select profiles</h2>
@@ -163,45 +225,71 @@ const SocialMediaAccounts = () => {
 
           <Button className="mt-4">Connect</Button>
         </div>
-        <div className="mt-5 grid w-full grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {[
-            {
-              name: "Hakeem sharafat Ali Shah official",
-              image: "https://via.placeholder.com/40",
-              posts: 6,
-            },
-            {
-              name: "Allah Shafi Allah Kafi",
-              image: "https://via.placeholder.com/40",
-              posts: 1,
-            },
-            {
-              name: "Hafiz dawakahana",
-              image: "https://via.placeholder.com/40",
-              posts: 1,
-            },
-          ]
-            .flatMap((entry) => Array(entry.posts).fill(entry))
-            .map((entry, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-3 rounded-lg bg-white p-4 shadow"
-              >
+
+        {/* Cards Section */}
+        <div className="mt-5 grid w-full grid-cols-1 gap-4 p-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {cardProfiles.map((entry, index) => (
+            <div
+              key={index}
+              className="relative min-h-[180px] rounded-lg border bg-white p-6 shadow-sm"
+            >
+              {/* 3-dot menu */}
+              <div className="absolute top-3 right-3 z-10">
+                <button
+                  onClick={() =>
+                    setMenuOpenIndex(menuOpenIndex === index ? null : index)
+                  }
+                  className="rounded p-1 text-gray-500 hover:text-black"
+                >
+                  ...
+                </button>
+
+                {menuOpenIndex === index && (
+                  <div className="absolute right-0 z-20 mt-2 w-48 rounded-md border bg-white shadow-md">
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText("API_PROFILE_ID");
+                        setMenuOpenIndex(null);
+                      }}
+                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      <Copy className="h-4 w-4" />
+                      Copy API profile id
+                    </button>
+                    <button
+                      onClick={() => {
+                        alert(`Disconnected from ${entry.name}`);
+                        setMenuOpenIndex(null);
+                      }}
+                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+                    >
+                      <X className="h-4 w-4" />
+                      Disconnect
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Profile Image and Information */}
+              <div className="flex flex-col gap-2">
                 <img
                   src={entry.image}
                   alt={entry.name}
-                  className="h-10 w-10 rounded-full object-cover"
+                  className="h-16 w-16 rounded-full object-cover"
                 />
-                <div>
-                  <p className="text-sm font-medium text-gray-800">
-                    {entry.name}
-                  </p>
-                  <p className="text-xs text-gray-500">Just now</p>
-                </div>
+                <p className="text-lg font-medium text-gray-800">
+                  {entry.name}
+                </p>
               </div>
-            ))}
+
+              {/* Post Date */}
+              <p className="mt-2 text-xs text-gray-500">{entry.date}</p>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Sheet Drawer */}
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild></SheetTrigger>
         <SheetContent side="right">
