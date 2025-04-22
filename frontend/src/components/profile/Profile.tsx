@@ -77,12 +77,12 @@ const Profile = () => {
   };
 
   return (
-    <div className="mx-auto max-w-4xl bg-white px-4 py-8 text-black sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl dark:bg-background px-4 py-8 dark:text-white sm:px-6 lg:px-8">
       {/* Heading */}
       <h2 className="mb-2 text-xl font-semibold sm:text-2xl">
         Personal Information
       </h2>
-      <p className="mb-6 text-sm text-gray-600">
+      <p className="mb-6 text-sm text-gray-400">
         Update your personal information. This will be displayed on your profile
         and in account settings.
       </p>
@@ -97,14 +97,14 @@ const Profile = () => {
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-sm text-gray-500">
+            <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">
               No Image
             </div>
           )}
         </div>
         <div className="text-center sm:text-left">
           <h3 className="text-lg font-medium">M Raza</h3>
-          <p className="mb-2 text-sm text-gray-600">razabuck@example.com</p>
+          <p className="mb-2 text-sm text-gray-400">razabuck@example.com</p>
           <button
             type="button"
             onClick={triggerFileSelect}
@@ -177,7 +177,7 @@ const Profile = () => {
           {/* --- Third Party Accounts Section --- */}
           <div className="pt-2">
             <h3 className="mb-2 text-lg">Third party accounts</h3>
-            <p className="mb-4 text-sm text-gray-600">
+            <p className="mb-4 text-sm text-gray-400">
               Manage your linked accounts for signing in.
             </p>
 
@@ -196,7 +196,7 @@ const Profile = () => {
             )}
 
             {/* Google Card */}
-            <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+            <div className="rounded-lg border border-gray-200 bg-background p-4 shadow-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <img
@@ -205,8 +205,8 @@ const Profile = () => {
                     className="h-8 w-8"
                   />
                   <div>
-                    <p className="font-medium text-black">Google</p>
-                    <p className="text-sm text-gray-500">
+                    <p className="font-medium dark:text-white">Google</p>
+                    <p className="text-sm text-gray-400">
                       Must match current email
                     </p>
                   </div>
@@ -237,7 +237,7 @@ const Profile = () => {
                       </FormControl>
                       <Button
                         type="submit"
-                        className="rounded bg-black px-4 py-2 text-sm text-white"
+                        className="rounded bg-black  px-4 py-2 text-sm dark:text-white"
                       >
                         Add
                       </Button>
@@ -254,7 +254,7 @@ const Profile = () => {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="rounded bg-black px-6 py-2 text-white"
+              className="rounded-md bg-black px-6 py-2 dark:text-white"
             >
               {isSubmitting ? "Saving..." : "Save Changes"}
             </Button>

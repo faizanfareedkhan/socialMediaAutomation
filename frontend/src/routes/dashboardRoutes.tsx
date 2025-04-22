@@ -14,6 +14,7 @@ import ThirdPartyIntegrations from "@/pages/dashboard/integerations/thirdPartyIn
 import Subscription from '@/pages/dashboard/account/subscription/Subscription';
 import Settings from '@/pages/dashboard/account/settings/Settings';
 
+
 const dashboardRoutes: RouteObject[] = [
   {
     path: "dashboard",

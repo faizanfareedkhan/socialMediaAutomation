@@ -1,6 +1,7 @@
 import Profile from "@/components/profile/Profile";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import AppearenceCard from "../appearence/Appearence";
 
 export default function Settings() {
   return (
@@ -43,7 +44,7 @@ export default function Settings() {
 
         <TabsContent value="account">
           <Card className="mt-4 p-4">
-            <p>Account settings go here.</p>
+          <AppearenceCard/>
           </Card>
         </TabsContent>
 
