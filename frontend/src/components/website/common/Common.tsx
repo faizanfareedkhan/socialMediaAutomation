@@ -64,7 +64,7 @@ function Common() {
         <div
           key={index}
           className={`flex flex-col justify-between rounded-lg border text-center shadow-lg ${
-            plan.highlighted ? "bg-gray-900 text-base" : "bg-base"
+            plan.highlighted ? " text-base" : "bg-base"
           }`}
           style={{
             flex: "1 1 250px",
@@ -81,7 +81,7 @@ function Common() {
             <button
               className={`mt-4 cursor-pointer rounded-lg px-6 py-2 font-semibold ${
                 plan.highlighted
-                  ? "bg-base text-contrast"
+                  ? " border border-gray-900 text-contrast"
                   : "border border-gray-900"
               }`}
             >
@@ -89,7 +89,7 @@ function Common() {
             </button>
             <ul className="mt-6 flex-grow space-y-2 text-left text-sm">
               {plan.features.map((feature, i) => (
-                <li key={i} className="border-t pt-2">
+                <li key={i} className="border-t pt-2 text-contrast">
                   {feature}
                 </li>
               ))}
