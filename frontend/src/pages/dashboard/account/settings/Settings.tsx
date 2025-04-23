@@ -2,6 +2,7 @@ import Profile from "@/components/profile/Profile";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AppearenceCard from "../appearence/Appearence";
+import NotificationCard from "../notification/Notification";
 
 export default function Settings() {
   return (
@@ -26,7 +27,7 @@ export default function Settings() {
             value="notifications"
             className="rounded-md px-3 py-1 text-sm data-[state=active]:bg-white"
           >
-            Notifications
+            Calender
           </TabsTrigger>
           <TabsTrigger
             value="security"
@@ -50,7 +51,7 @@ export default function Settings() {
 
         <TabsContent value="notifications">
           <Card className="mt-4 p-4">
-            <p>Notification settings go here.</p>
+            <NotificationCard/>
           </Card>
         </TabsContent>
 
