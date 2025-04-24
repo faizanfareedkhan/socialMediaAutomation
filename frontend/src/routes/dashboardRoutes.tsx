@@ -13,6 +13,8 @@ import SocialMediaAccounts from "@/pages/dashboard/integerations/socialMediaAcco
 import ThirdPartyIntegrations from "@/pages/dashboard/integerations/thirdPartyIntegrations/ThirdPartyIntegrations";
 import Subscription from '@/pages/dashboard/account/subscription/Subscription';
 import Settings from '@/pages/dashboard/account/settings/Settings';
+import MediaLibrary  from '@/pages/dashboard/mediaLibrary/MediaLibrary';
+
 
 
 const dashboardRoutes: RouteObject[] = [
@@ -47,6 +49,10 @@ const dashboardRoutes: RouteObject[] = [
       {
         path: "accounts/settings",
         element: <Settings />,
+      },
+      {
+        path: "dashboard/media-library",
+        element: <MediaLibrary/>,
       },
     ],
   },

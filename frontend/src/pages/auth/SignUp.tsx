@@ -1,99 +1,117 @@
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { cn } from "@/lib/utils";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
-import { Label } from "@radix-ui/react-label";
 import { Input } from "@/components/ui/input";
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "@/components/ui/form";
+
+import { IconBrandGoogle, IconMail } from "@tabler/icons-react";
+
+const formSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+});
 
 const SignUp = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  };
-  return (
-    <>
-      <div className="flex flex-col bg-background border h-screen justify-center rounded-lg w-full items-center overflow-hidden relative">
-        <DotPattern
-          className={cn(
-            "h-full w-full [mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]"
-          )}
-        />
-        <div className="bg-white p-4 rounded-none shadow-input w-full dark:bg-black max-w-md md:p-8 md:rounded-2xl mx-auto relative">
-          <h2 className="text-neutral-800 text-xl dark:text-neutral-200 font-bold">
-            Sign-Up
-          </h2>
-          <p className="text-neutral-600 text-sm dark:text-neutral-300 max-w-sm mt-2">
-            Sign-Up if you can because we don&apos;t have a auth flow yet
-          </p>
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+    },
+  });
 
-          <form className="my-8" onSubmit={handleSubmit}>
-            <div className="flex flex-col mb-4 md:flex-row md:space-x-2 md:space-y-0 space-y-2">
-              <LabelInputContainer>
-                <Label htmlFor="firstname">First name</Label>
-                <Input id="firstname" placeholder="Tyler" type="text" />
-              </LabelInputContainer>
-              <LabelInputContainer>
-                <Label htmlFor="lastname">Last name</Label>
-                <Input id="lastname" placeholder="Durden" type="text" />
-              </LabelInputContainer>
-            </div>
-            <LabelInputContainer className="mb-4">
-              <Label htmlFor="email">Email Address</Label>
-              <Input
-                id="email"
-                placeholder="projectmayhem@fc.com"
-                type="email"
-              />
-            </LabelInputContainer>
-            <LabelInputContainer className="mb-4">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" placeholder="••••••••" type="password" />
-            </LabelInputContainer>
-            <LabelInputContainer className="mb-8">
-              <Label htmlFor="confirmPassword">Confirm password</Label>
-              <Input
-                id="confirmPassword"
-                placeholder="••••••••"
-                type="confirmPassword"
-              />
-            </LabelInputContainer>
+  const onSubmit = (values: { email: string }) => {
+    console.log("Form Submitted:", values);
+  };
+
+  return (
+    <div className="bg-background relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-lg border">
+      <DotPattern
+        className={cn(
+          "h-full w-full [mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]",
+        )}
+      />
+      <div className="shadow-input relative mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
+        <h2 className="text-center text-xl font-bold text-neutral-800 dark:text-neutral-200">
+          Sign up to ES
+        </h2>
+        <p className="mt-2 text-center text-sm text-neutral-600 dark:text-neutral-300">
+          Already have an account?{" "}
+          <a href="#" className="text-neutral-600 underline">
+            Login
+          </a>
+        </p>
+
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="my-8 space-y-4"
+          >
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email Address</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <Input
+                        placeholder="elon@spacex.com"
+                        type="email"
+                        className="pl-10"
+                        {...field}
+                      />
+                      <IconMail className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <button
-              className="bg-gradient-to-br h-10 rounded-md shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] text-white w-full block dark:bg-zinc-800 dark:from-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset] dark:to-zinc-900 font-medium from-black group/btn relative to-neutral-600"
               type="submit"
+              className="group/btn cursor-pointer relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
             >
-              Sign up &rarr;
+              Continue with Email
               <BottomGradient />
             </button>
 
-            <div className="bg-gradient-to-r h-[1px] w-full dark:via-neutral-700 from-transparent my-8 to-transparent via-neutral-300" />
+            <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
 
-            <div className="flex flex-col space-y-4">
-              <button
-                className="flex bg-gray-50 h-10 justify-start rounded-md shadow-input text-black w-full dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_#262626] font-medium group/btn items-center px-4 relative space-x-2"
-                type="submit"
-              >
-                <IconBrandGithub className="h-4 text-neutral-800 w-4 dark:text-neutral-300" />
-                <span className="text-neutral-700 text-sm dark:text-neutral-300">
-                  GitHub
-                </span>
-                <BottomGradient />
-              </button>
-              <button
-                className="flex bg-gray-50 h-10 justify-start rounded-md shadow-input text-black w-full dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_#262626] font-medium group/btn items-center px-4 relative space-x-2"
-                type="submit"
-              >
-                <IconBrandGoogle className="h-4 text-neutral-800 w-4 dark:text-neutral-300" />
-                <span className="text-neutral-700 text-sm dark:text-neutral-300">
-                  Google
-                </span>
-                <BottomGradient />
-              </button>
-            </div>
+            <button
+              type="button"
+              className="shadow-input cursor-pointer group/btn relative flex h-10 w-full items-center justify-start space-x-2 rounded-md bg-gray-50 px-4 font-medium text-black dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_#262626]"
+            >
+              <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+              <span className="text-sm text-neutral-700 dark:text-neutral-300">
+                Continue with Google
+              </span>
+              <BottomGradient />
+            </button>
           </form>
-        </div>
+        </Form>
+
+        <p className="text-center text-xs text-gray-500 dark:text-gray-400">
+          By continuing, you agree to the{" "}
+          <a className="text-neutral-600 underline" href="#">
+            Terms of Service
+          </a>{" "}
+          and{" "}
+          <a className="text-neutral-600 underline" href="#">
+            Privacy Policy
+          </a>
+        </p>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -102,22 +120,8 @@ export default SignUp;
 const BottomGradient = () => {
   return (
     <>
-      <span className="bg-gradient-to-r h-px w-full -bottom-px absolute block duration-500 from-transparent group-hover/btn:opacity-100 inset-x-0 opacity-0 to-transparent transition via-cyan-500" />
-      <span className="bg-gradient-to-r h-px w-1/2 -bottom-px absolute block blur-sm duration-500 from-transparent group-hover/btn:opacity-100 inset-x-10 mx-auto opacity-0 to-transparent transition via-indigo-500" />
+      <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
+      <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
     </>
-  );
-};
-
-const LabelInputContainer = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div className={cn("flex w-full flex-col space-y-2", className)}>
-      {children}
-    </div>
   );
 };
