@@ -15,131 +15,133 @@ const socialPlatforms = [
   {
     name: "Facebook Page",
     type: "Social",
-    icon: "/icons/facebook.svg",
+    image: "/dashboard/social-accounts/facebook.png",
     available: true,
   },
   {
     name: "Instagram Business",
     type: "Social",
-    icon: "/icons/instagram.svg",
+    image: "/dashboard/social-accounts/insta.png",
     available: true,
   },
   {
     name: "X (Twitter)",
     type: "Social",
-    icon: "/icons/twitter.svg",
+    image: "/dashboard/social-accounts/twitter1.png",
     available: true,
   },
   {
     name: "LinkedIn",
     type: "Social",
-    icon: "/icons/linkedin.svg",
+    image: "/dashboard/social-accounts/linkedin.png",
     available: true,
   },
   {
     name: "Pinterest",
     type: "Social",
-    icon: "/icons/pinterest.svg",
+    image: "/dashboard/social-accounts/pintrest.png",
     available: true,
   },
   {
     name: "Threads",
     type: "Social",
-    icon: "/icons/threads.svg",
+    image: "/dashboard/social-accounts/threads.png",
     available: false,
   },
   {
     name: "Google Business",
     type: "Social",
-    icon: "/icons/threads.svg",
+    image: "/dashboard/social-accounts/google-business.png",
     available: false,
   },
   {
     name: "Youtube Shorts",
     type: "Social",
-    icon: "/icons/threads.svg",
+    image: "/dashboard/social-accounts/youtube.png",
     available: false,
   },
   {
     name: "Discord",
     type: "Community",
-    icon: "/icons/threads.svg",
+    image: "/dashboard/social-accounts/discord.png",
     available: false,
   },
   {
     name: "Telegram",
     type: "Community",
-    icon: "/icons/threads.svg",
+    image: "/dashboard/social-accounts/telegram.png",
     available: false,
   },
   {
     name: "Slack",
     type: "Community",
-    icon: "/icons/threads.svg",
+    image:"/dashboard/social-accounts/slack.png",
     available: false,
   },
 ];
 
+
 const profiles = [
   {
-    name: "page name",
-    avatar: "/avatars/profile1.png",
+    name: "facebook page",
+    image: "/dashboard/social-accounts/facebook.png",
   },
   {
-    name: "page name",
-    avatar: "/avatars/profile2.png",
+    name: "instagram page",
+    image: "/dashboard/social-accounts/insta.png",
   },
   {
-    name: "page name",
-    avatar: "/avatars/profile3.png",
+    name: "facebook page",
+    image: "/dashboard/social-accounts/facebook.png",
   },
   {
-    name: "page name",
-    avatar: "/avatars/profile4.png",
+    name: "facebook page",
+    image: "/dashboard/social-accounts/facebook.png",
   },
   {
-    name: "page name",
-    avatar: "/avatars/profile5.png",
+    name: "instagram page",
+    image: "/dashboard/social-accounts/insta.png",
   },
   {
-    name: "page name",
-    avatar: "/avatars/profile6.png",
+    name: "facebook page",
+    image: "/dashboard/social-accounts/facebook.png",
   },
   {
-    name: "page name",
-    avatar: "/avatars/profile7.png",
+    name: "instagram page",
+    image: "/dashboard/social-accounts/insta.png",
   },
 ];
 
+
 const cardProfiles = [
   {
-    name: "Page name",
-    image: "https://via.placeholder.com/40",
+    name: "Facebook page",
+    image: "/dashboard/social-accounts/facebook.png",
     date: "3 days ago",
   },
   {
-    name: "Page name",
-    image: "https://via.placeholder.com/40",
+    name: "Instagram page",
+    image: "/dashboard/social-accounts/insta.png",
     date: "1 day ago",
   },
   {
-    name: "Page name",
-    image: "https://via.placeholder.com/40",
+    name: "Instagram page",
+    image: "/dashboard/social-accounts/insta.png",
     date: "Just now",
   },
   {
-    name: "Page name",
-    image: "https://via.placeholder.com/40",
+    name: "Facebook page",
+    image: "/dashboard/social-accounts/facebook.png",
     date: "Just now",
   },
   {
-    name: "Page name",
-    image: "https://via.placeholder.com/40",
+    name: "Instagram page",
+    image: "/dashboard/social-accounts/insta.png",
     date: "Just now",
   },
   {
-    name: "Page name",
-    image: "https://via.placeholder.com/40",
+    name: "Facebook page",
+    image: "/dashboard/social-accounts/facebook.png",
     date: "Just now",
   },
 ];
@@ -212,7 +214,7 @@ const SocialMediaAccounts = () => {
                   className="h-4 w-4 accent-black"
                 />
                 <img
-                  src={profile.avatar}
+                  src={profile.image}
                   alt={profile.name}
                   className="h-10 w-10 rounded-full object-cover"
                 />
@@ -312,9 +314,9 @@ const SocialMediaAccounts = () => {
               >
                 <div className="flex items-center space-x-4">
                   <img
-                    src={platform.icon}
+                    src={platform.image}
                     alt={platform.name}
-                    className="h-6 w-6"
+                    className="h-10 w-10 rounded-md object-cover"
                   />
                   <div>
                     <p className="font-medium text-black">{platform.name}</p>
