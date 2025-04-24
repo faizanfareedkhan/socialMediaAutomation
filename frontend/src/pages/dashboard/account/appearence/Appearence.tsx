@@ -121,7 +121,7 @@ const AppearenceCard: React.FC = () => {
               alt="Dark Theme"
               className="h-full w-full object-cover"
             />
-            <div className="absolute bottom-0 left-0 flex w-full items-center justify-center gap-2 bg-white/60 py-2 text-xs text-black dark:bg-background dark:text-white">
+            <div className="absolute bottom-0 left-0 flex w-full items-center justify-center gap-2 bg-white/60 py-2 text-xs text-black dark:bg-black/60 dark:text-white">
               <Moon size={14} />
               Black Theme
             </div>
@@ -205,7 +205,8 @@ const AppearenceCard: React.FC = () => {
             Delete Workspace
           </button>
           <p className="text-xs text-gray-400 dark:text-gray-400">
-          API workspace id: cm9jyjkz3000kn9w5mf6jx8zw
+            This will permanently delete all data associated with your
+            workspace.
           </p>
         </div>
       </div>
