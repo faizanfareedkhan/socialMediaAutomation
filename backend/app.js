@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const session = require("express-session");
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 const userDetailsRoutes = require("./routes/userDetailsRoutes");
 const authenticateUserRoutes = require("./routes/authenticateUserRoutes");
 const socialMediaRoutes = require("./routes/socialMediaRoutes")
@@ -25,9 +29,23 @@ app.use(express.json());
 
 // Express session setup
 app.use(bodyParser.json());
+
+
+// Express session setup (Required for passport to work with session)
+app.use(
+    session({
+      secret: "your_secret_key", // change this to a secure key
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
+  
+  // Passport middleware
+  app.use(passport.initialize());
+  app.use(passport.session());
+
  
-// Routes
- 
+
 app.use("/api/users", userDetailsRoutes); // User details
 app.use("/api/social", socialMediaRoutes); // Social media 
 app.use("/api/authenticateUser", authenticateUserRoutes); // Authenticate user
