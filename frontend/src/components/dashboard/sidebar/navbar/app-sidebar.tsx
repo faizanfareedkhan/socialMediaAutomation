@@ -139,6 +139,14 @@ const data = {
       isActive: true,
     },
   ],
+  members: [
+    {
+      title: "Members",
+      url: "members/Members",
+      icon: Users,
+      isActive: true,
+    },
+  ],
   account: [
     {
       title: "Team",
@@ -165,6 +173,7 @@ const data = {
       isActive: true,
     },
   ],
+ 
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -178,7 +187,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.postContent} subHeading={"Post Content"} />
         <NavMain items={data.mediaLibrary} subHeading={"Media"} />
         <NavMain items={data.integrations} subHeading={"Integrations"} />
+        <NavMain items={data.members} subHeading={"Members"} />
         <NavMain items={data.account} subHeading={"Account"} />
+      
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

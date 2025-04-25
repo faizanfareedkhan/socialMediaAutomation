@@ -14,6 +14,7 @@ import ThirdPartyIntegrations from "@/pages/dashboard/integerations/thirdPartyIn
 import Subscription from '@/pages/dashboard/account/subscription/Subscription';
 import Settings from '@/pages/dashboard/account/settings/Settings';
 import MediaLibrary  from '@/pages/dashboard/mediaLibrary/MediaLibrary';
+import Members from "@/pages/dashboard/members/Members";
 
 
 
@@ -53,6 +54,10 @@ const dashboardRoutes: RouteObject[] = [
       {
         path: "dashboard/media-library",
         element: <MediaLibrary/>,
+      },
+      {
+        path: "members/Members",
+        element: <Members/>,
       },
     ],
   },
