@@ -1,8 +1,9 @@
- 
 const User = require('../modals/userDetails');
 const bcrypt = require('bcryptjs');
+const { OAuth2Client } = require('google-auth-library');
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
-// Signup
+// Normal Signup
 exports.signup = async (req, res) => {
   const { firstName, lastName, email, password, profile } = req.body;
 
@@ -11,8 +12,7 @@ exports.signup = async (req, res) => {
     if (existingUser) return res.status(400).json({ message: 'Email already exists' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    const user = new User({ firstName,lastName,email,password: hashedPassword,profile});
+    const user = new User({ firstName, lastName, email, password: hashedPassword, profile });
 
     await user.save();
     res.status(201).json({ message: 'User registered successfully', user });
@@ -21,9 +21,9 @@ exports.signup = async (req, res) => {
   }
 };
 
-// Login
+// Normal Login
 exports.login = async (req, res) => {
-  const { email, password } = req.body; // NOTE: profile NOT needed for login match
+  const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email });
@@ -38,15 +38,41 @@ exports.login = async (req, res) => {
   }
 };
 
+// Google Signup/Login via Token 
+exports.googleLoginWithToken = async (req, res) => {
+  const { token } = req.body;
 
-// Social Login (Google or Facebook)
-exports.socialLoginSuccess = async (req, res) => {
-  if (!req.user) {
-    return res.status(401).json({ message: 'Authentication failed' });
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const { email, given_name, family_name, sub } = payload;
+
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      // New user signup with Google
+      user = new User({
+        firstName: given_name,
+        lastName: family_name || '',
+        email,
+        googleId: sub,
+        password: '', // no password for Google users
+        profile: {},
+      });
+    } else {
+      // Existing user login/update
+      if (!user.googleId) {
+        user.googleId = sub;
+      }
+    }
+
+    await user.save();
+    res.status(200).json({ message: 'Google Login Success', user });
+  } catch (err) {
+    res.status(500).json({ message: 'Google Login Failed', error: err.message });
   }
-
-  res.status(200).json({
-    message: 'Social login successful',
-    user: req.user,
-  });
 };

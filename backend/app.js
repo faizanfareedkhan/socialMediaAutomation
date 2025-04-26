@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 // Express session setup (Required for passport to work with session)
 app.use(
     session({
-      secret: "your_secret_key", // change this to a secure key
+      secret: "process.env.SESSION_SECRET", // change this to a secure key
       resave: false,
       saveUninitialized: true,
     })
