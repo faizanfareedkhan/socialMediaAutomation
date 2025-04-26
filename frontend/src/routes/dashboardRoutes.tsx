@@ -15,6 +15,7 @@ import Subscription from '@/pages/dashboard/account/subscription/Subscription';
 import Settings from '@/pages/dashboard/account/settings/Settings';
 import MediaLibrary  from '@/pages/dashboard/mediaLibrary/MediaLibrary';
 import Members from "@/pages/dashboard/members/Members";
+import Calendar from '@/pages/dashboard/postContent/calendar/Calendar';
 
 
 
@@ -26,6 +27,7 @@ const dashboardRoutes: RouteObject[] = [
       { index: true, element: <Home /> },
       { path: "post-content/create-post", element: <CreatePost /> },
       { path: "post-content/all-posts", element: <AllPosts /> },
+      { path: "post-content/calendar", element: <Calendar /> },
       { path: "post-content/pending-posts", element: <PendingPosts /> },
       { path: "post-content/completed-posts", element: <CompletedPosts /> },
       { path: "post-content/scheduled-posts", element: <ScheduledPosts /> },
@@ -53,11 +55,11 @@ const dashboardRoutes: RouteObject[] = [
       },
       {
         path: "dashboard/media-library",
-        element: <MediaLibrary/>,
+        element: <MediaLibrary />,
       },
       {
         path: "members/Members",
-        element: <Members/>,
+        element: <Members />,
       },
     ],
   },
