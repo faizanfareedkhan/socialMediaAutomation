@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const socialMediaController = require('../controllers/socialMediaConfigration');
+const socialMediaController = require('../controllers/socialMediaConfigrationController');
 
 // Get all social media configurations
-router.get('/getallSocialm', socialMediaController.getAllSocialMedia);
+router.get('/getallSocialmedia', socialMediaController.getAllSocialMedia);
 
 // Create a new social media configuration
-router.post('/createSocialm', socialMediaController.createSocialMedia);
+router.post('/createSocialmedia', socialMediaController.createSocialMedia);
 
 // Update social media configuration by ID
 router.put('/updateSocialm:id', socialMediaController.updateSocialMedia);

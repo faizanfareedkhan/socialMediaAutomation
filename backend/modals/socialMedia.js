@@ -5,15 +5,9 @@ const socialMediaSchema = new mongoose.Schema({
     type: String, 
     required: true,  
   },
-  userId: { 
-    type: String, 
-    required: true,  
-  },
   profileData: {
-    name: { type: String },
-    email: { type: String },
-    avatar: { type: String },
-    accessToken: { type: String }
+    type: Object,
+    required: true,
   },
   createdAt: { 
     type: Date, 

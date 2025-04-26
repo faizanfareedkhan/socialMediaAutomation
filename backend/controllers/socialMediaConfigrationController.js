@@ -12,9 +12,11 @@ exports.getAllSocialMedia = async (req, res) => {
 
 // Create a new social media 
 exports.createSocialMedia = async (req, res) => {
-  const { platform, userId, profileData } = req.body;
+  
   try {
-    const newConfig = new SocialMedia({ platform, userId, profileData });
+    const { platform, profileData } = req.body;
+    
+    const newConfig = new SocialMedia({ platform, profileData });
     await newConfig.save();
     res.status(201).json(newConfig);
   } catch (err) {
