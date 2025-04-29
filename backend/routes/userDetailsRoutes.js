@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const userDetailsController = require('../controllers/userDetailsController');
 
-router.post('/signup', userDetailsController.signup);
-router.post('/login', userDetailsController.login);
+// router.post('/signup', userDetailsController.signup);
+// router.post('/login', userDetailsController.login);
 router.post('/signUpEmail', userDetailsController.signUpWithEmail);
+router.get('/verifytoken', userDetailsController.verifytoken);
 
 router.post('/google-login', userDetailsController.googleLoginWithToken); // <-- Google Login Route
 

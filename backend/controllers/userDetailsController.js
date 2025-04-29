@@ -12,40 +12,40 @@ const token = require('../utilities/jwtTokenService');
 const file = require('../utilities/fileReadService');
 
 // Normal Signup
-exports.signup = async (req, res) => {
-  const { firstName, lastName, email, password, profile } = req.body;
+// exports.signup = async (req, res) => {
+//   const { firstName, lastName, email, password, profile } = req.body;
 
-  try {
-    const existingUser = await User.findOne({ email });
-    if (existingUser) return res.status(400).json({ message: 'Email already exists' });
+//   try {
+//     const existingUser = await User.findOne({ email });
+//     if (existingUser) return res.status(400).json({ message: 'Email already exists' });
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ firstName, lastName, email, password: hashedPassword, profile });
+//     const hashedPassword = await bcrypt.hash(password, 10);
+//     const user = new User({ firstName, lastName, email, password: hashedPassword, profile });
 
-    await user.save();
-    res.status(201).json({ message: 'User registered successfully', user });
-  } catch (err) {
-    res.status(500).json({ message: 'Signup error', error: err.message });
-  }
-};
+//     await user.save();
+//     res.status(201).json({ message: 'User registered successfully', user });
+//   } catch (err) {
+//     res.status(500).json({ message: 'Signup error', error: err.message });
+//   }
+// };
 
 // Normal Login
-exports.login = async (req, res) => {
-  const { email, password } = req.body;
+// exports.login = async (req, res) => {
+//   const { email, password } = req.body;
 
-  try {
-    const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: 'Invalid email' });
+//   try {
+//     const user = await User.findOne({ email });
+//     if (!user) return res.status(400).json({ message: 'Invalid email' });
 
     
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) return res.status(400).json({ message: 'Invalid password' });
+//     const match = await bcrypt.compare(password, user.password);
+//     if (!match) return res.status(400).json({ message: 'Invalid password' });
 
-    res.status(200).json({ message: 'Login successful', user });
-  } catch (err) {
-    res.status(500).json({ message: 'Login error', error: err.message });
-  }
-};
+//     res.status(200).json({ message: 'Login successful', user });
+//   } catch (err) {
+//     res.status(500).json({ message: 'Login error', error: err.message });
+//   }
+// };
 
 exports.signUpWithEmail = async (req, res) => {
   const { email } = req.body;
@@ -87,6 +87,7 @@ exports.signUpWithEmail = async (req, res) => {
       sysToken.userId = newSysUser._id;
       sysToken.token = await token.createToken(newSysUser._id.toString(), newSysUser.email);
       sysToken.isExpired = false;
+      sysToken.expiredAt = new Date(Date.now() + 10 * 60000);
 
       await sysToken.save();
       console.log("Token is added");
@@ -116,6 +117,24 @@ exports.signUpWithEmail = async (req, res) => {
     res.status(200).json({ message: 'SignUp successful', newSysUser });
   } catch (err) {
     res.status(500).json({ message: 'SignUp error', error: err.message });
+  }
+};
+
+exports.verifytoken = async (req, res) => {
+  const paramToken = req.params.token;
+
+  try {
+    const userToken = await sysUserToken.findOne({ paramToken });
+    if (!userToken) return res.status(400).json({ message: 'Invalid token' });
+    const now = new Date();
+    if(userToken.expiredAt > now) return res.status(400).json({ message: 'Token Expired' });
+    
+    const user = await sysUser.findOne({ _id: userToken.userId });
+    if (!user) return res.status(400).json({ message: 'User Not Found' });
+
+    res.status(200).json({ message: 'Token Verified and user fetched', user });
+  } catch (err) {
+    res.status(500).json({ message: 'Token error', error: err.message });
   }
 };
 

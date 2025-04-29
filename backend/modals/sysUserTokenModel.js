@@ -7,7 +7,8 @@ const sysUserToken = new mongoose.Schema({
     ref: 'sysUser'                            // 👈 Name of the model being referenced
   },
   isExpired: Boolean,
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  expiredAt: { type: Date }
   
 });
 
