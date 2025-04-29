@@ -19,7 +19,7 @@ import {
   Image,
   RefreshCw,
 } from "lucide-react";
-
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -27,7 +27,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Link } from "react-router-dom";
 
 const Calendar = () => {
@@ -72,7 +71,7 @@ const Calendar = () => {
           {isMonthYearPickerOpen && (
             <div className="absolute z-10 mt-2 w-64 rounded-lg border bg-white p-4 shadow">
               <div className="mb-2 text-center font-semibold text-gray-700">
-                2025
+                {format(currentMonth, "yyyy")}
               </div>
               <div className="grid grid-cols-3 gap-2 text-sm">
                 {[
@@ -94,7 +93,7 @@ const Calendar = () => {
                     onClick={() => handleMonthSelect(index)}
                     className={`rounded px-2 py-1 hover:bg-gray-100 ${
                       index === currentMonth.getMonth()
-                        ? "bg-orange-500 text-white"
+                        ? "bg-black text-white"
                         : ""
                     }`}
                   >
@@ -178,24 +177,38 @@ const Calendar = () => {
           </PopoverContent>
         </Popover>
 
-        <ToggleGroup
-          type="single"
-          value={view}
-          onValueChange={(val) => val && setView(val)}
-          className="bg-muted rounded-md"
-        >
-          <ToggleGroupItem value="list" className="px-3 py-1 text-sm">
-            List
-          </ToggleGroupItem>
-          <ToggleGroupItem value="month" className="px-3 py-1 text-sm">
-            Month
-          </ToggleGroupItem>
-        </ToggleGroup>
-
         <Button className="bg-black">New</Button>
       </div>
     </div>
   );
+
+ const renderListView = () => (
+   <div className="mt-4 space-y-4">
+     {posts.map((post) => (
+       <div
+         key={post.id}
+         className="flex w-full items-center justify-left rounded-lg border bg-white p-4 shadow-sm transition hover:shadow-md"
+       >
+         {/* Left side text */}
+         <div className="flex flex-col">
+           <h3 className="text-lg font-semibold">{post.title}</h3>
+           <p className="mt-1 text-sm text-gray-500">
+             {format(post.date, "MMMM d, yyyy")} — {post.time}
+           </p>
+         </div>
+
+         {/* Right side image */}
+         <img
+           src={post.image}
+           alt={post.title}
+           className="ml-4 h-20 w-20 rounded object-cover"
+         />
+       </div>
+     ))}
+   </div>
+ );
+
+
 
   const renderCells = () => {
     const monthStart = startOfMonth(currentMonth);
@@ -275,11 +288,37 @@ const Calendar = () => {
     return <div>{rows}</div>;
   };
 
+
   return (
     <div className="min-h-screen w-full p-4">
       <div className="mx-auto max-w-[1600px]">
         {renderHeader()}
-        {renderCells()}
+
+        {/* Tabs Component */}
+        <Tabs
+          value={view}
+          onValueChange={(val) => val && setView(val)}
+          className="mt-4"
+        >
+          <div className="flex justify-end">
+            {" "}
+            {/* Added flex justify-end to move tabs to the right */}
+            <TabsList className="bg-muted rounded-md">
+              <TabsTrigger value="list" className="px-3 py-1 text-sm">
+                List
+              </TabsTrigger>
+              <TabsTrigger value="month" className="px-3 py-1 text-sm">
+                Month
+              </TabsTrigger>
+            </TabsList>
+          </div>
+
+          {/* List Tab Content */}
+          <TabsContent value="list">{renderListView()}</TabsContent>
+
+          {/* Month Tab Content */}
+          <TabsContent value="month">{renderCells()}</TabsContent>
+        </Tabs>
       </div>
     </div>
   );
