@@ -5,10 +5,11 @@ const workspace = require('../modals/workspaceModel');
 const bcrypt = require('bcryptjs');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-const email = require('../utilities/emailService');
+const emailService = require('../utilities/emailService');
 const sysUserModal = require('../modals/sysUserModel');
 const autoGenerate = require('../utilities/autoGenerateNameService');
 const token = require('../utilities/jwtTokenService');
+const file = require('../utilities/fileReadService');
 
 // Normal Signup
 exports.signup = async (req, res) => {
@@ -89,6 +90,22 @@ exports.signUpWithEmail = async (req, res) => {
 
       await sysToken.save();
       console.log("Token is added");
+
+      console.log("Reading html file");
+      let htmlFile = await file.readFileFromPath('../emailtemplates/senduserlink.html');
+      console.log("Replacing data in html file");
+      htmlFile = htmlFile.replace("{userToken}", sysToken.token);
+      htmlFile = htmlFile.replace("{email}", email);
+
+      console.log("Sending email");
+      var emailSent =  await emailService.sendEmail(email, "Your sign-in link", htmlFile);
+      if(emailSent)
+      {
+        console.log("email sent");
+      }
+      else{
+        console.log("Error while sending email")
+      }
 
 
     } else {

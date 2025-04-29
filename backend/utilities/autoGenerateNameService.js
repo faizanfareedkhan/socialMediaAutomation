@@ -48,7 +48,7 @@ const enterpriseName = async function (){
 const randomPassword = async function (){
   try {
     
-    return await faker.person.password();
+    return await faker.internet.password();
     
   } catch (err) {
     console.error(err);
