@@ -6,7 +6,7 @@ import {
   CheckCircle,
   XCircle,
   UserMinus2,
-  ChevronDown 
+  ChevronDown,
 } from "lucide-react";
 import {
   Popover,
@@ -281,12 +281,15 @@ const Members: React.FC = () => {
               <div>
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button className="w-84" variant="outline">
+                    <Button
+                      className="w-full justify-between sm:w-84"
+                      variant="outline"
+                    >
                       {selectedRole}
-                      <ChevronDown className="ml-50 h-4 w-4 " />
+                      <ChevronDown className="h-4 w-4" />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent>
+                  <PopoverContent className="w-[90vw] max-w-sm sm:max-w-md">
                     <div
                       className="hover:bg-accent my-2 flex cursor-pointer flex-col py-2"
                       onClick={() => setSelectedRole("Admin")}
