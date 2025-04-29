@@ -2,8 +2,8 @@ const Workspace = require("../modals/workspaceModel");
 
 exports.createWorkspace = async (req, res) => {
   try {
-    const { name, owner, members } = req.body;
-    const workspace = new Workspace({ name, owner, members });
+    const { name, owner } = req.body;
+    const workspace = new Workspace({ name, owner });
     await workspace.save();
     res.status(201).json(workspace);
   } catch (error) {
