@@ -40,7 +40,7 @@ const ReviewCard = ({ img }: { img: string }) => {
 export function MarqueeComp() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-      <div className="mt-4 max-w-xl text-lg text-contrast">
+      <div className="mt-4 max-w-xl text-lg text-[var(--contrast-color)]">
         These companies rely on us for their content
       </div>
       <Marquee pauseOnHover className="[--duration:20s]">
@@ -49,8 +49,8 @@ export function MarqueeComp() {
         ))}
       </Marquee>
 
-      <div className="from-background pointer-events-none absolute inset-y-0 "></div>
-      <div className="from-background pointer-events-none absolute inset-y-0 "></div>
+      <div className="from-background pointer-events-none absolute inset-y-0"></div>
+      <div className="from-background pointer-events-none absolute inset-y-0"></div>
     </div>
   );
 }
