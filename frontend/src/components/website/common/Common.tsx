@@ -64,7 +64,7 @@ function Common() {
         <div
           key={index}
           className={`flex flex-col justify-between rounded-lg border text-center shadow-lg ${
-            plan.highlighted ? " text-base" : "bg-base"
+            plan.highlighted ? "text-base" : "bg-[var(--base-color)]"
           }`}
           style={{
             flex: "1 1 250px",
@@ -74,14 +74,18 @@ function Common() {
           }}
         >
           <div className="flex h-full flex-col p-6">
-            <h3 className="text-xl  text-contrast font-semibold">{plan.title}</h3>
+            <h3 className="text-xl font-semibold text-[var(--contrast-color)]">
+              {plan.title}
+            </h3>
             <p className="text-sm text-gray-500">{plan.subtitle}</p>
-            <p className="mt-4 text-3xl font-bold text-contrast">${plan.price}</p>
+            <p className="mt-4 text-3xl font-bold text-[var(--contrast-color)]">
+              ${plan.price}
+            </p>
             <p className="text-sm text-gray-500">per month</p>
             <button
               className={`mt-4 cursor-pointer rounded-lg px-6 py-2 font-semibold ${
                 plan.highlighted
-                  ? " border border-gray-900 text-contrast"
+                  ? "border border-gray-900 text-[var(--contrast-color)]"
                   : "border border-gray-900"
               }`}
             >
@@ -89,7 +93,10 @@ function Common() {
             </button>
             <ul className="mt-6 flex-grow space-y-2 text-left text-sm">
               {plan.features.map((feature, i) => (
-                <li key={i} className="border-t pt-2 text-contrast">
+                <li
+                  key={i}
+                  className="border-t pt-2 text-[var(--contrast-color)]"
+                >
                   {feature}
                 </li>
               ))}
@@ -108,6 +115,5 @@ function Common() {
     </div>
   );
 }
-
 
 export default Common;

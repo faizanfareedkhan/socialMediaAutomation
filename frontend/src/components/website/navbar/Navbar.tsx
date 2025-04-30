@@ -73,14 +73,14 @@ const Navbar = () => {
       html.style.setProperty("--brand-color", brand);
     };
     if (isDarkMode) {
-      handleChangeTheme("white", "black", "#79b752");
+      handleChangeTheme("white", "black", "green");
     } else {
-      handleChangeTheme("black", "white", "#79b752");
+      handleChangeTheme("black", "white", "green");
     }
   }, [isDarkMode]);
 
   return (
-    <nav className="bg-base text-contrast fixed top-0 z-999 w-screen">
+    <nav className="fixed top-0 z-999 w-screen bg-[var(--base-color)] text-[var(--contrast-color)]">
       <div className="mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <NavLink to={"/"} className="text-xl font-bold">
@@ -110,12 +110,12 @@ const Navbar = () => {
                 )}
               </div>
               {menu.items && dropdown === menu.title && (
-                <ul className="bg-base absolute top-full left-[-10px] w-max rounded-md border shadow-lg">
+                <ul className="absolute top-full left-[-10px] w-max rounded-md border bg-[var(--base-color)] shadow-lg">
                   {menu.items.map((item) => (
                     <NavLink
                       to={item.link}
                       key={item.name}
-                      className="text-contrast flex items-center gap-2 px-4 py-2 transition-colors duration-300"
+                      className="flex items-center gap-2 px-4 py-2 text-[var(--contrast-color)] transition-colors duration-300"
                     >
                       <item.icon size={16} />
                       {item.name}
@@ -135,9 +135,9 @@ const Navbar = () => {
             aria-label="Toggle Dark Mode"
           >
             {isDarkMode ? (
-              <Moon size={20} className="text-contrast" />
+              <Moon size={20} className="text-[var(--contrast-color)]" />
             ) : (
-              <Sun size={20} className="text-contrast" />
+              <Sun size={20} className="text-[var(--contrast-color)]" />
             )}
           </button>
 
@@ -154,7 +154,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="bg-base border-t lg:hidden">
+        <div className="border-t bg-[var(--base-color)] lg:hidden">
           <ul className="flex flex-col space-y-4 p-4">
             {menuItems.map((menu) => (
               <li key={menu.title} className="relative cursor-pointer">
@@ -180,7 +180,7 @@ const Navbar = () => {
                       <NavLink
                         to={item.link}
                         key={item.name}
-                        className="text-contrast flex items-center gap-2 py-1"
+                        className="flex items-center gap-2 py-1 text-[var(--contrast-color)]"
                       >
                         <item.icon size={16} />
                         {item.name}
@@ -192,10 +192,10 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex flex-col space-y-2 p-4">
-            <button className="border-contrast hover:bg-contrast hover:text-contrast rounded-md border px-4 py-2 transition-colors duration-300">
+            <button className="border-contrast rounded-md border px-4 py-2 transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-[var(--contrast-color)]">
               Login
             </button>
-            <button className="bg-contrast text-contrast rounded-md px-4 py-2 transition-colors duration-300 hover:opacity-90">
+            <button className="bg-contrast rounded-md px-4 py-2 text-[var(--contrast-color)] transition-colors duration-300 hover:opacity-90">
               Try Free
             </button>
           </div>

@@ -40,16 +40,17 @@
 }
 
 :root {
-  --base-color: white;
+  /* --base-color: white;
   --contrast-color: black;
-  --brand-color: #79b752;
+  --brand-color: #79b752; */
+  /* --bg-color: red;
+  --text-color: blue; */
 }
-body{
+/* body{
   background-color: var(--base-color);
   color: var(--contrast-color);
 }
-/* Background Colors */
-.bg-base {
+.bg-[var(--base-color)] {
   background-color: var(--base-color);
 }
 .bg-contrast {
@@ -59,18 +60,16 @@ body{
   background-color: var(--brand-color);
 }
 
-/* Text Colors */
 .text-base {
   color: var(--base-color);
 }
-.text-contrast {
+.text-[var(--contrast-color)] {
   color: var(--contrast-color);
 }
 .text-brand {
   color: var(--brand-color);
 }
 
-/* Border Colors */
 .border-base {
   border-color: var(--base-color);
 }
@@ -81,8 +80,7 @@ body{
   border-color: var(--brand-color);
 }
 
-/* Hover Background Colors */
-.hover\:bg-base:hover {
+.hover\:bg-[var(--base-color)]:hover {
   background-color: var(--base-color);
 }
 .hover\:bg-contrast:hover {
@@ -92,18 +90,16 @@ body{
   background-color: var(--brand-color);
 }
 
-/* Hover Text Colors */
 .hover\:text-base:hover {
   color: var(--base-color);
 }
-.hover\:text-contrast:hover {
+.hover\:text-[var(--contrast-color)]:hover {
   color: var(--contrast-color);
 }
 .hover\:text-brand:hover {
   color: var(--brand-color);
 }
 
-/* Hover Border Colors */
 .hover\:border-base:hover {
   border-color: var(--base-color);
 }
@@ -112,14 +108,14 @@ body{
 }
 .hover\:border-brand:hover {
   border-color: var(--brand-color);
-}
+} */
 
 /* Audio Controls */
 .custom-audio::-webkit-media-controls-enclosure {
   background-color: transparent;
 }
-
-.bg-base-tooltip {
+/* 
+.bg-[var(--base-color)]-tooltip {
   background-color: var(--contrast-color);
 }
 
@@ -127,9 +123,9 @@ body{
   fill: var(--contrast-color);
 }
 
-.text-contrast-tooltip {
+.text-[var(--contrast-color)]-tooltip {
   color: var(--base-color);
-}
+} */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
