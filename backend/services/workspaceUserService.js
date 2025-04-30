@@ -1,4 +1,4 @@
-const sysWorkspaceUser = require('../modals/sysWorkspaceUser');
+const sysWorkspaceUser = require('../models/sysWorkspaceUser');
 
 
 const createWorkspaceUser = async function(workspaceId, userId, userRole) {

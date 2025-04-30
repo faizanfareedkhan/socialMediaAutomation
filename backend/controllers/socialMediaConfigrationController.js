@@ -1,4 +1,4 @@
-const SocialMedia = require('../modals/socialMedia');
+const SocialMedia = require('../models/socialMedia');
 
 // Get all social media 
 exports.getAllSocialMedia = async (req, res) => {

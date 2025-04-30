@@ -1,4 +1,4 @@
-const sysUserToken = require('../modals/sysUserTokenModel');
+const sysUserToken = require('../models/sysUserTokenModel');
 const token = require('../utilities/jwtTokenService');
 
 const createToken = async function (userId, email ){

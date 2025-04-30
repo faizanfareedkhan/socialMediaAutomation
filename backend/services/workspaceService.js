@@ -1,4 +1,4 @@
-const Workspace = require('../modals/workspaceModel');
+const Workspace = require('../models/workspaceModel');
 
 
 const createWorkspace = async function(name, userId) {

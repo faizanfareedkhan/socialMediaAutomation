@@ -13,7 +13,8 @@ const workspaceRoutes = require("./routes/workspaceRoutes");
 const memberRoutes = require("./routes/memberRoutes");
 const postRoutes = require("./routes/postRoutes");
 const postTemplateRoutes = require("./routes/postTemplateRoutes");
- 
+const agencyRoutes = require("./routes/agencyRoutes");
+ const agencyUserRoutes = require("./routes/agencyUserRoutes");
  
 const connectDB = require("./config/db");
 
@@ -52,6 +53,9 @@ app.use("/api/workspace", workspaceRoutes);  // Workspaces
 app.use("/api/members", memberRoutes);  // Members
 app.use("/api/posts", postRoutes);  // Posts
 app.use("/api/postTemplate", postTemplateRoutes); // Post templates
+app.use("/api/agency", agencyRoutes); // Agencies
+app.use("/api/agencyUser", agencyUserRoutes); // Agency users
+
  
 
 const PORT = process.env.PORT || 5000;

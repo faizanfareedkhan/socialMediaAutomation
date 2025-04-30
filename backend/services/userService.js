@@ -1,4 +1,4 @@
-const sysUser = require('../modals/sysUserModel');
+const sysUser = require('../models/sysUserModel');
 
 const createUser = async function (email, firstName, lastName, password, address, city, state, zipCode, country ){
   
@@ -50,4 +50,39 @@ const getUserById = async function(id) {
   }
 }
 
-module.exports = { createUser, getUserByEmail, getUserById };
+ 
+ 
+const updatePasswordById = async function(id, password) {
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const updatedUser = await sysUser.findByIdAndUpdate(id, { password: hashedPassword }, { new: true });
+    return updatedUser;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+const updateUserDetailsById = async function(id, userDetails) {
+  try {
+    var updatedUser = await sysUser.findByIdAndUpdate(id, userDetails, { new: true });
+    return updatedUser;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+const agencies = async function(id) {
+  try {
+    var agencies = await sysUser.findById(id).populate('agencies');
+    return agencies;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+
+
+module.exports = { createUser, getUserByEmail, getUserById, updatePasswordById, updateUserDetailsById , agencies };

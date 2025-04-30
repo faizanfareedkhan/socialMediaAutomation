@@ -4,6 +4,7 @@ const workspaceService = require('../services/workspaceService');
 const tokenService = require('../services/tokenService');
 const workspaceUserService = require('../services/workspaceUserService');
 
+
 const bcrypt = require('bcryptjs');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
@@ -66,6 +67,40 @@ exports.signUpWithEmail = async (req, res) => {
     res.status(500).json({ message: 'SignUp error', error: err.message });
   }
 };
+
+exports.updatePassword = async (req, res) => {
+  var userId = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(404).json({ message: "Invalid id" });
+    }
+  const {  password } = req.body;
+
+  try {
+    const updatedUser = await userService.updatePasswordById(userId, password);
+    if (!updatedUser) return res.status(400).json({ message: 'User Not Found' });
+
+    res.status(200).json({ message: 'Password updated successfully', updatedUser });
+  } catch (err) {
+    res.status(500).json({ message: 'Update error', error: err.message });
+  }
+};
+
+exports.updateUser = async (req, res) => {
+  var userId = req.params.id;
+  if (!mongoose.Types.ObjectId.isValid(userId)) {
+    return res.status(404).json({ message: "Invalid id" });
+  }
+  const {  firstName, lastName, email, address, city, state, zipCode, country } = req.body;
+
+  try {
+    const updatedUser = await userService.updateUserDetailsById(userId, firstName, lastName, email, address, city, state, zipCode, country);
+    if (!updatedUser) return res.status(400).json({ message: 'User Not Found' });
+
+    res.status(200).json({ message: 'User details updated successfully', updatedUser });
+  } catch (err) {
+    res.status(500).json({ message: 'Update error', error: err.message });
+  }
+}
 
 exports.verifytoken = async (req, res) => {
   var paramToken = req.query.token;

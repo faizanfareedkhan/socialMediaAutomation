@@ -1,4 +1,4 @@
-const Member = require("../modals/memberModel");
+const Member = require("../models/memberModel");
 
 // Create Member
 exports.createMember = async (req, res) => {

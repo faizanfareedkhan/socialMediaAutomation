@@ -1,4 +1,4 @@
-const PostTemplate = require('../modals/postTemplate');
+const PostTemplate = require('../models/postTemplate');
 
 // Get All PostTemplates
 exports.getAllPostTemplates = async (req, res) => {
