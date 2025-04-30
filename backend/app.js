@@ -48,7 +48,7 @@ app.use(
 app.use("/api/users", userDetailsRoutes); // User details
 app.use("/api/social", socialMediaRoutes); // Social media 
 app.use("/api/authenticateUser", authenticateUserRoutes); // Authenticate user
-app.use("/api/workspaces", workspaceRoutes);  // Workspaces
+app.use("/api/workspace", workspaceRoutes);  // Workspaces
 app.use("/api/members", memberRoutes);  // Members
 app.use("/api/posts", postRoutes);  // Posts
 app.use("/api/postTemplate", postTemplateRoutes); // Post templates

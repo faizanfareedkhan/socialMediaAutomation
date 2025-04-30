@@ -5,9 +5,8 @@ const workspaceSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  owner: {
-    type: String
-  },
+  userId: {type: mongoose.Schema.Types.ObjectId,  // 👈 Refers to ObjectId
+      ref: 'sysUser'   },
   createdAt: {
     type: Date,
     default: Date.now
