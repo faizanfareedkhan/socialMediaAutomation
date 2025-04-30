@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverTrigger,
@@ -14,7 +13,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-export default function PopOver({color}) {
+type Props = {
+  color: string;
+};
+
+export default function PopOver({ color }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -42,21 +45,21 @@ export default function PopOver({color}) {
                 <TooltipTrigger asChild>
                   <button className="bg-base h-5 w-5 cursor-help rounded-full border" />
                 </TooltipTrigger>
-                <TooltipContent >base</TooltipContent>
+                <TooltipContent>base</TooltipContent>
               </Tooltip>
 
               <Tooltip>
                 <TooltipTrigger asChild>
                   <button className="bg-contrast h-5 w-5 cursor-help rounded-full border" />
                 </TooltipTrigger>
-                <TooltipContent >contrast</TooltipContent>
+                <TooltipContent>contrast</TooltipContent>
               </Tooltip>
 
               <Tooltip>
                 <TooltipTrigger asChild>
                   <button className="bg-brand h-5 w-5 cursor-help rounded-full border" />
                 </TooltipTrigger>
-                <TooltipContent >brand</TooltipContent>
+                <TooltipContent>brand</TooltipContent>
               </Tooltip>
             </div>
           </div>

@@ -1,21 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign In Link</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-In Link - {company}</title>
   </head>
-  <body>
-    <h1>Your sign-in link</h1>
-    <p>Click the button below to log in to Ocoya.</p>
-    <p>This button will expire in 10 minutes.</p>
-
-    <a class="btn btn-primary" href="http://localhost:5000/api/users/verifytoken?token={userToken}" target="_blank" role="button">Confirm Login</a>
-
-    <p>This request will securely log you in using this email:</p>
-    <a href="#">{email}</a>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white max-w-md w-full p-6 rounded-md shadow-md">
+      <h2 class="text-2xl font-semibold mb-4">Your sign-in link</h2>
+      <p class="mb-4 text-gray-700">
+        Click the button below to log in to {company} .<br />
+        This button will expire in 10 minutes.
+      </p>
+      <a
+        href="http://localhost:5173/auth/login?token={userToken}"
+        target="_blank"
+        class="inline-block bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
+      >
+        Confirm login
+      </a>
+      <p class="mt-8 text-gray-700">
+        This request will securely log you in using this email:<br />
+        <a href="mailto:{email}" class="text-blue-600 underline" target="_blank"
+          >{email}</a
+        >
+      </p>
+      <div class="mt-8 border-t pt-4 text-sm text-gray-500">
+        &copy; 2023 {company} . All rights reserved.<br />
+        Got questions? Join our
+        <a href="#" class="text-blue-600 underline">Facebook community</a>!
+      </div>
+    </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </html>

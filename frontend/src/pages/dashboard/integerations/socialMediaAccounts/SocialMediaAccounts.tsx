@@ -10,6 +10,7 @@ import { useState } from "react";
 import { ArrowRight, Copy, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SplitSection from "@/components/dashboard/splitSection/SplitSection";
+import FB from "./FB/FB";
 
 const socialPlatforms = [
   {
@@ -177,6 +178,7 @@ const SocialMediaAccounts = () => {
           buttonText="Connect"
           onButtonClick={() => setOpen(true)}
         />
+        <FB />
 
         {/* Profile Selector */}
         <div className="w-full rounded-lg border p-6">

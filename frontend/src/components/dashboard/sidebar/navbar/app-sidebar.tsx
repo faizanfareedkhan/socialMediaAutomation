@@ -7,9 +7,6 @@ import {
   GalleryVerticalEnd,
   LayoutDashboard,
   FilePlus,
-  CalendarIcon,
-  FileText,
-  CalendarClock,
   Image,
   Users,
   Plug,
@@ -17,11 +14,7 @@ import {
   Settings,
   LifeBuoy,
   CreditCard,
-  Clock,
-  Hourglass,
-  XCircle,
-  Trash,
-  List,
+  Key,
 } from "lucide-react";
 
 import {
@@ -75,54 +68,6 @@ const data = {
       icon: FilePlus,
       isActive: true,
     },
-    {
-      title: "Calendar",
-      url: "post-content/calendar",
-      icon: CalendarIcon,
-      isActive: true,
-    },
-    // {
-    //   title: "All Posts",
-    //   url: "post-content/all-posts",
-    //   icon: List,
-    //   isActive: true,
-    // },
-    // {
-    //   title: "Pending Posts",
-    //   url: "post-content/pending-posts",
-    //   icon: Hourglass,
-    //   isActive: true,
-    // },
-    // {
-    //   title: "Completed Posts",
-    //   url: "post-content/completed-posts",
-    //   icon: FileText,
-    //   isActive: true,
-    // },
-    // {
-    //   title: "Scheduled Posts",
-    //   url: "post-content/scheduled-posts",
-    //   icon: CalendarClock,
-    //   isActive: true,
-    // },
-    // {
-    //   title: "Maybe Later Posts",
-    //   url: "post-content/maybe-later-posts",
-    //   icon: Clock,
-    //   isActive: true,
-    // },
-    // {
-    //   title: "Declined Posts",
-    //   url: "post-content/declined-posts",
-    //   icon: XCircle,
-    //   isActive: true,
-    // },
-    // {
-    //   title: "Deleted Posts",
-    //   url: "post-content/deleted-posts",
-    //   icon: Trash,
-    //   isActive: true,
-    // },
   ],
   mediaLibrary: [
     {
@@ -168,6 +113,12 @@ const data = {
       isActive: true,
     },
     {
+      title: "API Key",
+      url: "#",
+      icon: Key,
+      isActive: true,
+    },
+    {
       title: "Subscription",
       url: "accounts/subscription",
       icon: CreditCard,
@@ -195,7 +146,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.integrations} subHeading={"Integrations"} />
         <NavMain items={data.members} subHeading={"Members"} />
         <NavMain items={data.account} subHeading={"Account"} />
-
+      
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

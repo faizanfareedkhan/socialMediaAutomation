@@ -14,11 +14,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { IconBrandGoogle, IconMail } from "@tabler/icons-react";
+import { IconMail } from "@tabler/icons-react";
 import FB from "../dashboard/integerations/socialMediaAccounts/FB/FB";
-import GoogleBtn from '../dashboard/integerations/socialMediaAccounts/google/Google';
-import Twitter from '../dashboard/integerations/socialMediaAccounts/twitter/Twitter';
-import LinkedIn from '../dashboard/integerations/socialMediaAccounts/linkedIn/LinkedIn';
+import GoogleBtn from "../dashboard/integerations/socialMediaAccounts/google/Google";
+import Twitter from "../dashboard/integerations/socialMediaAccounts/twitter/Twitter";
+import LinkedIn from "../dashboard/integerations/socialMediaAccounts/linkedIn/LinkedIn";
 
 const formSchema = z.object({
   email: z.string().email("Please enter a valid email"),
@@ -94,7 +94,7 @@ const SignUp = () => {
             <GoogleBtn />
             <FB />
             <Twitter />
-            <LinkedIn/>
+            <LinkedIn />
           </form>
         </Form>
 
