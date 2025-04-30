@@ -2,6 +2,7 @@ const User = require('../modals/userDetails');
 const sysUser = require('../modals/sysUserModel');
 const sysUserToken = require('../modals/sysUserTokenModel');
 const workspace = require('../modals/workspaceModel');
+const sysWorkspaceUser = require('../modals/sysWorkspaceUser');
 const bcrypt = require('bcryptjs');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
@@ -77,9 +78,15 @@ exports.signUpWithEmail = async (req, res) => {
     newSysUser.failedLoginAttempts = 0;
     newSysUser.isBlocked = false;
     newSysUser.isPaymentVerified = false;
-    newSysUser.workSpaceId = newWorkeSpace._id;
+    //newSysUser.workSpaceId = newWorkeSpace._id;
     await newSysUser.save();
     console.log("User is added");
+
+    var newSysWorkspaceUser = new sysWorkspaceUser();
+    newSysWorkspaceUser.workspaceId = newWorkeSpace._id;
+    newSysWorkspaceUser.userId = newSysUser._id;
+    newSysWorkspaceUser.userRole = "sys Admin";
+    await newSysWorkspaceUser.save();
 
     if (newSysUser && newSysUser._id) {
       console.log("Adding Token");
