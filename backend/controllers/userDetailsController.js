@@ -1,40 +1,147 @@
 const User = require('../modals/userDetails');
+const sysUser = require('../modals/sysUserModel');
+const sysUserToken = require('../modals/sysUserTokenModel');
+const workspace = require('../modals/workspaceModel');
+const sysWorkspaceUser = require('../modals/sysWorkspaceUser');
 const bcrypt = require('bcryptjs');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+const emailService = require('../utilities/emailService');
+const sysUserModal = require('../modals/sysUserModel');
+const autoGenerate = require('../utilities/autoGenerateNameService');
+const token = require('../utilities/jwtTokenService');
+const file = require('../utilities/fileReadService');
 
 // Normal Signup
-exports.signup = async (req, res) => {
-  const { firstName, lastName, email, password, profile } = req.body;
+// exports.signup = async (req, res) => {
+//   const { firstName, lastName, email, password, profile } = req.body;
+
+//   try {
+//     const existingUser = await User.findOne({ email });
+//     if (existingUser) return res.status(400).json({ message: 'Email already exists' });
+
+//     const hashedPassword = await bcrypt.hash(password, 10);
+//     const user = new User({ firstName, lastName, email, password: hashedPassword, profile });
+
+//     await user.save();
+//     res.status(201).json({ message: 'User registered successfully', user });
+//   } catch (err) {
+//     res.status(500).json({ message: 'Signup error', error: err.message });
+//   }
+// };
+
+// Normal Login
+// exports.login = async (req, res) => {
+//   const { email, password } = req.body;
+
+//   try {
+//     const user = await User.findOne({ email });
+//     if (!user) return res.status(400).json({ message: 'Invalid email' });
+
+    
+//     const match = await bcrypt.compare(password, user.password);
+//     if (!match) return res.status(400).json({ message: 'Invalid password' });
+
+//     res.status(200).json({ message: 'Login successful', user });
+//   } catch (err) {
+//     res.status(500).json({ message: 'Login error', error: err.message });
+//   }
+// };
+
+exports.signUpWithEmail = async (req, res) => {
+  const { email } = req.body;
 
   try {
-    const existingUser = await User.findOne({ email });
-    if (existingUser) return res.status(400).json({ message: 'Email already exists' });
+    const user = await sysUser.findOne({ email: email });
+    if (user) return res.status(400).json({ message: 'Email already exists' });
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ firstName, lastName, email, password: hashedPassword, profile });
+    console.log("Adding workspace");
+    var newWorkeSpace = new workspace();
+    newWorkeSpace.name = await autoGenerate.enterpriseName();
+    await newWorkeSpace.save();
+    console.log("Workspace Added");
 
-    await user.save();
-    res.status(201).json({ message: 'User registered successfully', user });
+    console.log("Adding User");
+    var person = await autoGenerate.randomPerson();
+    var location = await autoGenerate.randomLocation();
+    const newSysUser = new sysUser();
+    newSysUser.firstName = person.firstName();
+    newSysUser.lastName = person.lastName();
+    newSysUser.email = email;
+    newSysUser.password = await bcrypt.hashSync(await autoGenerate.randomPassword());
+    newSysUser.address = location.streetAddress();
+    newSysUser.city = location.city();
+    newSysUser.state = location.state();
+    newSysUser.zipcode = location.zipCode();
+    newSysUser.country = location.country();
+    newSysUser.isActive = true;
+    newSysUser.failedLoginAttempts = 0;
+    newSysUser.isBlocked = false;
+    newSysUser.isPaymentVerified = false;
+    //newSysUser.workSpaceId = newWorkeSpace._id;
+    await newSysUser.save();
+    console.log("User is added");
+
+    var newSysWorkspaceUser = new sysWorkspaceUser();
+    newSysWorkspaceUser.workspaceId = newWorkeSpace._id;
+    newSysWorkspaceUser.userId = newSysUser._id;
+    newSysWorkspaceUser.userRole = "sys Admin";
+    await newSysWorkspaceUser.save();
+
+    if (newSysUser && newSysUser._id) {
+      console.log("Adding Token");
+      var sysToken = new sysUserToken();
+      sysToken.userId = newSysUser._id;
+      sysToken.token = await token.createToken(newSysUser._id.toString(), newSysUser.email);
+      sysToken.isExpired = false;
+      sysToken.expiredAt = new Date(Date.now() + 10 * 60000);
+
+      await sysToken.save();
+      console.log("Token is added");
+
+      console.log("Reading html file");
+      let htmlFile = await file.readFileFromPath('../emailtemplates/senduserlink.html');
+      console.log("Replacing data in html file");
+      htmlFile = htmlFile.replace("{userToken}", sysToken.token);
+      htmlFile = htmlFile.replace("{email}", email);
+
+      console.log("Sending email");
+      var emailSent =  await emailService.sendEmail(email, "Your sign-in link", htmlFile);
+      if(emailSent)
+      {
+        console.log("email sent");
+      }
+      else{
+        console.log("Error while sending email")
+      }
+
+
+    } else {
+      console.error('User save failed: No _id returned');
+    }
+
+
+    res.status(200).json({ message: 'SignUp successful', newSysUser });
   } catch (err) {
-    res.status(500).json({ message: 'Signup error', error: err.message });
+    res.status(500).json({ message: 'SignUp error', error: err.message });
   }
 };
 
-// Normal Login
-exports.login = async (req, res) => {
-  const { email, password } = req.body;
+exports.verifytoken = async (req, res) => {
+  const paramToken = req.params.token;
 
   try {
-    const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: 'Invalid email' });
+    const userToken = await sysUserToken.findOne({ paramToken });
+    if (!userToken) return res.status(400).json({ message: 'Invalid token' });
+    const now = new Date();
+    if(userToken.expiredAt > now) return res.status(400).json({ message: 'Token Expired' });
+    
+    const user = await sysUser.findOne({ _id: userToken.userId });
+    if (!user) return res.status(400).json({ message: 'User Not Found' });
 
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) return res.status(400).json({ message: 'Invalid password' });
-
-    res.status(200).json({ message: 'Login successful', user });
+    res.status(200).json({ message: 'Token Verified and user fetched', user });
   } catch (err) {
-    res.status(500).json({ message: 'Login error', error: err.message });
+    res.status(500).json({ message: 'Token error', error: err.message });
   }
 };
 

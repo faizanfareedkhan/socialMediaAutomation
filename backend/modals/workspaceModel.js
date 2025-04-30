@@ -6,12 +6,8 @@ const workspaceSchema = new mongoose.Schema({
     required: true
   },
   owner: {
-    type: String,
-    required: true
-  },
-  members: [{
     type: String
-  }],
+  },
   createdAt: {
     type: Date,
     default: Date.now
