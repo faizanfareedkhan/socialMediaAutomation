@@ -221,11 +221,11 @@ const Calendar = () => {
     let days = [];
     let day = startDate;
 
-    // Add day names row (only on large screens)
+    // Day names row for XL screens only
     rows.push(
       <div
         key="days-names"
-        className="mb-2 hidden grid-cols-7 text-sm font-semibold text-gray-500 lg:grid"
+        className="mb-2 hidden grid-cols-7 text-sm font-semibold text-gray-500 xl:grid"
       >
         {daysOfWeek.map((d, idx) => (
           <div key={idx} className="p-2 text-center">
@@ -252,12 +252,14 @@ const Calendar = () => {
               isCurrent ? "ring-2 ring-blue-300" : ""
             }`}
           >
+            {/* Day name inside cards (visible on all screens except xl) */}
             <div className="text-xs font-semibold text-gray-500">
-              <div className="mb-1 block font-medium text-gray-600 sm:hidden">
+              <div className="mb-1 block font-medium text-gray-600 xl:hidden">
                 {format(day, "EEE")}
               </div>
               <span>{format(day, "d")}</span>
             </div>
+
             {post && (
               <div className="mt-2 text-xs">
                 <img
@@ -287,6 +289,7 @@ const Calendar = () => {
 
     return <div>{rows}</div>;
   };
+
 
 
   return (
