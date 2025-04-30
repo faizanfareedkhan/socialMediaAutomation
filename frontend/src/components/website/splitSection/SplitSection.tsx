@@ -39,7 +39,7 @@ const SplitSection: React.FC<SplitSectionProps> = ({
           {/* Button Section (Now Left Aligned) */}
           {btn && btnText && (
             <div className="mt-6 flex max-w-2xl flex-col items-center justify-start space-y-3 tracking-wide sm:flex-row sm:items-start sm:space-y-0 sm:space-x-4">
-              <button className="border-contrast h-12 w-40 cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-base">
+              <button className="border-contrast h-12 w-40 cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-[var(--base-color)]">
                 {btnText}
               </button>
             </div>

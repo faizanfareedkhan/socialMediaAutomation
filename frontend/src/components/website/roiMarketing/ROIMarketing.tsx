@@ -60,7 +60,7 @@ export default function FeaturesSectionComp() {
       <h1 className="mx-auto w-max text-4xl font-extrabold tracking-wide md:text-5xl">
         ROI, ASAP.
       </h1>
-      <p className="mx-auto mt-4 w-full max-w-xl text-center text-lg break-words text-black">
+      <p className="mx-auto mt-4 w-full max-w-xl text-center text-lg break-words text-[var(--contrast-color)]">
         Introducing Generative Social Media – the fastest way to create content.
         Here's how it works!
       </p>

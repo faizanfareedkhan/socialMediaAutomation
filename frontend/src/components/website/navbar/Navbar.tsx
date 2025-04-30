@@ -192,7 +192,7 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex flex-col space-y-2 p-4">
-            <button className="border-contrast rounded-md border px-4 py-2 transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-[var(--contrast-color)]">
+            <button className="border-contrast rounded-md border px-4 py-2 transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-[var(--base-color)]">
               Login
             </button>
             <button className="bg-contrast rounded-md px-4 py-2 text-[var(--contrast-color)] transition-colors duration-300 hover:opacity-90">

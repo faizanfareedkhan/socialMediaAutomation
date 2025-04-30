@@ -39,6 +39,7 @@
   animation: marquee-vertical 20s linear infinite;
 }
 
+
 :root {
   /* --base-color: white;
   --contrast-color: black;
@@ -126,6 +127,10 @@
 .text-[var(--contrast-color)]-tooltip {
   color: var(--base-color);
 } */
+body {
+  background-color: var(--base-color);
+  color: var(--contrast-color);
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

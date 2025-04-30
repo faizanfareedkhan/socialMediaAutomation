@@ -50,10 +50,10 @@ export default function Hero({
         </p>
         {btn ? (
           <div className="mt-6 flex max-w-2xl flex-col items-center justify-center space-y-3 tracking-wide sm:flex-row sm:space-y-0 sm:space-x-4">
-            <button className="border-contrast h-[48px] w-[200px] cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-base">
+            <button className="border-[var(--contrast-color)]  h-[48px] w-[200px] cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-[var(--base-color)]">
               {btn_primary}
             </button>
-            <button className="bg-brand hover:text-brand border-contrast hover:border-brand h-[48px] w-[200px] cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)]">
+            <button className="bg-[var(--brand-color)]  hover:text-[var(--brand-color)]  border-[var(--contrast-color)]  hover:border-[var(--brand-color)]  h-[48px] w-[200px] cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)]">
               {btn_secondary}
             </button>
           </div>

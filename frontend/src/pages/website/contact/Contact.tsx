@@ -145,7 +145,7 @@ const Contact = () => {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="border-contrast w-full rounded-lg border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-base"
+            className="border-contrast w-full rounded-lg border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-[var(--base-color)]"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
