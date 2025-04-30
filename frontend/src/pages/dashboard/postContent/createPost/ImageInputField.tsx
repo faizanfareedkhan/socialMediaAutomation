@@ -99,7 +99,7 @@ const ImageInputField = ({ form, onOpenMediaLibrary }: Props) => {
     [images, setValue],
   );
   return (
-    <div className="text-contrast relative flex flex-col gap-2">
+    <div className="relative flex flex-col gap-2 text-[var(--contrast-color)]">
       <div>Media</div>
 
       {images.length === 0 ? (

@@ -43,7 +43,7 @@ export default function PopOver({ color }: Props) {
             <div className="flex gap-1.5">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <button className="bg-base h-5 w-5 cursor-help rounded-full border" />
+                  <button className="h-5 w-5 cursor-help rounded-full border bg-[var(--base-color)]" />
                 </TooltipTrigger>
                 <TooltipContent>base</TooltipContent>
               </Tooltip>

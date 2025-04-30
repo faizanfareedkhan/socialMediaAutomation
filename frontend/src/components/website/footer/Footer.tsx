@@ -3,13 +3,13 @@ import {
   IconBrandTwitter,
   IconBrandLinkedin,
   IconBrandInstagram,
-} from '@tabler/icons-react'
-import { Link } from 'react-router-dom'
+} from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-base text-contrast border-t-2 py-10 px-5 md:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+    <footer className="border-t-2 bg-[var(--base-color)] px-5 py-10 text-[var(--contrast-color)] md:px-20">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 text-center md:grid-cols-3 md:text-left">
         {/* Company Logo */}
         <div>
           <img
@@ -18,41 +18,41 @@ export default function Footer() {
             className="h-16 w-auto"
           />
           <p className="mt-2 text-sm">Innovate. Automate. Elevate.</p>
-          <div className="flex justify-center md:justify-start space-x-4 mt-4">
+          <div className="mt-4 flex justify-center space-x-4 md:justify-start">
             <a
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandFacebook className="text-xl cursor-pointer hover:text-gray-400" />
+              <IconBrandFacebook className="cursor-pointer text-xl hover:text-gray-400" />
             </a>
             <a
               href="https://www.twitter.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandTwitter className="text-xl cursor-pointer hover:text-gray-400" />
+              <IconBrandTwitter className="cursor-pointer text-xl hover:text-gray-400" />
             </a>
             <a
               href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandLinkedin className="text-xl cursor-pointer hover:text-gray-400" />
+              <IconBrandLinkedin className="cursor-pointer text-xl hover:text-gray-400" />
             </a>
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandInstagram className="text-xl cursor-pointer hover:text-gray-400" />
+              <IconBrandInstagram className="cursor-pointer text-xl hover:text-gray-400" />
             </a>
           </div>
         </div>
 
         {/* Resources */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Resources</h3>
+          <h3 className="mb-3 text-lg font-semibold">Resources</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <Link to="/helpcenter" className="hover:underline">
@@ -74,7 +74,7 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
+          <h3 className="mb-3 text-lg font-semibold">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <Link to="/integrations" className="hover:underline">
@@ -102,10 +102,10 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="text-center mt-10 text-sm border-t border-gray-700 pt-5">
+      <div className="mt-10 border-t border-gray-700 pt-5 text-center text-sm">
         &copy; {new Date().getFullYear()} Equip Scale Strategies LLC. All Rights
         Reserved.
       </div>
     </footer>
-  )
+  );
 }

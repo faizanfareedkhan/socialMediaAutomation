@@ -100,16 +100,16 @@ const Feature = ({
         {index >= 4 && (
           <div className="pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100 dark:from-neutral-800" />
         )}
-        <div className="relative z-10 mb-4 px-10 text-contrast dark:text-contrast">
+        <div className="relative z-10 mb-4 px-10 text-[var(--contrast-color)] dark:text-[var(--contrast-color)]">
           {icon}
         </div>
         <div className="relative z-10 mb-2 px-10 text-lg font-bold">
           <div className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-tr-full rounded-br-full bg-neutral-300 transition-all duration-200 group-hover/feature:h-8 group-hover/feature:bg-black dark:bg-neutral-700" />
-          <span className="inline-block text-contrast transition duration-200 group-hover/feature:translate-x-2 dark:text-contrast">
+          <span className="inline-block text-[var(--contrast-color)] transition duration-200 group-hover/feature:translate-x-2 dark:text-[var(--contrast-color)]">
             {title}
           </span>
         </div>
-        <p className="relative z-10 max-w-xs px-10 text-sm text-contrast dark:text-contrast">
+        <p className="relative z-10 max-w-xs px-10 text-sm text-[var(--contrast-color)] dark:text-[var(--contrast-color)]">
           {description}
         </p>
       </div>

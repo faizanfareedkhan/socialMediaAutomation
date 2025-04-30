@@ -44,7 +44,7 @@ const Calendar = () => {
       date: new Date(2025, 3, 18),
       time: "4:11 PM",
       title: "Smoking Kills",
-      image: "./../../../../../public/dashboard/createPosts/smoking.png",
+      image: "/dashboard/createPosts/smoking.png",
     },
   ];
 

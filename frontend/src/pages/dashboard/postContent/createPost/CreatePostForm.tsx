@@ -303,7 +303,7 @@ function CreatePostForm({
                       <PopoverTrigger asChild>
                         <Button
                           role="combobox"
-                          className="bg-base text-contrast relative w-full justify-between border shadow-none"
+                          className="relative w-full justify-between border bg-[var(--base-color)] text-[var(--contrast-color)] shadow-none"
                           {...field}
                         >
                           {selectedPages.length > 0

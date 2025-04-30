@@ -1,4 +1,6 @@
+import { useThemeStore } from "@/store/ThemeStore";
 import PopOver from "../popOver/PopOver";
+import ThemeCustomizer from "@/components/common/ThemeCustomizer";
 
 interface HeroProps {
   title: string;
@@ -20,8 +22,12 @@ export default function Hero({
   btn,
   color = true,
 }: HeroProps) {
+  // const { theme } = useThemeStore();
+
   return (
-    <div className="bg-base text-contrast mt-18 max-h-screen min-h-max font-sans">
+    <div className="mt-18 max-h-screen min-h-max bg-[var(--base-color)] font-sans text-[var(--contrast-color)]">
+      {/* <ThemeCustomizer /> */}
+
       {/* Hero Section */}
       {color ? (
         <div className="absolute right-0">
@@ -39,15 +45,15 @@ export default function Hero({
         <h1 className="max-w-4xl text-4xl font-bold tracking-wide sm:text-7xl lg:text-8xl">
           {title}
         </h1>
-        <p className="bg-base text-contrast mt-4 max-w-xl text-lg">
+        <p className="mt-4 max-w-xl bg-[var(--base-color)] text-lg text-[var(--contrast-color)]">
           {description}
         </p>
         {btn ? (
           <div className="mt-6 flex max-w-2xl flex-col items-center justify-center space-y-3 tracking-wide sm:flex-row sm:space-y-0 sm:space-x-4">
-            <button className="border-contrast text-contrast hover:bg-contrast h-[48px] w-[200px] cursor-pointer rounded-full border transition-colors duration-300 hover:text-base">
+            <button className="border-contrast h-[48px] w-[200px] cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-base">
               {btn_primary}
             </button>
-            <button className="bg-brand text-contrast hover:bg-contrast hover:text-brand border-contrast hover:border-brand h-[48px] w-[200px] cursor-pointer rounded-full border transition-colors duration-300">
+            <button className="bg-brand hover:text-brand border-contrast hover:border-brand h-[48px] w-[200px] cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)]">
               {btn_secondary}
             </button>
           </div>

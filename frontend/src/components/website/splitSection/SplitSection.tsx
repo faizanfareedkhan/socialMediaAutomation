@@ -16,7 +16,7 @@ const SplitSection: React.FC<SplitSectionProps> = ({
   btnText,
 }) => {
   return (
-    <section className="container mx-auto flex w-full items-center justify-center bg-base text-contrast px-6 py-12 ">
+    <section className="container mx-auto flex w-full items-center justify-center bg-[var(--base-color)] px-6 py-12 text-[var(--contrast-color)]">
       <div
         className={`flex flex-col ${
           reverse ? "sm:flex-row-reverse" : "sm:flex-row"
@@ -39,7 +39,7 @@ const SplitSection: React.FC<SplitSectionProps> = ({
           {/* Button Section (Now Left Aligned) */}
           {btn && btnText && (
             <div className="mt-6 flex max-w-2xl flex-col items-center justify-start space-y-3 tracking-wide sm:flex-row sm:items-start sm:space-y-0 sm:space-x-4">
-              <button className="w-40 h-12 cursor-pointer rounded-full border-contrast text-contrast hover:bg-contrast hover:text-base border transition-colors duration-300">
+              <button className="border-contrast h-12 w-40 cursor-pointer rounded-full border text-[var(--contrast-color)] transition-colors duration-300 hover:bg-[var(--contrast-color)] hover:text-base">
                 {btnText}
               </button>
             </div>
