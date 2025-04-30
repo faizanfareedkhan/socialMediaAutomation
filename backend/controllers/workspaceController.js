@@ -1,11 +1,11 @@
-const Workspace = require("../modals/workspaceModel");
+const workspaceService = require('../services/workspaceService');
 
 exports.createWorkspace = async (req, res) => {
   try {
-    const { name } = req.body;
-    const workspace = new Workspace({ name });
-    await workspace.save();
-    res.status(201).json(workspace);
+    const { name, userId } = req.body;
+    var createdWorkSpace = await workspaceService.createWorkspace(name, mongoose.Types.ObjectId(userId));
+    
+    res.status(201).json(createdWorkSpace);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -13,7 +13,7 @@ exports.createWorkspace = async (req, res) => {
 
 exports.getAllWorkspaces = async (req, res) => {
   try {
-    const workspaces = await Workspace.find();
+    const workspaces = await workspaceService.getAllWorkspaces();
     res.status(200).json(workspaces);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -22,7 +22,7 @@ exports.getAllWorkspaces = async (req, res) => {
 
 exports.getWorkspaceById = async (req, res) => {
   try {
-    const workspace = await Workspace.findById(req.params.id);
+    const workspace = await workspaceService.getWorkspaceById(req.query.id);
     if (!workspace) return res.status(404).json({ message: "Not Found" });
     res.status(200).json(workspace);
   } catch (error) {
@@ -32,8 +32,9 @@ exports.getWorkspaceById = async (req, res) => {
 
 exports.updateWorkspace = async (req, res) => {
   try {
+    const {name, userId} = req.body;
     const updated = await Workspace.findByIdAndUpdate(
-      req.params.id,
+      req.query.id,
       req.body,
       { new: true }
     );

@@ -4,14 +4,12 @@ const workspaceService = require('../services/workspaceService');
 const tokenService = require('../services/tokenService');
 const workspaceUserService = require('../services/workspaceUserService');
 
-const sysWorkspaceUser = require('../modals/sysWorkspaceUser');
 const bcrypt = require('bcryptjs');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
 const emailService = require('../utilities/emailService');
-
 const autoGenerate = require('../utilities/autoGenerateNameService');
-
 const file = require('../utilities/fileReadService');
 
 

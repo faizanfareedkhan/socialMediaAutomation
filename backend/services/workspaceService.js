@@ -22,4 +22,27 @@ const getWorkspaceById = async function (id) {
   }
 }
 
-module.exports = { createWorkspace, getWorkspaceById };
+const getAllWorkspaces = async function () {
+  try {
+    var workspaceList = await Workspace.find();
+    return workspaceList;
+  } catch (error) {
+    return null;
+  }
+}
+
+const updateWorkspace = async function (id, name, userId) {
+  try {
+    var updatedWorkspace = await Workspace.findByIdAndUpdate(
+      id,
+      name,
+      userId,
+      { new: true }
+    );
+    return updatedWorkspace;
+  } catch (error) {
+    return null;
+  }
+}
+
+module.exports = { createWorkspace, getWorkspaceById, getAllWorkspaces };
