@@ -15,6 +15,7 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form";
+import { Link } from "react-router";
 
 // Schema without optional password
 const formSchema = z.object({
@@ -50,9 +51,9 @@ const SignIn = () => {
         </h2>
         <p className="mt-2 text-center text-sm text-neutral-600 dark:text-neutral-300">
           Don't have an account?{" "}
-          <a href="#" className="text-neutral-600 underline">
+          <Link to="/auth/signup" className="text-neutral-600 underline">
             Sign up
-          </a>
+          </Link>
         </p>
 
         <Form {...form}>

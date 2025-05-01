@@ -65,13 +65,13 @@ const data = {
   postContent: [
     {
       title: "Post",
-      url: "post-content/create-post",
+      url: "create-post",
       icon: FilePlus,
       isActive: true,
     },
     {
       title: "Calendar",
-      url: "post-content/calendar",
+      url: "calendar",
       icon: CalendarIcon,
       isActive: true,
     },
@@ -79,7 +79,7 @@ const data = {
   mediaLibrary: [
     {
       title: "Media Library",
-      url: "dashboard/media-library",
+      url: "media-library",
       icon: Image,
       isActive: true,
     },
@@ -87,13 +87,13 @@ const data = {
   integrations: [
     {
       title: "Social Media Accounts",
-      url: "integrations/social-media-accounts",
+      url: "social-media-accounts",
       icon: Users,
       isActive: true,
     },
     {
       title: "Third-Party Integrations",
-      url: "integrations/third-party-integrations",
+      url: "third-party-integrations",
       icon: Plug,
       isActive: true,
     },
@@ -101,7 +101,7 @@ const data = {
   members: [
     {
       title: "Members",
-      url: "members/Members",
+      url: "members",
       icon: Users,
       isActive: true,
     },
@@ -109,31 +109,31 @@ const data = {
   account: [
     {
       title: "Team",
-      url: "#",
+      url: "dummy",
       icon: User,
       isActive: true,
     },
     {
       title: "Settings",
-      url: "accounts/settings",
+      url: "settings",
       icon: Settings,
       isActive: true,
     },
     {
       title: "API Key",
-      url: "#",
+      url: "dummy",
       icon: Key,
       isActive: true,
     },
     {
       title: "Subscription",
-      url: "accounts/subscription",
+      url: "subscription",
       icon: CreditCard,
       isActive: true,
     },
     {
       title: "Help",
-      url: "#",
+      url: "dummy",
       icon: LifeBuoy,
       isActive: true,
     },

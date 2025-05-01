@@ -16,7 +16,7 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import BtnPrimary from "@/components/common/BtnPrimary";
 import BtnSecondary from "@/components/common/BtnSecondary";
 
@@ -73,9 +73,9 @@ const Navbar = () => {
       html.style.setProperty("--brand-color", brand);
     };
     if (isDarkMode) {
-      handleChangeTheme("white", "black", "green");
-    } else {
       handleChangeTheme("black", "white", "green");
+    } else {
+      handleChangeTheme("white", "black", "green");
     }
   }, [isDarkMode]);
 
@@ -142,9 +142,12 @@ const Navbar = () => {
           </button>
 
           <div className="flex items-center space-x-1">
-            <BtnPrimary className="rounded-md px-4 py-2" name="Login" />
-            <BtnSecondary className="rounded-md px-4 py-2" name="Try Free" />
-
+            <Link to={"auth/login"}>
+              <BtnPrimary className="rounded-md px-4 py-2" name="Login" />
+            </Link>
+            <Link to={"auth/login"}>
+              <BtnSecondary className="rounded-md px-4 py-2" name="Try Free" />
+            </Link>
             <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

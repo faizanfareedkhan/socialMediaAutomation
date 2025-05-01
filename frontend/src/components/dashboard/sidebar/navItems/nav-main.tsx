@@ -7,7 +7,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { NavLink } from "react-router-dom";
+import NavItem from "@/components/common/NavItem";
 
 // Define the types for the props
 interface NavItem {
@@ -34,14 +34,14 @@ const NavMain: React.FC<NavMainProps> = ({ subHeading, items }) => {
       {subHeading && <SidebarGroupLabel>{subHeading}</SidebarGroupLabel>}
       <SidebarMenu>
         {items.map((item) => (
-          <NavLink to={item.url} key={item.title}>
+          <NavItem to={item.url} key={item.title}>
             <SidebarMenuItem>
               <SidebarMenuButton tooltip={item.title}>
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
-          </NavLink>
+          </NavItem>
         ))}
       </SidebarMenu>
     </SidebarGroup>

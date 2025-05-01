@@ -14,17 +14,25 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { IconMail } from "@tabler/icons-react";
-import FB from "../dashboard/integerations/socialMediaAccounts/FB/FB";
-import GoogleBtn from "../dashboard/integerations/socialMediaAccounts/google/Google";
-import Twitter from "../dashboard/integerations/socialMediaAccounts/twitter/Twitter";
-import LinkedIn from "../dashboard/integerations/socialMediaAccounts/linkedIn/LinkedIn";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { FaGoogle } from "react-icons/fa";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { InboxIcon } from "lucide-react";
+import { useState } from "react";
+
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const formSchema = z.object({
-  email: z.string().email("Please enter a valid email"),
+  email: z.string().email("Enter a valid email"),
 });
 
 const SignUp = () => {
+  const [submittedEmail, setSubmittedEmail] = useState("");
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -32,8 +40,29 @@ const SignUp = () => {
     },
   });
 
-  const onSubmit = (values: { email: string }) => {
-    console.log("Form Submitted:", values);
+  const mutation = useMutation({
+    mutationFn: async ({ email }: { email: string }) => {
+      const res = await axios.post(`${baseUrl}/api/users/signUpEmail`, {
+        email,
+      });
+      console.log(res.data);
+      return res.data;
+    },
+    onSuccess: (_, variables) => {
+      setSubmittedEmail(variables.email);
+      setShowConfirmation(true);
+      form.reset();
+    },
+    onError: (error: any) => {
+      const message =
+        error?.response?.data?.message || "Something went wrong. Try again.";
+      form.setError("root", { message }); // 👈 sets error under 'root'
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    form.clearErrors(); // Clear previous server-side error
+    mutation.mutate(values);
   };
 
   return (
@@ -43,83 +72,110 @@ const SignUp = () => {
           "h-full w-full [mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]",
         )}
       />
-      <div className="shadow-input relative mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
-        <h2 className="text-center text-xl font-bold text-neutral-800 dark:text-neutral-200">
-          Sign up to ES
-        </h2>
-        <p className="mt-2 text-center text-sm text-neutral-600 dark:text-neutral-300">
-          Already have an account?{" "}
-          <a href="#" className="text-neutral-600 underline">
-            Login
-          </a>
-        </p>
 
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="my-8 space-y-4"
-          >
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email Address</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Input
-                        placeholder="elon@spacex.com"
-                        type="email"
-                        className="pl-10"
-                        {...field}
-                      />
-                      <IconMail className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+      {showConfirmation ? (
+        <Card className="relative z-[9999999] mx-auto mt-10 max-w-sm p-6">
+          <CardContent>
+            <InboxIcon />
+            <h2 className="font-semibol mb-2 text-xl">Check your email</h2>
+            <p className="mb-4 text-sm font-light">
+              We emailed a magic link to{" "}
+              <strong className="underline">{submittedEmail}</strong>. Click the
+              link in the email to continue.
+            </p>
 
-            <button
-              type="submit"
-              className="group/btn relative block h-10 w-full cursor-pointer rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
+            <div className="my-4">
+              <Separator />
+            </div>
+
+            <p className="mt-4 text-xs">
+              By continuing, you agree to the{" "}
+              <a href="#" className="underline">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a href="#" className="underline">
+                Privacy Policy
+              </a>
+              .
+            </p>
+          </CardContent>
+        </Card>
+      ) : (
+        <Card className="relative z-[9999999] mx-auto mt-10 max-w-sm p-6">
+          <CardContent>
+            <h2 className="mb-2 text-xl font-semibold">Sign up to Ocoya</h2>
+            <p className="mb-4 text-sm">
+              Already have an account?{" "}
+              <a href="/login" className="underline">
+                Login
+              </a>
+            </p>
+
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-4"
+              >
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="elon@spacex.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Global Form Error (Server-side) */}
+                {form.formState.errors.root && (
+                  <FormMessage>
+                    {form.formState.errors.root.message}
+                  </FormMessage>
+                )}
+
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={mutation.isPending}
+                >
+                  {mutation.isPending ? "Sending..." : "Send magic link"}
+                </Button>
+              </form>
+            </Form>
+
+            <div className="my-4">
+              <Separator />
+            </div>
+
+            <Button
+              variant="outline"
+              className="flex w-full items-center gap-2"
             >
-              Continue with Email
-              <BottomGradient />
-            </button>
+              <FaGoogle size={18} />
+              Continue with Google
+            </Button>
 
-            <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
-
-            <GoogleBtn />
-            <FB />
-            <Twitter />
-            <LinkedIn />
-          </form>
-        </Form>
-
-        <p className="text-center text-xs text-gray-500 dark:text-gray-400">
-          By continuing, you agree to the{" "}
-          <a className="text-neutral-600 underline" href="#">
-            Terms of Service
-          </a>{" "}
-          and{" "}
-          <a className="text-neutral-600 underline" href="#">
-            Privacy Policy
-          </a>
-        </p>
-      </div>
+            <p className="mt-4 text-xs">
+              By continuing, you agree to the{" "}
+              <a href="#" className="underline">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a href="#" className="underline">
+                Privacy Policy
+              </a>
+              .
+            </p>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 };
 
 export default SignUp;
-
-const BottomGradient = () => {
-  return (
-    <>
-      <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
-      <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
-    </>
-  );
-};
