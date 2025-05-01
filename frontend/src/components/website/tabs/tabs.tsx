@@ -66,13 +66,13 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-2xl w-full ",
+                  "absolute inset-0 bg-[var(--brand-color)]  dark:bg-zinc-800 rounded-2xl w-full ",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="flex flex-row justify-center text-black dark:text-white gap-x-2 items-center lg:flex-row relative sm:flex-col">
+            <span className="flex flex-row justify-center text-[var(--contrast-color)]  dark:text-white gap-x-2 items-center lg:flex-row relative sm:flex-col">
               <img src={tab.icon} alt="" className="h-12 w-12" />
               {tab.title}
             </span>

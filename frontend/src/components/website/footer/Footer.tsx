@@ -24,28 +24,28 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandFacebook className="cursor-pointer text-xl hover:text-gray-400" />
+              <IconBrandFacebook className="cursor-pointer text-xl hover:text-[var(--brand-color)]" />
             </a>
             <a
               href="https://www.twitter.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandTwitter className="cursor-pointer text-xl hover:text-gray-400" />
+              <IconBrandTwitter className="cursor-pointer text-xl hover:text-[var(--brand-color)]" />
             </a>
             <a
               href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandLinkedin className="cursor-pointer text-xl hover:text-gray-400" />
+              <IconBrandLinkedin className="cursor-pointer text-xl hover:text-[var(--brand-color)]" />
             </a>
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconBrandInstagram className="cursor-pointer text-xl hover:text-gray-400" />
+              <IconBrandInstagram className="cursor-pointer text-xl hover:text-[var(--brand-color)]" />
             </a>
           </div>
         </div>

@@ -7,7 +7,7 @@ export default function TabsComp() {
       value: "AI Writing",
       icon: "/features/icons/ChatGPT.png",
       content: (
-        <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
+        <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-[var(--brand-color)]  gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
             <h2 className="text-2xl font-bold">
               Create compelling content effortlessly with AI.
@@ -29,7 +29,7 @@ export default function TabsComp() {
       value: "Automation",
       icon: "/features/icons/Automation.svg",
       content: (
-        <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
+        <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-[var(--brand-color)]  gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
             <h2 className="text-2xl font-bold">
               Grow followers with non-stop content.
@@ -51,7 +51,7 @@ export default function TabsComp() {
       value: "Scheduling",
       icon: "/features/icons/Scheduling.svg",
       content: (
-        <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
+        <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-[var(--brand-color)]  gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
             <h2 className="text-2xl font-bold">Schedule to social media.</h2>
             <p className="text-gray-200 text-lg font-medium">
@@ -71,7 +71,7 @@ export default function TabsComp() {
       value: "Analytics",
       icon: "/features/icons/Analytics.svg",
       content: (
-        <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-gray-700 gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
+        <div className="flex flex-col bg-gradient-to-br bg-white border border-gray-200 h-auto p-10 rounded-2xl shadow-lg w-full from-[var(--brand-color)]  gap-10 items-center lg:flex-row lg:h-[500px] relative to-gray-900 top-[-100px]">
           <div className="flex-1 text-white space-y-4">
             <h2 className="text-2xl font-bold">
               Good strategy comes from data.
