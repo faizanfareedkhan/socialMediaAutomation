@@ -22,7 +22,6 @@ type FBProps = {
 };
 
 const FB = ({ prompt, images, social }: FBProps) => {
-  console.log(social);
   return (
     <Card className="w-full max-w-md rounded-xl border bg-white shadow-sm">
       {/* Header */}

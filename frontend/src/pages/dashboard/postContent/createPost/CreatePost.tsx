@@ -175,7 +175,6 @@ const CreatePost = () => {
   const pinterest = socials.find((page) => page == "pinterest");
   const pinterestDetails = socialPages.find((page) => page.value == pinterest);
 
-  console.log(facebookDetails);
 
   const [selectedPostKey, setSelectedPostKey] = useState("facebook");
 

@@ -6,26 +6,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  MoreHorizontal,
-  User,
-} from "lucide-react";
-
-type SocialPage = {
-  image: string;
-  name: string;
-  page: string;
-  value: string;
-};
+import { MoreHorizontal, User } from "lucide-react";
 
 type GeneralPostProps = {
-  social?: SocialPage;
   prompt: string;
   images: File[];
 };
 
-const GeneralPost = ({ prompt, images, social }: GeneralPostProps) => {
-  console.log(social);
+const GeneralPost = ({ prompt, images }: GeneralPostProps) => {
   return (
     <Card className="w-full max-w-md rounded-xl border bg-white shadow-sm">
       {/* Header */}
@@ -82,7 +70,7 @@ const GeneralPost = ({ prompt, images, social }: GeneralPostProps) => {
       )}
 
       {/* Footer buttons skeleton */}
-      <div className="flex justify-around  gap-6 px-2 ">
+      <div className="flex justify-around gap-6 px-2">
         <span className="h-2 w-1/2 rounded bg-gray-300"></span>{" "}
         <span className="h-2 w-1/2 rounded bg-gray-300"></span>{" "}
         <span className="h-2 w-1/2 rounded bg-gray-300"></span>

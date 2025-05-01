@@ -44,6 +44,18 @@ const ImageInputField = ({ form, onOpenMediaLibrary }: Props) => {
   const rawImages = watch("images");
   const images = useMemo(() => rawImages || [], [rawImages]);
 
+  const handleDeleteImage = useCallback(
+    (targetId: string) => {
+      console.log(targetId);
+      const filteredImages = images.filter((file: File) => {
+        const fileId = `${file.name}-${file.lastModified}`;
+        return fileId !== targetId;
+      });
+      setValue("images", filteredImages, { shouldValidate: true });
+    },
+    [images, setValue],
+  );
+
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -221,12 +233,13 @@ const ImageInputField = ({ form, onOpenMediaLibrary }: Props) => {
                 </Popover>
               </div>
 
-              {filesWithPreview.map((file, index) => (
+              {filesWithPreview.map(({ id, previewUrl }, index) => (
                 <SortableItem
-                  key={file.id}
-                  id={file.id}
-                  previewUrl={file.previewUrl}
+                  key={id}
+                  id={id}
+                  previewUrl={previewUrl}
                   index={index + 1}
+                  onDelete={handleDeleteImage}
                 />
               ))}
             </div>
@@ -302,7 +315,7 @@ const SortableItem = ({
       <Badge className="absolute top-1 left-1">{index}</Badge>
 
       {/* Overlay on hover */}
-      <div className="absolute inset-0 z-10 hidden items-end justify-center gap-2 rounded-md bg-black/50 pb-2 group-hover:flex">
+      <div className="absolute inset-0 z-[999999] hidden items-end justify-center gap-2 rounded-md bg-black/50 pb-2 group-hover:flex">
         <Tooltip>
           <TooltipTrigger asChild>
             <Eye className="cursor-pointer text-white" />
@@ -319,7 +332,13 @@ const SortableItem = ({
 
         <Tooltip>
           <TooltipTrigger asChild>
-            <Trash className="cursor-pointer text-white" />
+            <Trash
+              className="cursor-pointer text-white hover:text-red-500"
+              onClick={(e) => {
+                e.stopPropagation(); // avoid DnD conflict
+                onDelete(id);
+              }}
+            />
           </TooltipTrigger>
           <TooltipContent side="top">Remove</TooltipContent>
         </Tooltip>
