@@ -30,7 +30,7 @@ const getTokenByToken = async function (userToken){
     return getToken;
     
   } catch (err) {
-    console.error(err);
+    console.error(err);  
     return null;
   }
 }
