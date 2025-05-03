@@ -109,7 +109,7 @@ const data = {
   account: [
     {
       title: "Team",
-      url: "dummy",
+      url: "team",
       icon: User,
       isActive: true,
     },
