@@ -62,10 +62,10 @@ const Calendar = () => {
           <Button
             variant="outline"
             onClick={() => setIsMonthYearPickerOpen(!isMonthYearPickerOpen)}
-            className="flex items-center gap-1 px-3 py-1 text-sm font-medium"
+            className="flex items-center gap-1 px-3 py-1 text-sm text-black dark:text-white font-medium"
           >
             {format(currentMonth, "MMMM, yyyy")}
-            <ChevronDown className="h-4 w-4" />
+            <ChevronDown className="h-4 w-4 text-black dark:text-white" />
           </Button>
 
           {isMonthYearPickerOpen && (
@@ -91,7 +91,7 @@ const Calendar = () => {
                   <button
                     key={index}
                     onClick={() => handleMonthSelect(index)}
-                    className={`rounded px-2 py-1 hover:bg-gray-100 ${
+                    className={`rounded px-2 py-1 hover:bg-gray-200 hover:text-black ${
                       index === currentMonth.getMonth()
                         ? "bg-black text-white"
                         : ""
@@ -108,6 +108,7 @@ const Calendar = () => {
         <Button
           variant="ghost"
           size="icon"
+          className="text-black dark:text-white"
           onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
         >
           <ChevronLeft />
@@ -115,6 +116,7 @@ const Calendar = () => {
         <Button
           variant="ghost"
           size="icon"
+          className="text-black dark:text-white"
           onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
         >
           <ChevronRight />
@@ -141,7 +143,7 @@ const Calendar = () => {
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline" size="icon">
-              <MoreHorizontal className="h-4 w-4" />
+              <MoreHorizontal className="h-4 w-4 text-black dark:text-white" />
             </Button>
           </PopoverTrigger>
           <PopoverContent align="end" className="w-64">
@@ -177,38 +179,36 @@ const Calendar = () => {
           </PopoverContent>
         </Popover>
 
-        <Button className="bg-black">New</Button>
+        <Button className="bg-black dark:bg-white dark:text-black">New</Button>
       </div>
     </div>
   );
 
- const renderListView = () => (
-   <div className="mt-4 space-y-4">
-     {posts.map((post) => (
-       <div
-         key={post.id}
-         className="flex w-full items-center justify-left rounded-lg border bg-white p-4 shadow-sm transition hover:shadow-md"
-       >
-         {/* Left side text */}
-         <div className="flex flex-col">
-           <h3 className="text-lg font-semibold">{post.title}</h3>
-           <p className="mt-1 text-sm text-gray-500">
-             {format(post.date, "MMMM d, yyyy")} — {post.time}
-           </p>
-         </div>
+  const renderListView = () => (
+    <div className="mt-4 space-y-4">
+      {posts.map((post) => (
+        <div
+          key={post.id}
+          className="justify-left flex w-full items-center rounded-lg border bg-white p-4 shadow-sm transition hover:shadow-md"
+        >
+          {/* Left side text */}
+          <div className="flex flex-col">
+            <h3 className="text-lg font-semibold">{post.title}</h3>
+            <p className="mt-1 text-sm text-gray-500">
+              {format(post.date, "MMMM d, yyyy")} — {post.time}
+            </p>
+          </div>
 
-         {/* Right side image */}
-         <img
-           src={post.image}
-           alt={post.title}
-           className="ml-4 h-20 w-20 rounded object-cover"
-         />
-       </div>
-     ))}
-   </div>
- );
-
-
+          {/* Right side image */}
+          <img
+            src={post.image}
+            alt={post.title}
+            className="ml-4 h-20 w-20 rounded object-cover"
+          />
+        </div>
+      ))}
+    </div>
+  );
 
   const renderCells = () => {
     const monthStart = startOfMonth(currentMonth);
@@ -289,8 +289,6 @@ const Calendar = () => {
 
     return <div>{rows}</div>;
   };
-
-
 
   return (
     <div className="min-h-screen w-full p-4">

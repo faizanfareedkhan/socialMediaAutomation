@@ -27,7 +27,7 @@ interface NavMainProps {
   items: NavItem[];
 }
 
-const NavMain: React.FC<NavMainProps> = ({ subHeading, items }) => {
+const  NavMain: React.FC<NavMainProps> = ({ subHeading, items }) => {
   return (
     <SidebarGroup>
       {/* Conditionally render subHeading if available */}

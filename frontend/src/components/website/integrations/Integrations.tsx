@@ -46,7 +46,7 @@ export default function ThreeDMarqueeComp() {
     <div className="flex flex-col h-screen justify-center rounded-3xl w-full items-center max-w-7xl mx-auto my-10 overflow-hidden relative">
       <h2 className="text-2xl text-balance text-center text-white font-bold lg:text-6xl max-w-4xl md:text-4xl mx-auto relative z-20">
         This is your life and it&apos;s it's fading away one{" "}
-        <span className="bg-blue-500/40 rounded-xl text-white backdrop-blur-sm decoration-[6px] decoration-sky-500 inline-block px-4 py-1 relative underline underline-offset-[16px] z-20">
+        <span className="bg-[var(--brand-color)]  rounded-xl text-white backdrop-blur-sm decoration-[6px] decoration-[var(--brand-color)]  inline-block px-4 py-1 relative underline underline-offset-[16px] z-20">
           moment
         </span>{" "}
         at a time.

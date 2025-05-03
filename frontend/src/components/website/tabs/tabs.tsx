@@ -41,7 +41,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "flex flex-col  sm:flex-row lg:flex-row items-center border items justify-between rounded-2xl [perspective:1000px]  relative  no-visible-scrollbar max-w-full w-full  ",
+          "flex flex-col  sm:flex-row lg:flex-row items-center border border-[var(--contrast-color)] items justify-between rounded-2xl [perspective:1000px]  relative  no-visible-scrollbar max-w-full w-full  ",
           containerClassName
         )}
       >

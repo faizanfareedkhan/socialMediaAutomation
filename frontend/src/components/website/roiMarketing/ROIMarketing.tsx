@@ -105,7 +105,7 @@ const Feature = ({
         </div>
         <div className="relative z-10 mb-2 px-10 text-lg font-bold">
           <div className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-tr-full rounded-br-full bg-neutral-300 transition-all duration-200 group-hover/feature:h-8 group-hover/feature:bg-[var(--brand-color)]  dark:bg-neutral-700" />
-          <span className="inline-block text-[var(--contrast-color)] transition duration-200 group-hover/feature:translate-x-2 dark:text-[var(--contrast-color)]">
+          <span className="inline-block text-[var(--brand-color)] transition duration-200 group-hover/feature:translate-x-2 dark:text-[var(--contrast-color)]">
             {title}
           </span>
         </div>
