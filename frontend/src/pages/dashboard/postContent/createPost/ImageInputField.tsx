@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/popover";
 import {
   GalleryVertical,
+  GripVertical,
   Info,
   MoreVertical,
   Puzzle,
@@ -43,6 +44,12 @@ const ImageInputField = ({ form, onOpenMediaLibrary }: Props) => {
   const { setValue, watch } = form;
   const rawImages = watch("images");
   const images = useMemo(() => rawImages || [], [rawImages]);
+
+  // const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  // const [currImg, setCurrImg] = useState(0);
+
+  // const images = watch("images") || []; // assuming from React Hook Form
+  // const formattedImages = images.map((url) => ({ src: url }));
 
   const handleDeleteImage = useCallback(
     (targetId: string) => {
@@ -264,7 +271,8 @@ const ImageInputField = ({ form, onOpenMediaLibrary }: Props) => {
 };
 
 export default ImageInputField;
-import { Eye, Pencil, Trash } from "lucide-react";
+
+import { Eye, Trash } from "lucide-react";
 import {
   Tooltip,
   TooltipTrigger,
@@ -296,53 +304,61 @@ const SortableItem = ({
     transition,
     zIndex: isDragging ? 100 : "auto",
   };
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-      className="group relative h-full max-w-36 flex-1/2 touch-none sm:h-32 sm:flex-1/6 md:flex-1/4 lg:flex-1/8"
-    >
-      <img
-        src={previewUrl}
-        alt={`Preview ${index}`}
-        className={`h-full w-full rounded-md border-2 object-cover ${
-          isDragging ? "border-primary opacity-50" : "border-transparent"
-        }`}
-      />
-      <Badge className="absolute top-1 left-1">{index}</Badge>
+    <>
+      <div
+        ref={setNodeRef}
+        style={style}
+        {...attributes}
+        onMouseEnter={() => setIsHovered(true)}
+        onClick={() => setIsHovered(!isHovered)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="relative h-full max-w-36 flex-1/2 touch-none rounded-md border sm:h-32 sm:flex-1/6 md:flex-1/4 lg:flex-1/8"
+      >
+        <img
+          src={previewUrl}
+          alt={`Preview ${index}`}
+          className={`h-full w-full rounded-md object-cover ${
+            isDragging ? "border-primary opacity-50" : "border-transparent"
+          }`}
+        />
 
-      {/* Overlay on hover */}
-      <div className="absolute inset-0 z-[999999] hidden items-end justify-center gap-2 rounded-md bg-black/50 pb-2 group-hover:flex">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Eye className="cursor-pointer text-white" />
-          </TooltipTrigger>
-          <TooltipContent side="top">Preview</TooltipContent>
-        </Tooltip>
+        <Badge className="absolute top-0 left-0 opacity-50">{index}</Badge>
 
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Pencil className="cursor-pointer text-white" />
-          </TooltipTrigger>
-          <TooltipContent side="top">Edit</TooltipContent>
-        </Tooltip>
-
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Trash
-              className="cursor-pointer text-white hover:text-red-500"
-              onClick={(e) => {
-                e.stopPropagation(); // avoid DnD conflict
-                onDelete(id);
-              }}
-            />
-          </TooltipTrigger>
-          <TooltipContent side="top">Remove</TooltipContent>
-        </Tooltip>
+        {isHovered && (
+          <div className="absolute bottom-0 z-50 flex w-full items-center justify-evenly gap-1 rounded-md bg-black/50 px-4 py-2">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Eye className="cursor -pointer h-5 w-5 text-white" />
+              </TooltipTrigger>
+              <TooltipContent side="top">Preview</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Trash
+                  className="h-5 w-5 cursor-pointer text-white hover:text-red-500"
+                  onClick={(e) => {
+                    e.stopPropagation(); // avoid DnD conflict
+                    onDelete(id);
+                  }}
+                />
+              </TooltipTrigger>
+              <TooltipContent side="top">Remove</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <GripVertical
+                  className="h-5 w-5 cursor-grab text-white active:cursor-grabbing"
+                  {...listeners}
+                />
+              </TooltipTrigger>
+              <TooltipContent side="top">Drag&Drop</TooltipContent>
+            </Tooltip>
+          </div>
+        )}
       </div>
-    </div>
+    </>
   );
 };
