@@ -30,7 +30,7 @@ const SplitSection: React.FC<SplitSectionProps> = ({
 
       {/* Right Panel */}
       <div className="flex w-full flex-col items-start justify-center p-6 md:w-3/5">
-        <h3 className="mb-3 text-2xl font-semibold">{title}</h3>
+        <h3 className="mb-3 text-2xl font-semibold text-black dark:text-white">{title}</h3>
         <p className="mb-2 text-gray-600">{description}</p>
         <ul className="mb-5 list-inside list-disc space-y-1 text-gray-700">
           {features.map((item, idx) => (

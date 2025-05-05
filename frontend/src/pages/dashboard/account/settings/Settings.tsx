@@ -7,7 +7,7 @@ import NotificationCard from "../notification/Notification";
 export default function Settings() {
   return (
     <div className="container mx-auto">
-      <h2 className="mb-6 ml-5 text-xl font-semibold">Profile Settings</h2>
+      <h2 className="mb-6 ml-5 text-xl text-black dark:text-white font-semibold">Profile Settings</h2>
 
       <Tabs defaultValue="profile" className="w-full">
         <TabsList className="flex w-full justify-start gap-2 border-b border-gray-200">

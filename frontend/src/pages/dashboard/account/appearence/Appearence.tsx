@@ -42,7 +42,7 @@ const AppearenceCard: React.FC = () => {
   return (
     <div className="mx-auto mt-10 w-full space-y-6">
       {/* Card 1: Image Upload */}
-      <div className="space-y-6 rounded-2xl bg-white p-6 shadow-lg dark:bg-background dark:text-white">
+      <div className="dark:bg-background space-y-6 rounded-2xl bg-white p-6 shadow-lg dark:text-white">
         <div>
           <h2 className="text-xl font-medium">Image</h2>
           <p className="text-xs text-gray-400 dark:text-gray-400">
@@ -52,7 +52,7 @@ const AppearenceCard: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg border bg-gray-100 dark:bg-background">
+          <div className="dark:bg-background flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg border bg-gray-100">
             {imagePreview ? (
               <img
                 src={imagePreview}
@@ -81,7 +81,7 @@ const AppearenceCard: React.FC = () => {
       </div>
 
       {/* Card 2: Theme Toggle */}
-      <div className="space-y-6 rounded-lg bg-white p-8 shadow-lg dark:bg-background dark:text-white">
+      <div className="dark:bg-background space-y-6 rounded-lg bg-white p-8 shadow-lg dark:text-white">
         <div>
           <h2 className="text-xl font-medium">Theme mode</h2>
           <p className="text-xs text-gray-400 dark:text-gray-400">
@@ -130,7 +130,7 @@ const AppearenceCard: React.FC = () => {
       </div>
 
       {/* Card 3: Basic Information */}
-      <div className="space-y-6 rounded-2xl bg-white p-6 shadow-lg dark:bg-background dark:text-white">
+      <div className="dark:bg-background space-y-6 rounded-2xl bg-white p-6 shadow-lg dark:text-white">
         <div>
           <h2 className="text-xl font-medium">Basic Information</h2>
           <p className="text-xs text-gray-400 dark:text-gray-400">
@@ -148,13 +148,13 @@ const AppearenceCard: React.FC = () => {
             type="text"
             id="workspace-name"
             placeholder="Enter your workspace name"
-            className="mt-2 w-full rounded-md border border-gray-300 p-2 text-sm dark:border-gray-700 dark:bg-background dark:text-white"
+            className="dark:bg-background mt-2 w-full rounded-md border border-gray-300 p-2 text-sm dark:border-gray-700 dark:text-white"
           />
         </div>
       </div>
 
       {/* Card 4: Theme Color */}
-      <div className="space-y-6 rounded-2xl bg-white p-6 shadow-lg dark:bg-background dark:text-white">
+      <div className="dark:bg-background space-y-6 rounded-2xl bg-white p-6 shadow-lg dark:text-white">
         <div>
           <h2 className="text-xl font-medium">Theme Color</h2>
           <p className="text-xs text-gray-400 dark:text-gray-400">
@@ -186,8 +186,7 @@ const AppearenceCard: React.FC = () => {
       </div>
 
       {/* Card 5: Danger Zone */}
-      {/* Card 5: Danger Zone */}
-      <div className="space-y-4 rounded-2xl bg-white p-6 shadow-lg dark:bg-background dark:text-white">
+      <div className="dark:bg-background space-y-4 rounded-2xl bg-white p-6 shadow-lg dark:text-white">
         <div>
           <h2 className="text-xl font-medium text-red-400">Danger Zone</h2>
           <p className="text-xs text-gray-400 dark:text-gray-400">
@@ -214,7 +213,7 @@ const AppearenceCard: React.FC = () => {
       {/* Modal for Deleting Workspace */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-          <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-xl dark:bg-background dark:text-white">
+          <div className="dark:bg-background w-full max-w-sm rounded-lg bg-white p-6 shadow-xl dark:text-white">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-medium">Delete Workspace</h2>
               <button

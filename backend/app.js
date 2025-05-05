@@ -15,6 +15,7 @@ const postRoutes = require("./routes/postRoutes");
 const postTemplateRoutes = require("./routes/postTemplateRoutes");
 const agencyRoutes = require("./routes/agencyRoutes");
  const agencyUserRoutes = require("./routes/agencyUserRoutes");
+const tempUserRoutes = require("./routes/tempUserRoutes");
  
 const connectDB = require("./config/db");
 
@@ -48,13 +49,14 @@ app.use(
 
 app.use("/api/users", userDetailsRoutes); // User details
 app.use("/api/social", socialMediaRoutes); // Social media 
-app.use("/api/authenticateUser", authenticateUserRoutes); // Authenticate user
+app.use("/api/authenticateuser", authenticateUserRoutes); // Authenticate user
 app.use("/api/workspace", workspaceRoutes);  // Workspaces
 app.use("/api/members", memberRoutes);  // Members
 app.use("/api/posts", postRoutes);  // Posts
-app.use("/api/postTemplate", postTemplateRoutes); // Post templates
+app.use("/api/posttemplate", postTemplateRoutes); // Post templates
 app.use("/api/agency", agencyRoutes); // Agencies
-app.use("/api/agencyUser", agencyUserRoutes); // Agency users
+app.use("/api/agencyuser", agencyUserRoutes); // Agency users
+app.use("/api/tempuser", tempUserRoutes); 
 
  
 
