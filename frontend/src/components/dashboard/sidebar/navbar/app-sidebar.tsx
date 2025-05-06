@@ -121,7 +121,7 @@ const data = {
     },
     {
       title: "API Key",
-      url: "dummy",
+      url: "Apikey",
       icon: Key,
       isActive: true,
     },
@@ -153,7 +153,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.integrations} subHeading={"Integrations"} />
         <NavMain items={data.members} subHeading={"Members"} />
         <NavMain items={data.account} subHeading={"Account"} />
-
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

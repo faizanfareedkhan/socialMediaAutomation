@@ -10,6 +10,7 @@ import MediaLibrary from "@/pages/dashboard/mediaLibrary/MediaLibrary";
 import Members from "@/pages/dashboard/members/Members";
 import Calendar from "@/pages/dashboard/postContent/calendar/Calendar";
 import Team from '@/pages/dashboard/account/team/Team';
+import { Apikey } from "@/pages/dashboard/account/api key/Api key";
 
 const dashboardRoutes: RouteObject[] = [
   {
@@ -47,6 +48,10 @@ const dashboardRoutes: RouteObject[] = [
       {
         path: "team",
         element: <Team/>,
+      },
+      {
+        path: "apikey",
+        element: <Apikey/>,
       },
     ],
   },
