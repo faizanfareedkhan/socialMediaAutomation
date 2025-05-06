@@ -4,7 +4,7 @@ const token = require('../utilities/jwtTokenService');
 
 const createTempUser = async function(email) {
   try {
-    console.log("check Create Temp User email", req.body);
+    console.log("check Create Temp User email");
     var newToken = await token.createToken(Math.random().toString(), email);
     const existingUser = await SysTempUser.findOne({email: email});
     console.log("check the exisiting user", req.body);
@@ -14,7 +14,7 @@ const createTempUser = async function(email) {
             , {new: true});
     }
     else{
-        console.log("check sysTemp", req.body);
+        console.log("check sysTemp");
         const tempUser = new SysTempUser();
         tempUser.email = email;
         tempUser.token = newToken;
@@ -29,7 +29,7 @@ const createTempUser = async function(email) {
 }
 
 const getTempUserByToken = async function(token) {
-    console.log("check getUserToken", req.body);
+    console.log("check getUserToken");
   try{
         return await SysTempUser.findOne({token: token});       
     }

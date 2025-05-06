@@ -53,7 +53,7 @@ exports.signUpWithEmail = async (req, res) => {
         console.log("email sent");
       }
       else{
-        console.log("Error while sending email")
+        console.log("Error while sending email");
       }
 
 
