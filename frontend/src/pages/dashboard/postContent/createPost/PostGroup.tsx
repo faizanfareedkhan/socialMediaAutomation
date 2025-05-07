@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
+import { ChartAreaInteractive } from "@/components/dashboard/chartArea/ChartArea";
 
 interface PostGroupProps {
   form: UseFormReturn<FormValues>;
@@ -59,52 +60,57 @@ export default function PostGroup({ form }: PostGroupProps) {
       />
       {/* Schedule Inputs */}
       {postStatus === "scheduleForLater" && (
-        <div className="flex flex-row">
-          {/* Date Picker */}
-          <Controller
-            name="scheduledDate"
-            control={control}
-            render={({ field }) => (
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    className={cn(
-                      "w-1/2 cursor-pointer justify-start text-left font-normal",
-                      !field.value && "text-muted-foreground",
-                    )}
-                  >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {field.value ? format(field.value, "PPP") : "Pick a date"}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-            )}
-          />
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-row">
+            {/* Date Picker */}
+            <Controller
+              name="scheduledDate"
+              control={control}
+              render={({ field }) => (
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      className={cn(
+                        "w-1/2 cursor-pointer justify-start text-left font-normal",
+                        !field.value && "text-muted-foreground",
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {field.value ? format(field.value, "PPP") : "Pick a date"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+              )}
+            />
 
-          {/* Time Picker */}
-          <Controller
-            name="scheduledTime"
-            control={control}
-            render={({ field }) => (
-              <Input
-                type="time"
-                value={field.value}
-                onChange={(e) => {
-                  const time = e.target.value;
-                  field.onChange(time);
-                }}
-                className="w-full !text-black"
-              />
-            )}
-          />
+            {/* Time Picker */}
+            <Controller
+              name="scheduledTime"
+              control={control}
+              render={({ field }) => (
+                <Input
+                  type="time"
+                  value={field.value}
+                  onChange={(e) => {
+                    const time = e.target.value;
+                    field.onChange(time);
+                  }}
+                  className="w-full !text-black"
+                />
+              )}
+            />
+          </div>
+          <div className="flex">
+         
+          </div>
         </div>
       )}
     </div>
