@@ -23,7 +23,7 @@ import axios from "axios";
 import { InboxIcon } from "lucide-react";
 import { useState } from "react";
 
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+// const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const formSchema = z.object({
   email: z.string().email("Enter a valid email"),
@@ -36,15 +36,18 @@ const SignUp = () => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
+       email: "",
     },
   });
 
   const mutation = useMutation({
     mutationFn: async ({ email }: { email: string }) => {
-      const res = await axios.post(`${baseUrl}/api/users/signUpEmail`, {
-        email,
-      });
+      const res = await axios.post(
+        `http://localhost:5000/api/tempuser/signup`,
+        {
+          email,
+        },
+      );
       console.log(res.data);
       return res.data;
     },
@@ -56,7 +59,7 @@ const SignUp = () => {
     onError: (error: any) => {
       const message =
         error?.response?.data?.message || "Something went wrong. Try again.";
-      form.setError("root", { message }); // 👈 sets error under 'root'
+      form.setError("root", { message });
     },
   });
 

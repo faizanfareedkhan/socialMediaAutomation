@@ -14,7 +14,7 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
-import {
+import { 
   Sheet,
   SheetContent,
   SheetHeader,
@@ -66,9 +66,9 @@ export function Apikey() {
                 type="checkbox"
                 checked={isAllSelected}
                 onChange={toggleSelectAll}
-              />
+              /> 
             </TableHead>
-            <TableHead className="w-[100px]">Invoice</TableHead>
+            <TableHead className="w-[100px]">Name</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Method</TableHead>
             <TableHead className="text-right">Amount</TableHead>
@@ -94,7 +94,7 @@ export function Apikey() {
                   <PopoverTrigger asChild>
                     <Button variant="ghost" size="icon">
                       <MoreVertical className="h-5 w-5" />
-                    </Button>
+                    </Button>   
                   </PopoverTrigger>
                   <PopoverContent className="w-40">
                     <div className="flex flex-col gap-2">
