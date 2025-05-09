@@ -50,14 +50,14 @@ exports.signup = async (req, res) => {
 
 exports.getUser = async (req, res) => {
     console.log("get User",req.body);
-    const { token } = req.params;
+    const { token } = req.query;
     try {
         var existingUserToken = await userTokenService.getUserTokenByToken(token);
         if(existingUserToken && !existingUserToken.isExpired)
         {
             const isExpired = new Date(existingUserToken.expiredAt) < new Date();
             if(isExpired){
-                return res.status(404).json({ message: 'Token expired' });
+                return res.status(200).json({ message: 'Token expired' });
             }
             var existingUser = await userService.getUserById(existingUserToken.userId);
             return res.status(200).json({ message: 'Token is Verified', userType: 'Existing user', email: existingUser.email  });
@@ -66,11 +66,11 @@ exports.getUser = async (req, res) => {
             console.log("Retrieving temporary user with token:", req.body);
             const tempUser = await tempUserService.getTempUserByToken(token);            
             if (!tempUser) {
-                return res.status(404).json({ message: 'No record found with provided token' });
+                return res.status(200).json({ message: 'No record found with provided token' });
             }
             const isExpired = new Date(tempUser.expiryDate) < new Date();
             if(isExpired){
-                return res.status(404).json({ message: 'Token expired' });
+                return res.status(200).json({ message: 'Token expired' });
             }
             console.log(req.body);
             return res.status(200).json({ message: 'Token is Verified', userType: 'New user', email: tempUser.email  });
