@@ -16,6 +16,7 @@ import HelpCenter from '@/pages/website/helpCenter/HelpCenter'
 import Contact from '@/pages/website/contact/Contact'
 import TermsOfServices from '@/components/website/termsOfServices/TermsOfServices'
 import PrivacyPolicy from '@/components/website/privacyPolicy/PrivacyPolicy'
+import Varifiedtoken from '@/pages/website/blankpage/Varifiedtoken'
 const websiteRoutes: RouteObject[] = [
   {
     path: '/',
@@ -37,6 +38,7 @@ const websiteRoutes: RouteObject[] = [
       { path: 'contact', element: <Contact /> },
       { path: 'terms-of-services', element: <TermsOfServices /> },
       { path: 'privacy-policy', element: <PrivacyPolicy /> },
+      { path: 'varified-token', element: <Varifiedtoken/> },
     ],
   },
 ]
