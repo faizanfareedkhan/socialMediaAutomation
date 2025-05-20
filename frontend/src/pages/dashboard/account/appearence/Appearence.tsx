@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import { Sun, Moon, Check, X } from "lucide-react";
+import { useTheme } from "../themeprovider/Themeprovider"; // adjust path as needed
 
 const AppearenceCard: React.FC = () => {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [themeColor, setThemeColor] = useState("blue");
-
+  const [themeMode, setThemeMode] = useState<"light" | "dark">("light");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const colorClasses: Record<string, string> = {
-    blue: "bg-blue-600 hover:bg-blue-700",
-    red: "bg-red-600 hover:bg-red-700",
-    green: "bg-green-600 hover:bg-green-700",
-    purple: "bg-purple-600 hover:bg-purple-700",
-    yellow: "bg-yellow-600 hover:bg-yellow-700",
-    orange: "bg-orange-600 hover:bg-orange-700",
-    pink: "bg-pink-600 hover:bg-pink-700",
-  };
+  const { theme, changeTheme } = useTheme();
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -30,13 +21,13 @@ const AppearenceCard: React.FC = () => {
   };
 
   const toggleTheme = (mode: "light" | "dark") => {
-    setTheme(mode);
+    setThemeMode(mode);
     document.documentElement.classList.toggle("dark", mode === "dark");
   };
 
   const handleDeleteWorkspace = () => {
-    // Perform workspace deletion logic here
     setIsModalOpen(false);
+    // Your deletion logic
   };
 
   return (
@@ -57,7 +48,7 @@ const AppearenceCard: React.FC = () => {
               <img
                 src={imagePreview}
                 alt="Preview"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover" 
               />
             ) : (
               <span className="text-sm text-gray-400">No image</span>
@@ -66,7 +57,12 @@ const AppearenceCard: React.FC = () => {
 
           <div>
             <label
-              className={`cursor-pointer rounded-lg px-4 py-2 text-white transition ${colorClasses[themeColor]}`}
+              className={`cursor-pointer rounded-lg px-4 py-2 text-white transition ${
+                theme.isTailwind ? theme.buttonColor : ""
+              }`}
+              style={
+                !theme.isTailwind ? { backgroundColor: theme.buttonColor } : {}
+              }
             >
               Upload
               <input
@@ -91,15 +87,15 @@ const AppearenceCard: React.FC = () => {
         </div>
 
         <div className="flex gap-4">
-          {/* Light Theme Card */}
+          {/* Light Theme */}
           <div
             className={`relative h-35 w-90 cursor-pointer overflow-hidden rounded-lg border-2 ${
-              theme === "light" ? "border-gray-600" : "border-transparent"
+              themeMode === "light" ? "border-gray-600" : "border-transparent"
             }`}
             onClick={() => toggleTheme("light")}
           >
             <img
-              src="../../../../../public/dashboard/theme/light.webp"
+              src="/dashboard/theme/light.webp"
               alt="Light Theme"
               className="h-full w-full object-cover"
             />
@@ -109,15 +105,15 @@ const AppearenceCard: React.FC = () => {
             </div>
           </div>
 
-          {/* Dark Theme Card */}
+          {/* Dark Theme */}
           <div
             className={`relative h-35 w-90 cursor-pointer overflow-hidden rounded-lg border-2 ${
-              theme === "dark" ? "border-gray-600" : "border-transparent"
+              themeMode === "dark" ? "border-gray-600" : "border-transparent"
             }`}
             onClick={() => toggleTheme("dark")}
           >
             <img
-              src="../../../../../public/dashboard/theme/dark.webp"
+              src="/dashboard/theme/dark.webp"
               alt="Dark Theme"
               className="h-full w-full object-cover"
             />
@@ -163,26 +159,42 @@ const AppearenceCard: React.FC = () => {
           <div className="mt-4 w-full border-b border-gray-300 dark:border-gray-700"></div>
         </div>
 
-        <div className="flex gap-4">
-          {["blue", "red", "green", "purple", "yellow", "orange", "pink"].map(
-            (color) => (
-              <button
-                key={color}
-                onClick={() => setThemeColor(color)}
-                className={`relative h-6 w-6 rounded-full border-2 ${
-                  themeColor === color
-                    ? "border-gray-800 dark:border-white"
-                    : "border-transparent"
-                }`}
-                style={{ backgroundColor: color }}
-              >
-                {themeColor === color && (
-                  <Check className="absolute top-1 left-1 h-4 w-4 text-white dark:text-black" />
-                )}
-              </button>
-            ),
-          )}
+        <div className="flex items-center gap-4">
+          {["blue", "red", "green", "purple", "yellow", "pink"].map((color) => (
+            <button
+              key={color}
+              onClick={() => changeTheme(color)}
+              className={`relative h-6 w-6 rounded-full border-2 ${
+                theme.name === color
+                  ? "border-gray-800 dark:border-white"
+                  : "border-transparent"
+              }`}
+              style={{ backgroundColor: color }}
+            >
+              {theme.name === color && (
+                <Check className="absolute top-1 left-1 h-4 w-4 text-white dark:text-black" />
+              )}
+            </button>
+          ))}
+
+          {/* Custom Color Picker */}
+          <input
+            type="color"
+            value={theme.isTailwind ? "#00ffff" : theme.buttonColor}
+            onChange={(e) => changeTheme(e.target.value)}
+            className="h-7 w-7 cursor-pointer rounded-full"
+            style={{
+              borderColor: theme.name === "custom" ? "#000" : "transparent",
+              padding: 0,
+            }}
+          />
         </div>
+
+        {!theme.isTailwind && (
+          <p className="text-xs text-gray-800 dark:text-gray-400">
+            Custom color: {theme.buttonColor}
+          </p>
+        )}
       </div>
 
       {/* Card 5: Danger Zone */}
@@ -210,7 +222,7 @@ const AppearenceCard: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal for Deleting Workspace */}
+      {/* Delete Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div className="dark:bg-background w-full max-w-sm rounded-lg bg-white p-6 shadow-xl dark:text-white">

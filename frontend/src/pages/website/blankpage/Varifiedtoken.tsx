@@ -17,9 +17,13 @@ const Varifiedtoken = () => {
     setResponseData(null);
 
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/tempuser/getUser?token=${token}`,
-      );
+      const response = await fetch("http://localhost:5000/api/tempuser/getUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token }), // Send token in the request body
+      });
 
       const data = await response.json();
 
