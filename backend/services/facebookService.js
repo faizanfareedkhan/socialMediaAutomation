@@ -4,8 +4,8 @@ const FormData = require('form-data');
 const axios = require('axios');
 
 
-const PAGE_ACCESS_TOKEN = '1242413847612277';
-const APP_SECRET = 'a4ccaaca01e568f8c4e02aaa9d86588a';
+const PAGE_ACCESS_TOKEN = 'EAAsni4llAEsBO4UfeSvQ3ylJi4ZBRQK84u91JZCIqft1RCBZBHdVNGTOoiN8e7ZBh0zTt4FKzAL0HAwwyf426ZAEx9IS6IQfeStbIpbH2ZBmyuuHybeax65fqOthD6ZAC9tuqsyHaLSg6qghsiK2YiD5okLONp56bgGxHvZBZBUZCqCyAS50OnWAaPx7GQDMBpSXtjqT9lZB58kbjtZAUQBZBedFo22AmvmkZD';
+const APP_SECRET = '8fac54ac7b5c98ce5cf177148197270f';
 const PAGE_ID = '61576755361238';
 const CLIENT_TOKEN = 'd3fbeb3c5f330a20d2b4cb3df9d2ea4f';
 
