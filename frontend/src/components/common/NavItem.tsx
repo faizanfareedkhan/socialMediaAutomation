@@ -10,7 +10,7 @@ function NavItem({ children, to }: Props) {
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => (isActive ? "rounded-md bg-gray-200" : "")}
+      className={({ isActive }) => (isActive ? "rounded-lg bg-gray-200 dark:text-black dark:hover:text-white" : "")}
     >
       {children}
     </NavLink>
