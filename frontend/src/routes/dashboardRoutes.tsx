@@ -11,6 +11,7 @@ import Members from "@/pages/dashboard/members/Members";
 import Calendar from "@/pages/dashboard/postContent/calendar/Calendar";
 import Team from '@/pages/dashboard/account/team/Team';
 import { Apikey } from "@/pages/dashboard/account/api key/Api key";
+import Help from "@/pages/dashboard/account/help/Help";
 
 const dashboardRoutes: RouteObject[] = [
   {
@@ -32,6 +33,10 @@ const dashboardRoutes: RouteObject[] = [
       {
         path: "subscription",
         element: <Subscription />,
+      },
+       {
+        path: "help",
+        element: <Help/>,
       },
       {
         path: "settings",

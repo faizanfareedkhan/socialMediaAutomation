@@ -56,7 +56,7 @@ export default function HelpCards() {
           className="w-80 cursor-pointer rounded-lg border bg-primary p-6 shadow-md transition duration-300 hover:shadow-lg"
         >
           <div className="mb-3 text-gray-600">{card.icon}</div>
-          <h2 className="text-lg font-semibold">{card.title}</h2>
+          <h2 className="text-lg text-white font-semibold">{card.title}</h2>
           <p className="text-gray-500">{card.description}</p>
           <div className="mt-4 flex items-center">
             {card.authors.map((author, i) => (

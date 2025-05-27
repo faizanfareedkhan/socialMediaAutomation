@@ -90,7 +90,7 @@ const ComparePlans = () => {
                     ) : value === "✖" ? (
                       <span className="text-lg text-gray-400">✖</span>
                     ) : (
-                      <span className="font-medium text-black">{value}</span>
+                      <span className="font-medium text-[var(--contrast-color)]">{value}</span>
                     )}
                   </td>
                 ))}
@@ -122,7 +122,7 @@ const ComparePlans = () => {
                     ) : value === "✖" ? (
                       <span className="text-lg text-gray-400">✖</span>
                     ) : (
-                      <span className="font-medium text-black">{value}</span>
+                      <span className="font-medium text-[var(--contrast-color)]">{value}</span>
                     )}
                   </td>
                 ))}
@@ -154,7 +154,7 @@ const ComparePlans = () => {
                     ) : value === "✖" ? (
                       <span className="text-lg text-gray-400">✖</span>
                     ) : (
-                      <span className="font-medium text-black">{value}</span>
+                      <span className="font-medium text-[var(--contrast-color)]">{value}</span>
                     )}
                   </td>
                 ))}

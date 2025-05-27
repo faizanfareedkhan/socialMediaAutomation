@@ -133,7 +133,7 @@ const data = {
     },
     {
       title: "Help",
-      url: "dummy",
+      url: "help",
       icon: LifeBuoy,
       isActive: true,
     },
