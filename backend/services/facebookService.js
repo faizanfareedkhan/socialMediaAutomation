@@ -11,8 +11,10 @@ const CLIENT_TOKEN = 'd3fbeb3c5f330a20d2b4cb3df9d2ea4f';
 
 const postTextOnFacebook = async function(message) {
   try {
+    console.log("check text-post 1");
     const response = await axios.post(
       `https://graph.facebook.com/v19.0/me/feed`,
+       
       {
         message: message
       },
@@ -22,6 +24,7 @@ const postTextOnFacebook = async function(message) {
         }
       }
     );
+    console.log("check text-post");
 
     res.json({
       success: true,
@@ -30,7 +33,8 @@ const postTextOnFacebook = async function(message) {
 
   } catch (error) {
     console.error('Facebook Post Error:', error.response?.data || error.message);
-    res.status(500).json({ error: 'Failed to post to Facebook' });
+    // res.status(500).json({ error: 'Failed to post to Facebook' });
+    console.log("check text-post ERROR");
   }
 }
 

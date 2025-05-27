@@ -16,8 +16,11 @@ const postTemplateRoutes = require("./routes/postTemplateRoutes");
 const agencyRoutes = require("./routes/agencyRoutes");
  const agencyUserRoutes = require("./routes/agencyUserRoutes");
 const tempUserRoutes = require("./routes/tempUserRoutes");
+const facebookRoutes = require("./routes/facebooRoutes");
+
  
 const connectDB = require("./config/db");
+const { fa } = require("@faker-js/faker");
 
 dotenv.config();
 connectDB();
@@ -57,6 +60,7 @@ app.use("/api/posttemplate", postTemplateRoutes); // Post templates
 app.use("/api/agency", agencyRoutes); // Agencies
 app.use("/api/agencyuser", agencyUserRoutes); // Agency users
 app.use("/api/tempuser", tempUserRoutes); 
+app.use("/api/facebook", facebookRoutes); // Facebook routes
 
  
 
