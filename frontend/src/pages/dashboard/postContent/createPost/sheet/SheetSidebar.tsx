@@ -1,12 +1,14 @@
-
-
 import React, { useState } from "react";
+import { Image, ImagePlus, GalleryVerticalEnd, Camera, Film, Cloud, CloudDrizzle, CloudUpload, Folder } from "lucide-react";
 import UnSplash from '@/pages/dashboard/postContent/createPost/sheet/UnSplash';
+import Giphy from "@/pages/dashboard/postContent/createPost/sheet/Giphy";
+import Pexels from "@/pages/dashboard/postContent/createPost/sheet/Pexels";
+import Pixabay from "@/pages/dashboard/postContent/createPost/sheet/Pixabay"
 
 type SidebarMenuItem = {
   key: string;
   label: string;
-  iconUrl: string;
+  icon: React.ReactNode;
   disabled?: boolean;
 };
 
@@ -14,49 +16,44 @@ const sidebarMenuItems: SidebarMenuItem[] = [
   {
     key: "media-library",
     label: "Media Library",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/709/709586.png",
+    icon: <Image className="h-5 w-5" />,
   },
   {
     key: "unsplash",
     label: "Unsplash",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/873/873120.png",
-  },
-  {
-    key: "ai-art",
-    label: "AI Art",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/882/882704.png",
+    icon: <ImagePlus className="h-5 w-5" />,
   },
   {
     key: "giphy",
     label: "Giphy",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/732/732200.png",
+    icon: <GalleryVerticalEnd className="h-5 w-5" />,
   },
   {
     key: "pexels",
     label: "Pexels",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
+    icon: <Camera className="h-5 w-5" />,
   },
   {
     key: "pixabay",
     label: "Pixabay",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/1384/1384062.png",
+    icon: <Film className="h-5 w-5" />,
   },
   {
     key: "dropbox",
     label: "Dropbox",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/888/888847.png",
+    icon: <Cloud className="h-5 w-5" />,
     disabled: true,
   },
   {
     key: "google-drive",
     label: "Google Drive",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/270/270798.png",
+    icon: <CloudUpload className="h-5 w-5" />,
     disabled: true,
   },
   {
     key: "box",
     label: "Box",
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/888/888870.png",
+    icon: <Folder className="h-5 w-5" />,
     disabled: true,
   },
 ];
@@ -70,14 +67,12 @@ const SheetSideBar: React.FC = () => {
         return <div>Media Library content goes here...</div>;
       case "unsplash":
         return <div><UnSplash /></div>;
-      case "ai-art":
-        return <div>AI Art content goes here...</div>;
       case "giphy":
-        return <div>Giphy content goes here...</div>;
+        return <div><Giphy /></div>;
       case "pexels":
-        return <div>Pexels content goes here...</div>;
+        return <div><Pexels/></div>;
       case "pixabay":
-        return <div>Pixabay content goes here...</div>;
+        return <div><Pixabay/></div>;
       case "dropbox":
       case "google-drive":
       case "box":
@@ -95,7 +90,7 @@ const SheetSideBar: React.FC = () => {
     <div className="flex w-full gap-0 overflow-scroll overflow-x-hidden md:w-[85%] [&>button.absolute.right-4.top-4]:hidden" style={{ height: "100vh" }}>
       {/* Sidebar */}
       <nav className="flex w-44 flex-col border-r border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-[#0f172a]">
-        {sidebarMenuItems.map(({ key, label, iconUrl, disabled }) => (
+        {sidebarMenuItems.map(({ key, label, icon, disabled }) => (
           <button
             key={key}
             className={`flex items-center gap-3 border-l-4 px-4 py-3 text-left text-sm font-medium
@@ -114,7 +109,7 @@ const SheetSideBar: React.FC = () => {
             onClick={() => !disabled && setSidebarSelectedKey(key)}
             type="button"
           >
-            <img src={iconUrl} alt={`${label} icon`} className="h-5 w-5 flex-shrink-0" loading="lazy" />
+            {icon}
             {label}
           </button>
         ))}

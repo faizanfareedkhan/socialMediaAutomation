@@ -22,7 +22,7 @@ import AccordionComp from "./AccordionComp";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogTitle } from "@/components/ui/dialog";
 import GeneralPost from "./socialMediaUI/GeneralPost";
 import FB from "./socialMediaUI/FB";
 import Insta from "./socialMediaUI/InstaPost";
@@ -204,6 +204,12 @@ const CreatePost = () => {
 
   const [isOpen, setIsOpen] = useState(true);
 
+  // const [openModal, setOpenModal] = useState(false);
+const [modalContent, setModalContent] = useState<"client" | "internal" | null>(null);
+
+const closeModal = () => setOpenModal(false);
+
+
   return (
     <>
       <div className="flex flex-col items-center justify-center p-6">
@@ -378,43 +384,52 @@ const CreatePost = () => {
             </Card>
           </div>
 
-          <SheetFooter className="flex flex-row items-center justify-end border-t">
-              <Popover>
-  <PopoverTrigger asChild>
-    <Button variant="outline" className="w-50">
-      <UserCheck /> Ask For Approval <ArrowUp />
-    </Button>
-  </PopoverTrigger>
-  <PopoverContent className="w-80">
-    <div className="grid gap-4">
-      <a
-        href="#link1"
-        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded text-sm"
-      >
-        <UserMinusIcon className="w-4 h-4" />
-        Client approval
-      </a>
-      <a
-        href="#link2"
-        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded text-sm"
-      >
-        <Users className="w-4 h-4" />
-        Internal approval
-      </a>
-      <span
-        className="flex items-center gap-2 px-4 py-2 rounded text-sm text-gray-400 cursor-not-allowed select-none"
-        aria-disabled="true"
-      >
-        <Link2Off className="w-4 h-4" />
-        Share Public Link
-      </span>
-    </div>
-  </PopoverContent>
-</Popover>
+         <SheetFooter className="flex flex-row items-center justify-end border-t">
+  <Popover>
+    <PopoverTrigger asChild>
+      <Button variant="outline" className="w-50">
+        <UserCheck /> Ask For Approval <ArrowUp />
+      </Button>
+    </PopoverTrigger>
+    <PopoverContent className="w-80">
+      <div className="grid gap-4">
+        <button
+          type="button"
+          onClick={() => {
+            setOpenModal(true);
+            setModalContent("client");
+          }}
+          className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded text-sm text-left w-full"
+        >
+          <UserMinusIcon className="w-4 h-4" />
+          Client approval
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setOpenModal(true);
+            setModalContent("internal");
+          }}
+          className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded text-sm text-left w-full"
+        >
+          <Users className="w-4 h-4" />
+          Internal approval
+        </button>
+        <span
+          className="flex items-center gap-2 px-4 py-2 rounded text-sm text-gray-400 cursor-not-allowed select-none"
+          aria-disabled="true"
+        >
+          <Link2Off className="w-4 h-4" />
+          Share Public Link
+        </span>
+      </div>
+    </PopoverContent>
+  </Popover>
 
-            <Button variant="outline">Close</Button>
-            <Button onClick={() => form.handleSubmit(onSubmit)()}>Save</Button>
-          </SheetFooter>
+  <Button variant="outline" onClick={() => setOpenAccordianSheet(false)}>Close</Button>
+  <Button onClick={() => form.handleSubmit(onSubmit)()}>Save</Button>
+</SheetFooter>
+
         </SheetContent>
       </Sheet>
 
@@ -429,9 +444,33 @@ const CreatePost = () => {
 
       </Sheet>
 
-      <Dialog open={openModal} onOpenChange={setOpenModal}>
-        <DialogContent className="p-8">{/* <FB /> */}</DialogContent>
-      </Dialog>
+      <Dialog open={openModal} onOpenChange={closeModal}>
+  <DialogContent>
+    <DialogTitle>
+      {modalContent === "client"
+        ? "Client Approval"
+        : modalContent === "internal"
+        ? "Internal Approval"
+        : ""}
+    </DialogTitle>
+    <DialogDescription>
+      {modalContent === "client" && (
+        <p>
+          Here you can add content for the <b>Client Approval</b> modal.
+        </p>
+      )}
+      {modalContent === "internal" && (
+        <p>
+          Here you can add content for the <b>Internal Approval</b> modal.
+        </p>
+      )}
+    </DialogDescription>
+    <DialogFooter>
+      <Button onClick={closeModal}>Close</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
     </>
   );
 };
