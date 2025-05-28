@@ -4,10 +4,19 @@ import {
   SheetHeader,
   SheetFooter,
 } from "@/components/ui/sheet";
+import SheetSidebar from "@/pages/dashboard/postContent/createPost/sheet/SheetSidebar"
+// import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import { useEffect, useState } from "react";
 import SplitSection from "@/components/dashboard/splitSection/SplitSection";
 import { Card } from "@/components/ui/card";
-import { Copy, Download, Trash2, X } from "lucide-react";
+import { ArrowUp, Copy, Download, Link2Off, Trash2, UserCheck, UserMinus, UserMinusIcon, Users, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AccordionComp from "./AccordionComp";
 import { useForm } from "react-hook-form";
@@ -27,6 +36,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 import LinkedIn from "./socialMediaUI/LinkedIn";
 import Pinterest from "./socialMediaUI/Pinterest";
+
 
 export const formSchema = z.object({
   social: z.array(z.string()).optional(),
@@ -191,6 +201,8 @@ const CreatePost = () => {
   const onSubmit = (data: FormValues) => {
     console.log("SUBMITTED DATA: ", data);
   };
+
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <>
@@ -367,6 +379,39 @@ const CreatePost = () => {
           </div>
 
           <SheetFooter className="flex flex-row items-center justify-end border-t">
+              <Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline" className="w-50">
+      <UserCheck /> Ask For Approval <ArrowUp />
+    </Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-80">
+    <div className="grid gap-4">
+      <a
+        href="#link1"
+        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded text-sm"
+      >
+        <UserMinusIcon className="w-4 h-4" />
+        Client approval
+      </a>
+      <a
+        href="#link2"
+        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded text-sm"
+      >
+        <Users className="w-4 h-4" />
+        Internal approval
+      </a>
+      <span
+        className="flex items-center gap-2 px-4 py-2 rounded text-sm text-gray-400 cursor-not-allowed select-none"
+        aria-disabled="true"
+      >
+        <Link2Off className="w-4 h-4" />
+        Share Public Link
+      </span>
+    </div>
+  </PopoverContent>
+</Popover>
+
             <Button variant="outline">Close</Button>
             <Button onClick={() => form.handleSubmit(onSubmit)()}>Save</Button>
           </SheetFooter>
@@ -374,10 +419,14 @@ const CreatePost = () => {
       </Sheet>
 
       <Sheet open={openMediaLibrary} onOpenChange={setOpenMediaLibrary}>
-        <SheetContent
-          side="right"
-          className="flex w-full gap-0 overflow-scroll overflow-x-hidden md:w-[85%] [&>button.absolute.right-4.top-4]:hidden"
-        ></SheetContent>
+       <SheetContent
+  side="right"
+  className="flex w-full gap-0 overflow-scroll overflow-x-hidden md:w-[85%] [&>button.absolute.right-4.top-4]:hidden"
+>
+<SheetSidebar />
+  
+</SheetContent>
+
       </Sheet>
 
       <Dialog open={openModal} onOpenChange={setOpenModal}>

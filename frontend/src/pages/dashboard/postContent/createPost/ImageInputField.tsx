@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import SheetSideBar from "@/pages/dashboard/postContent/createPost/sheet/SheetSidebar";
 import {
   Popover,
   PopoverContent,
@@ -117,6 +118,7 @@ const ImageInputField = ({ form, onOpenMediaLibrary }: Props) => {
     },
     [images, setValue],
   );
+
   return (
     <div className="relative flex flex-col gap-2 text-[var(--contrast-color)]">
       <div>Media</div>
@@ -162,7 +164,7 @@ const ImageInputField = ({ form, onOpenMediaLibrary }: Props) => {
               <div className="relative z-[9999] flex gap-2">
                 <Button type="button" onClick={onOpenMediaLibrary}>
                   <GalleryVertical className="mr-2 h-4 w-4" /> Media Library
-                </Button>
+                </Button>                   
                 <Button type="button" onClick={onOpenMediaLibrary}>
                   <Puzzle className="mr-2 h-4 w-4" />
                   Plugins
